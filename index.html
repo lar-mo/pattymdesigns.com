@@ -142,6 +142,24 @@
         background-color: #fff;
       }
 
+      .grid-container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        /* justify-content: center; */
+      }
+
+      .thumbnail {
+        width: 275px;
+      }
+
+      .image-container > div {
+        width: 275px;
+        margin: 10px;
+        padding: 20px;
+      }
+
       .additional-info {
         background-color: rgba(81,81,81,0.75);
         color: #fff;
@@ -172,6 +190,17 @@
         .large-image-img > img {
           width: calc(100vw - 350px);
         }
+        .container-padding {
+          padding: 75px 50px;
+        }
+        /* .thumbnail {
+          width: 200px;
+        } */
+        /* .image-container > div {
+          width: 200px;
+          margin: 10px;
+          padding: 20px;
+        } */
       }
 
       @media all and (max-width: 800px) {
@@ -191,7 +220,7 @@
           padding: 375px 20px;
         }
         .container-padding {
-          padding: 75px 70px;
+          padding: 75px 150px;
         }
         .large-image-text {
           width: 80%;
@@ -332,6 +361,60 @@
       <h1>A Few Design Styles</h1>
       <p>Here are a few designs for you to think about and there are many more styles we can explore. Plant materials can be interchanged. For example, chrysanthemums or carnations can be used instead of roses.</p>
       <p>The containers in the photos might not be available. We can always work with similar containers or we can use one of your personal favorites. That's always fun.</p>
+      <div class="grid-container">
+        
+        <!-- <div class="image-container">
+          <img src="images/IMG_0889.jpg" class="thumbnail" />
+          <div>An asymmetrical triangle with implied lines using branches</div>
+        </div>
+        <div class="image-container">
+          <img src="images/IMG_0889.jpg" class="thumbnail" />
+          <div>An asymmetrical triangle with implied lines using branches</div>
+        </div>
+        <div class="image-container">
+          <img src="images/IMG_0889.jpg" class="thumbnail" />
+          <div>An asymmetrical triangle with implied lines using branches</div>
+        </div>
+        <div class="image-container">
+          <img src="images/IMG_0889.jpg" class="thumbnail" />
+          <div>An asymmetrical triangle with implied lines using branches</div>
+        </div>
+        <div class="image-container">
+          <img src="images/IMG_0889.jpg" class="thumbnail" />
+          <div>An asymmetrical triangle with implied lines using branches</div>
+        </div> -->
+
+        <div class="image-container">
+          <img src="images/IMG_0889.jpg" class="thumbnail" />
+          <div>An asymmetrical triangle with implied lines using branches</div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/IMG_0668.jpg" class="thumbnail" />
+          <div>A round symmetrical mix of spring flowers in a basket</div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/IMG_0903.jpg" class="thumbnail" />
+          <div>Small, horizontal with focal point and implied lines using branches</div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/IMG_0647.jpg" class="thumbnail" />
+          <div>Tall, round and elegant</div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/IMG_0637.jpg" class="thumbnail" />
+          <div>A small triangle of sequenced plant material</div>
+        </div>
+
+        <div class="image-container">
+          <img src="images/IMG_0891.jpg" class="thumbnail" />
+          <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
+        </div>
+
+      </div>
     </div> <!-- end portfolio-grid div -->
 
     <div class="additional-info container-padding">
