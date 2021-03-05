@@ -88,6 +88,13 @@
         font-family: 'Courgette', sans-serif;
       }
 
+      a:link {
+        text-decoration: none;
+      }
+      a:hover, a:visited, a:active {
+        text-decoration: overline;
+      }
+
       .large-image {
         display: flex;
         flex-direction: row;
@@ -118,11 +125,17 @@
 
       .about-shop {
         background-color: #fff;
+        box-shadow:           3px 3px 5px 0 rgba(25,25,25,0.4);
+        -moz-box-shadow:      3px 3px 5px 0 rgba(25,25,25,0.4);
+        -webkit-box-shadow:   3px 3px 5px 0 rgba(25,25,25,0.4);
       }
 
       .about-me {
         background-color: rgba(81,81,81,0.75);
         color: #fff;
+        box-shadow:           3px 3px 5px 0 rgba(25,25,25,0.4);
+        -moz-box-shadow:      3px 3px 5px 0 rgba(25,25,25,0.4);
+        -webkit-box-shadow:   3px 3px 5px 0 rgba(25,25,25,0.4);
       }
 
       .about-me-heading {
@@ -140,6 +153,9 @@
 
       .portfolio-grid {
         background-color: #fff;
+        box-shadow:           3px 3px 5px 0 rgba(25,25,25,0.4);
+        -moz-box-shadow:      3px 3px 5px 0 rgba(25,25,25,0.4);
+        -webkit-box-shadow:   3px 3px 5px 0 rgba(25,25,25,0.4);
       }
 
       .grid-container {
@@ -147,11 +163,17 @@
         flex-direction: row;
         align-items: flex-start;
         flex-wrap: wrap;
-        /* justify-content: center; */
+        margin-top: 50px;
       }
 
-      .thumbnail {
+      .thumbnail-short {
         width: 275px;
+        height: 207px;
+      }
+
+      .thumbnail-long {
+        width: 275px;
+        height: 366px;
       }
 
       .image-container > div {
@@ -193,14 +215,6 @@
         .container-padding {
           padding: 75px 50px;
         }
-        /* .thumbnail {
-          width: 200px;
-        } */
-        /* .image-container > div {
-          width: 200px;
-          margin: 10px;
-          padding: 20px;
-        } */
       }
 
       @media all and (max-width: 800px) {
@@ -304,10 +318,10 @@
     <div id="header">
       <div class="header-links">
         <div id="header-logo">💐</div>
-        <div>About the Shop</div>
-        <div>About Me</div>
-        <div>Floral Design</div>
-        <div>Contact</div>
+        <div><a href="#about-shop">About the Shop</a></div>
+        <div><a href="#about-me">About Me</a></div>
+        <div><a href="#portfolio">Floral Design</a></div>
+        <div><a href="mailto:pattymdesigns@yahoo.com">Contact</a></div>
       </div>
     </div>
 
@@ -330,6 +344,7 @@
       </div>
     </div> <!-- end large-image div -->
 
+    <a name="about-shop"></a>
     <div class="about-shop container-padding">
       <h1>About the Floral Shop</h1>
       <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
@@ -338,6 +353,7 @@
       <p><a href="#additional-info">Additional Information About My Shop</a></p>
     </div> <!-- end about-shop div -->
 
+    <a name="about-me"></a>
     <div class="about-me container-padding">
       <h1>About me</h1>
       <p>
@@ -357,12 +373,13 @@
       </div>
     </div> <!-- end about-me div -->
 
+    <a name="portfolio"></a>
     <div class="portfolio-grid container-padding">
       <h1>A Few Design Styles</h1>
       <p>Here are a few designs for you to think about and there are many more styles we can explore. Plant materials can be interchanged. For example, chrysanthemums or carnations can be used instead of roses.</p>
       <p>The containers in the photos might not be available. We can always work with similar containers or we can use one of your personal favorites. That's always fun.</p>
       <div class="grid-container">
-        
+
         <!-- <div class="image-container">
           <img src="images/IMG_0889.jpg" class="thumbnail" />
           <div>An asymmetrical triangle with implied lines using branches</div>
@@ -385,40 +402,40 @@
         </div> -->
 
         <div class="image-container">
-          <img src="images/IMG_0889.jpg" class="thumbnail" />
+          <img src="images/IMG_0889.jpg" class="thumbnail-short" />
           <div>An asymmetrical triangle with implied lines using branches</div>
         </div>
 
         <div class="image-container">
-          <img src="images/IMG_0668.jpg" class="thumbnail" />
+          <img src="images/IMG_0668.jpg" class="thumbnail-short" />
           <div>A round symmetrical mix of spring flowers in a basket</div>
         </div>
 
         <div class="image-container">
-          <img src="images/IMG_0903.jpg" class="thumbnail" />
+          <img src="images/IMG_0903.jpg" class="thumbnail-short" />
           <div>Small, horizontal with focal point and implied lines using branches</div>
         </div>
 
         <div class="image-container">
-          <img src="images/IMG_0647.jpg" class="thumbnail" />
+          <img src="images/IMG_0647.jpg" class="thumbnail-long" />
           <div>Tall, round and elegant</div>
         </div>
 
         <div class="image-container">
-          <img src="images/IMG_0637.jpg" class="thumbnail" />
+          <img src="images/IMG_0637.jpg" class="thumbnail-long" />
           <div>A small triangle of sequenced plant material</div>
         </div>
 
         <div class="image-container">
-          <img src="images/IMG_0891.jpg" class="thumbnail" />
+          <img src="images/IMG_0891.jpg" class="thumbnail-long" />
           <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
         </div>
 
       </div>
     </div> <!-- end portfolio-grid div -->
 
+    <a name="additional-info"></a>
     <div class="additional-info container-padding">
-      <a name="additional-info">
       <h1>Additional Information</h1>
       <p><b><u>Pricing</u></b> depends on plant material selected and where I can make the purchase at the best price. I will always do the best I can for your situation.</p>
       <p><b><u>Delivery and pick up</u></b>:
