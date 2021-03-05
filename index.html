@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Patty M Designs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
+    <style media="screen" type="text/css">
+
+      /* html {
+        margin-left: calc(100vw - 100%);
+      } */
+
+      html, body {
+        background-image: url('images/hero7.png');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      #header {
+        background-color: rgba(81,81,81,0.7);
+        position: fixed;
+        /* position: -webkit-sticky;
+        position: -moz-sticky;
+        position: -ms-sticky;
+        position: -o-sticky; */
+        width: 100%;
+        top: 0px;
+        color: #fff;
+        padding: 24px;
+        z-index: 999;
+        box-shadow:           3px 3px 5px 0 rgba(25,25,25,0.4);
+        -moz-box-shadow:      3px 3px 5px 0 rgba(25,25,25,0.4);
+        -webkit-box-shadow:   3px 3px 5px 0 rgba(25,25,25,0.4);
+        transition: 0.2s;
+      }
+
+      .header-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: auto;
+      }
+
+      .header-links > div {
+        padding: 0 20px;
+      }
+
+      .header-logo {
+        font-size: 36px;
+      }
+
+      .hero {
+        font-family: 'Courgette', sans-serif;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-text {
+        font-family: 'Courgette', sans-serif;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000000;
+        /* border: 1px solid rgba(255,255,255,0.5); */
+        padding: 325px 20px;
+        width: 100%;
+      }
+
+      .hero-title {
+        font-size: 60px;
+      }
+
+      .hero-subtitle {
+        font-size: 25px;
+      }
+
+      .center-text {
+        text-align: center;
+      }
+
+      h1 {
+        font-family: 'Courgette', sans-serif;
+      }
+
+      .large-image {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        /* margin: auto; */
+        width: 100%;
+        background-color: rgba(81,81,81,0.75);
+      }
+
+      .large-image-text {
+        width: 35%;
+        padding: 45px;
+        color: #fff;
+      }
+
+      .large-image-img > img {
+        width: calc(100vw - 35%);
+      }
+
+      .email-link {
+        color: pink;
+        text-decoration: none;
+      }
+
+      .container-padding {
+        padding: 75px 250px;
+      }
+
+      .about-shop {
+        background-color: #fff;
+      }
+
+      .about-me {
+        background-color: rgba(81,81,81,0.75);
+        color: #fff;
+      }
+
+      .about-me-heading {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
+      .about-me > div {
+        padding: 20px 0;
+      }
+
+      .text-slant {
+        font-style: italic;
+      }
+
+      .portfolio-grid {
+        background-color: #fff;
+      }
+
+      .additional-info {
+        background-color: rgba(81,81,81,0.75);
+        color: #fff;
+      }
+
+      .footer {
+        background-color: #515151;
+        color: #fff;
+        padding: 10px;
+      }
+
+      .footer-links {
+        font-size: 0.8em;
+        padding-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links-container {
+        text-align: left;
+      }
+      @media all and (max-width: 800px) {
+        #header {
+          padding: 10px;
+        }
+        .header-links {
+          font-size: 0.9em;
+        }
+        .hero-text {
+          padding: 445px 20px;
+        }
+        .container-padding {
+          padding: 75px 70px;
+        }
+      }
+      @media all and (max-width: 575px) {
+        #header {
+          padding: 5px;
+        }
+        .header-links {
+          font-size: 0.75em;
+        }
+        .header-links > div {
+          padding: 0 15px;
+        }
+        .hero-text {
+          padding: 465px 20px;
+        }
+        .hero-title {
+          font-size: 45px;
+        }
+        .hero-subtitle {
+          font-size: 20px;
+        }
+      }
+      @media all and (max-width: 500px) {
+        #header {
+          padding: 0px;
+        }
+        .header-links {
+          font-size: 0.7em;
+        }
+        .hero-text {
+          padding: 465px 20px;
+        }
+        .hero-title {
+          font-size: 40px;
+        }
+        .hero-subtitle {
+          font-size: 15px;
+        }
+      }
+     </style>
+  </head>
+  <body>
+
+    <div id="header">
+      <div class="header-links">
+        <div class="header-logo">💐</div>
+        <div>About the Shop</div>
+        <div>About Me</div>
+        <div>Floral Design</div>
+        <div>Contact</div>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-text">
+        <div class="hero-title center-text">Patty M Designs</div>
+        <div class="hero-subtitle center-text">Always an Artist &#x2013; Floral Designs &amp; Fine Art</div>
+      </div>
+    </div> <!-- end hero div -->
+
+    <div class="large-image">
+      <div class="large-image-text">
+        <h1>Floral Shop on NE 23rd</h1>
+        <p>An appointment is preferred during these times of COVID-19 but if you knock on the door during my open hours I'll come to the door and we can talk outside on my porch wearing masks. I would love to meet you.</p>
+        <p>4834 NE 23rd Ave, steps from Alberta St.</p>
+        <p>Or, send a request for information by <a href="mailto:pattymdesigns@yahoo.com" class="email-link">email</a> and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
+      </div>
+      <div class="large-image-img">
+        <img src="images/porch-store-cropped-again.jpg">
+      </div>
+    </div> <!-- end large-image div -->
+
+    <div class="about-shop container-padding">
+      <h1>About the Floral Shop</h1>
+      <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
+      <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
+      <p>Contact me: <a href="mailto:pattymdesigns@yahoo.com">pattymdesigns@yahoo.com</a></p>
+      <p><a href="#additional-info">Additional Information About My Shop</a></p>
+    </div> <!-- end about-shop div -->
+
+    <div class="about-me container-padding">
+      <h1>About me</h1>
+      <p>
+        Incidental to my shop but equally important to me...
+        <br><span class="text-slant">I have been a painter for many years and I especially love painting sunflowers</span>
+      </p>
+      <div>
+        <div class="about-me-heading">My credentials:</div>
+        <div>BA degree in Education from San Diego State University</div>
+        <div>BA degree in Art Practices from Portland State University</div>
+      </div>
+      <div>
+        <div class="about-me-heading">Most Important Workshops for Me:</div>
+        <div>Plein Air painting in Tuscany with Sam D'Ambruoso</div>
+        <div>Printmaking in Guanajuato MX with Mandee Schroer</div>
+        <div>Intensive Course at Floral Design Institute</div>
+      </div>
+    </div> <!-- end about-me div -->
+
+    <div class="portfolio-grid container-padding">
+      <h1>A Few Design Styles</h1>
+      <p>Here are a few designs for you to think about and there are many more styles we can explore. Plant materials can be interchanged. For example, chrysanthemums or carnations can be used instead of roses.</p>
+      <p>The containers in the photos might not be available. We can always work with similar containers or we can use one of your personal favorites. That's always fun.</p>
+    </div> <!-- end portfolio-grid div -->
+
+    <div class="additional-info container-padding">
+      <a name="additional-info">
+      <h1>Additional Information</h1>
+      <p><b><u>Pricing</u></b> depends on plant material selected and where I can make the purchase at the best price. I will always do the best I can for your situation.</p>
+      <p><b><u>Delivery and pick up</u></b>:
+        <br>I am a small part-time and local shop so I only take orders within Portland.</p>
+      <p>No charge if you pick up from my shop. There is a $10 delivery charge if I deliver within 5 miles from my shop.</p>
+      <p>I will need to use a delivery service outside of my five mile limit and that charge will be passed on to you.</p>
+    </div> <!-- end additional-info div -->
+
+    <div class="footer">
+      <div class="center-text">&copy; 2021 Patty McMahan | All Rights Reserved.</div>
+      <div class="footer-links">
+        <div class="footer-links-container">
+          <div>
+            <span>Email:</span>
+            <span><a href="mailto:pattymdesigns@yahoo.com">pattymdesigns@yahoo.com</a></span>
+          </div>
+          <div>
+            <span>Address:</span>
+            <span>4834 NE 23rd Ave, Portland, Ore.</span>
+          </div>
+          <div>
+            <span class="tooltip"><a href="privacy/index.html">Privacy</a></span>
+            <span>|</span>
+            <span><a href="https://www.instagram.com/pattym_designs/" target="_blank">Instagram</a></span>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end footer div -->
+  </body>
+  <script type="text/javascript">
+      // Credit:
+      // https://codepen.io/nickcil/pen/sfutl
+      // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
+      $(window).scroll(function(){
+        $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
+      });
+  </script>
+  <script type="text/javascript">
+      // Credit:
+      // https://www.w3schools.com/jquery/jquery_animate.asp
+      // https://stackoverflow.com/questions/31353418/how-to-animate-background-color-in-jqueryd
+      $("div.title_description").hover(
+        function() {
+          $(this).animate({opacity: '1.0'}, "slow");
+        },
+        function() {
+          $(this).animate({opacity: '0.8'}, "slow");
+        }
+      );
+  </script>
+  <script type="text/javascript">
+      // When the user scrolls down 50px from the top of the document, resize the header's font size
+    window.onscroll = function() {scrollFunction()};
+      function scrollFunction() {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.getElementById("header").style.padding = "0px";
+      } else {
+        if (window.innerWidth > 800) {
+          document.getElementById("header").style.padding = "24px";
+        } else if (window.innerWidth > 576 && window.innerWidth < 800) {
+          document.getElementById("header").style.padding = "10px";
+        } else if (window.innerWidth > 501 && window.innerWidth < 575) {
+          document.getElementById("header").style.padding = "5px";
+        } else if (window.innerWidth < 500) {
+          document.getElementById("header").style.padding = "0px";
+        } else {
+          document.getElementById("header").style.padding = "0px";
+        }
+      }
+    }
+  </script>
+</html>
