@@ -31,10 +31,6 @@
       #header {
         background-color: rgba(81,81,81,0.7);
         position: fixed;
-        /* position: -webkit-sticky;
-        position: -moz-sticky;
-        position: -ms-sticky;
-        position: -o-sticky; */
         width: 100%;
         top: 0px;
         color: #fff;
@@ -57,7 +53,7 @@
         padding: 0 20px;
       }
 
-      .header-logo {
+      #header-logo {
         font-size: 36px;
       }
 
@@ -155,6 +151,9 @@
         background-color: #515151;
         color: #fff;
         padding: 10px;
+        box-shadow:           3px 3px 5px 4px rgba(25,25,25,0.4);
+        -moz-box-shadow:      3px 3px 5px 4px rgba(25,25,25,0.4);
+        -webkit-box-shadow:   3px 3px 5px 4px rgba(25,25,25,0.4);
       }
 
       .footer-links {
@@ -168,7 +167,20 @@
       .footer-links-container {
         text-align: left;
       }
+
+      @media all and (max-width: 1024px) {
+        .large-image-img > img {
+          width: calc(100vw - 350px);
+        }
+      }
+
       @media all and (max-width: 800px) {
+        body {
+          font-size: 0.82em;
+        }
+        h1 {
+          font-size: 2.1em;
+        }
         #header {
           padding: 10px;
         }
@@ -176,13 +188,27 @@
           font-size: 0.9em;
         }
         .hero-text {
-          padding: 445px 20px;
+          padding: 375px 20px;
         }
         .container-padding {
           padding: 75px 70px;
         }
+        .large-image-text {
+          width: 80%;
+          padding: 45px;
+          color: #fff;
+        }
+        .large-image-img > img {
+          width: 500px;
+        }
       }
       @media all and (max-width: 575px) {
+        body {
+          font-size: 0.82em;
+        }
+        h1 {
+          font-size: 2.1em;
+        }
         #header {
           padding: 5px;
         }
@@ -201,6 +227,17 @@
         .hero-subtitle {
           font-size: 20px;
         }
+        .large-image {
+          flex-direction: column;
+        }
+        .large-image-text {
+          width: 99%;
+          padding: 45px;
+          color: #fff;
+        }
+        .large-image-img > img {
+          width: auto;
+        }
       }
       @media all and (max-width: 500px) {
         #header {
@@ -218,6 +255,18 @@
         .hero-subtitle {
           font-size: 15px;
         }
+        .large-image {
+          flex-direction: column;
+        }
+        .large-image-text {
+          width: 99%;
+          padding: 45px;
+          color: #fff;
+        }
+        .large-image-img > img {
+          /* width: calc(100vw - 45%); */
+          width: auto;
+        }
       }
      </style>
   </head>
@@ -225,7 +274,7 @@
 
     <div id="header">
       <div class="header-links">
-        <div class="header-logo">💐</div>
+        <div id="header-logo">💐</div>
         <div>About the Shop</div>
         <div>About Me</div>
         <div>Floral Design</div>
