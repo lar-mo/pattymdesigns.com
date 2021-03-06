@@ -471,7 +471,7 @@
 
     <div class="footer">
       <div class="center-text">&copy; 2021 Patty McMahan | All Rights Reserved.</div>
-      <div class="footer-links">
+      <span class="footer-links">
         <div class="footer-links-container">
           <div>
             <span>Email:</span>
@@ -486,7 +486,7 @@
             <span>|</span>
             <span><a href="https://www.instagram.com/pattym_designs/" target="_blank">Instagram</a></span>
           </div>
-        </div>
+        </span>
       </div>
     </div> <!-- end footer div -->
   </body>
@@ -531,5 +531,52 @@
         }
       }
     }
+  </script>
+  <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+  <script>
+    window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+    formbutton("create", {
+      theme: "classic",
+      title: "Contact me",
+      description: "",
+      styles: {
+        button: {
+          background: "#842242"
+        },
+        title: {
+          background: "#842242",
+          letterSpacing: "0.05em",
+          fontFamily:'"Courgette", sans-serif',
+          // textTransform: "uppercase"
+        }
+      },
+        fields: [{
+        name: "name",
+        type: "text",
+        label: "Name",
+        required: true,
+      },
+      {
+        name: "email",
+        type: "email",
+        label: "Email",
+        required: true,
+      },
+      {
+        name: "phone number",
+        type: "text",
+        label: "Phone Number",
+      },
+      {
+        name: "Message",
+        type: "textarea",
+      },
+      {
+        name: "Submit",
+        type: "submit",
+        value: "Submit Form",
+      }],
+      action: "https://formspree.io/xpzogzdn",
+    })
   </script>
 </html>
