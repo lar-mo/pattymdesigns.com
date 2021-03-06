@@ -18,7 +18,7 @@
       } */
 
       html, body {
-        background-image: url('images/hero7.png');
+        background-image: url('images/hero2.png');
         background-attachment: fixed;
         background-repeat: no-repeat;
         background-size: cover;
@@ -346,23 +346,24 @@
         <div><a href="#about-shop">About the Shop</a></div>
         <div><a href="#about-me">About Me</a></div>
         <div><a href="#portfolio">Floral Design</a></div>
-        <div><a href="mailto:pattymdesigns@yahoo.com">Contact</a></div>
+        <div><a href="#" onclick="javascript:showContactPopup();">Contact</a></div>
       </div>
     </div>
 
     <div class="hero">
       <div class="hero-text">
         <div class="hero-title center-text">Patty M Designs</div>
-        <div class="hero-subtitle center-text">Always an Artist &#x2013; Floral Designs &amp; Fine Art</div>
+        <div class="hero-subtitle center-text">Custom floral arrangements for your special occasions</div>
       </div>
     </div> <!-- end hero div -->
 
     <div class="large-image">
       <div class="large-image-text">
         <h1>Floral Shop on NE 23rd</h1>
-        <p>An appointment is preferred during these times of COVID-19 but if you knock on the door during my open hours I'll come to the door and we can talk outside on my porch wearing masks. I would love to meet you.</p>
         <p>4834 NE 23rd Ave, steps from Alberta St.</p>
-        <p>Or, send a request for information by <a href="mailto:pattymdesigns@yahoo.com" class="email-link">email</a> and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
+        <p><u><b>Hours:</b></u><br>Thursday – Saturday 10:00 – 4:00<br>Sunday 11:00 – 3:00</p>
+        <p><b>An appointment is preferred</b> during these times of COVID-19 but if you knock on the door during my open hours I'll come to the door and we can talk outside on my porch wearing masks. I would love to meet you.</p>
+        <p><a href="#" onclick="javascript:showContactPopup();"><b>Send a request</b></a> for information by email and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
       </div>
       <div class="large-image-img">
         <img src="images/porch-store-cropped-again.jpg">
@@ -374,7 +375,7 @@
       <h1>About the Floral Shop</h1>
       <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
       <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
-      <p>Contact me: <a href="mailto:pattymdesigns@yahoo.com">pattymdesigns@yahoo.com</a></p>
+      <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="javascript:showContactPopup();">use the contact form</a></p>
       <p><a href="#additional-info">Additional Information About My Shop</a></p>
     </div> <!-- end about-shop div -->
 
@@ -482,6 +483,10 @@
             <span>4834 NE 23rd Ave, Portland, Ore.</span>
           </div>
           <div>
+            <span>Phone:</span>
+            <span>(503)293-8035</span>
+          </div>
+          <div>
             <span><a href="#privacy" onClick="return false">Privacy</a></span>
             <span>|</span>
             <span><a href="https://www.instagram.com/pattym_designs/" target="_blank">Instagram</a></span>
@@ -533,7 +538,7 @@
     }
   </script>
   <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-  <script>
+  <script type="text/javascript">
     window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
     formbutton("create", {
       theme: "classic",
@@ -550,7 +555,14 @@
           // textTransform: "uppercase"
         }
       },
-        fields: [{
+        fields: [
+      {
+        name: "_subject",
+        type: "hidden",
+        label: "",
+        value: "New submission!",
+      },
+      {
         name: "name",
         type: "text",
         label: "Name",
@@ -578,5 +590,12 @@
       }],
       action: "https://formspree.io/xpzogzdn",
     })
+  </script>
+  <script type="text/javascript">
+  function showContactPopup(){
+        $("#formbutton-button").click()
+        // $("#formbutton-iframe").css("display", "initial");
+        // $("#formbutton-iframe").css("opacity", "1");
+    }
   </script>
 </html>
