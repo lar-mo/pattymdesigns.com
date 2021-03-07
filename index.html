@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src="api_keys.js"></script>
+    <script src=".env/api_keys.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap" rel="stylesheet">
@@ -345,8 +345,8 @@
           <div><a href="#about-shop">About the Shop</a></div>
           <div><a href="#about-me">About Me</a></div>
           <div><a href="#portfolio">Floral Design</a></div>
-          <div><a href="#" onclick="showContactPopup();">Contact</a></div>
-          <!-- <div><a href="#" onclick="formbutton('showButton');">Contact</a></div> -->
+          <!-- <div><a href="#" onclick="showContactPopup();">Contact</a></div> -->
+          <div><a href="#" onclick="formbutton('toggleForm');">Contact</a></div>
         </div>
       </div>
 
@@ -362,7 +362,7 @@
           <h1>Floral Shop on NE 23rd</h1>
           <h4>4834 NE 23rd Ave, steps from Alberta St.<br>(503)&nbsp;293-8035</h4>
           <p><u><b>Hours:</b></u><br>Thursday – Saturday 10:00 – 4:00<br>Sunday 11:00 – 3:00</p>
-          <p><a href="#" onclick="showContactPopup();"><b>Send a request</b></a> for information by email and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
+          <p><a href="#" onclick="formbutton('toggleForm');"><b>Send a request</b></a> for information by email and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
           <p><b>An appointment is preferred</b> during these times of COVID-19 but if you knock on the door during my open hours I'll come to the door and we can talk outside on my porch wearing masks. I would love to meet you.</p>
         </div>
         <div class="large-image-img">
@@ -375,7 +375,7 @@
         <h1>About the Floral Shop</h1>
         <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
         <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
-        <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="showContactPopup();">use the contact form</a></p>
+        <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="formbutton('toggleForm');">use the contact form</a></p>
         <p><a href="#additional-info">Additional Information About My Shop</a></p>
       </div> <!-- end about-shop div -->
 
@@ -629,7 +629,7 @@
       .then(axios.spread(function (url, info) {
         // Both requests are now complete
         var data = url.data                                      // get data from api response
-        console.log(data)
+        // console.log(data)
 
         var info = info.data                                      // get data from api response
         // console.log(info)
