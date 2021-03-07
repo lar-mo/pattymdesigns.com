@@ -7,6 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
+    <script src="api_keys.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap" rel="stylesheet">
@@ -158,7 +160,7 @@
         background-color: #fff;
       }
 
-      .grid-container {
+      #grid_container {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
@@ -178,7 +180,13 @@
         border-radius: 6px;
       }
 
-      .image-container > div {
+      .image-container div:last-child {
+        width: 275px;
+        margin: 10px;
+        padding-bottom: 40px;
+      }
+
+      .desc-container {
         width: 275px;
         margin: 10px;
         padding-bottom: 40px;
@@ -215,12 +223,6 @@
         .hero-text {
           padding: calc(100vh/2 - 50px) 20px;
         }
-        /* #large-porch-image {
-          width: 100vw;
-        } */
-        /* .large-image {
-          flex-direction: column;
-        } */
         .container-padding {
           padding: 75px 100px;
         }
@@ -405,30 +407,9 @@
         <h1>A Few Design Styles</h1>
         <p>Here are a few designs for you to think about and there are many more styles we can explore. Plant materials can be interchanged. For example, chrysanthemums or carnations can be used instead of roses.</p>
         <p>The containers in the photos might not be available. We can always work with similar containers or we can use one of your personal favorites. That's always fun.</p>
-        <div class="grid-container">
+        <div id="grid_container">
 
           <!-- <div class="image-container">
-            <img src="images/IMG_0889.jpg" class="thumbnail" />
-            <div>An asymmetrical triangle with implied lines using branches</div>
-          </div>
-          <div class="image-container">
-            <img src="images/IMG_0889.jpg" class="thumbnail" />
-            <div>An asymmetrical triangle with implied lines using branches</div>
-          </div>
-          <div class="image-container">
-            <img src="images/IMG_0889.jpg" class="thumbnail" />
-            <div>An asymmetrical triangle with implied lines using branches</div>
-          </div>
-          <div class="image-container">
-            <img src="images/IMG_0889.jpg" class="thumbnail" />
-            <div>An asymmetrical triangle with implied lines using branches</div>
-          </div>
-          <div class="image-container">
-            <img src="images/IMG_0889.jpg" class="thumbnail" />
-            <div>An asymmetrical triangle with implied lines using branches</div>
-          </div> -->
-
-          <div class="image-container">
             <img src="images/IMG_0889.jpg" class="thumbnail-short" />
             <div>An asymmetrical triangle with implied lines using branches</div>
           </div>
@@ -456,7 +437,7 @@
           <div class="image-container">
             <img src="images/IMG_0891.jpg" class="thumbnail-long" />
             <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
-          </div>
+          </div> -->
 
         </div>
       </div> <!-- end portfolio-grid div -->
@@ -596,5 +577,129 @@
   function showContactPopup(){
         $("#formbutton-button").click()
     }
+  </script>
+  <script type="text/javascript">
+  let flickr_url = 'https://api.flickr.com/services/rest/?'
+  let flickr_username = 'larrym'
+
+  function lookupUser() {
+    let config = {
+      params: {
+        method: 'flickr.urls.lookupUser',
+        url: 'https://www.flickr.com/photos/'+flickr_username,
+        api_key: flickr_api_key,
+        format: 'json',
+        nojsoncallback: 1
+      }, // end of 'params'
+    } // end of 'config'
+    axios.get(flickr_url, config)
+    .then(function (response) {                                     // then do the cool stuff
+      var data = response.data                                      // get data from api response
+      getPhotosets(data.user.id)
+    })
+  } // end of 'lookupUser'
+
+  function getSizes(photo_id) {
+    let config = {
+      params: {
+        method: 'flickr.photos.getSizes',
+        photo_id: photo_id,
+        api_key: flickr_api_key,
+        format: 'json',
+        nojsoncallback: 1
+      }, // end of 'params'
+    } // end of 'config'
+    return axios.get(flickr_url, config);
+    // return axios.get('/user/12345');
+  }
+
+  function getInfo(photo_id) {
+    let config = {
+      params: {
+        method: 'flickr.photos.getInfo',
+        photo_id: photo_id,
+        api_key: flickr_api_key,
+        format: 'json',
+        nojsoncallback: 1
+      }, // end of 'params'
+    } // end of 'config'
+    return axios.get(flickr_url, config)
+    // return axios.get('/user/12345/permissions');
+  }
+
+  function fetchURLDesc(photo_id,i) {
+    axios.all([getSizes(photo_id), getInfo(photo_id)])
+      .then(axios.spread(function (url, info) {
+        // Both requests are now complete
+        var data = url.data                                      // get data from api response
+        console.log(data)
+
+        var info = info.data                                      // get data from api response
+        // console.log(info)
+
+        // *** matt's code below ***
+        let photo_size_array = data.sizes.size
+        let thumbnail_photo_url = photo_size_array[6].source
+        let original_photo_url = photo_size_array[photo_size_array.length-1].source
+        let original_photo_width = photo_size_array[photo_size_array.length-1].width
+        let original_photo_height = photo_size_array[photo_size_array.length-1].height
+
+        // create elements
+        let wrapper = document.createElement('div')
+        let image_div = document.createElement('div')
+        let img_element = document.createElement('img')
+        let description_div = document.createElement('div')
+
+        // set variables (class names)
+        let div_class = 'flickr-image' + i   // for setAttribute on line 652
+        let div_class2 = '#flickr-image' + i // for jquery hack on line 655
+
+        // set attributes + values
+        wrapper.setAttribute('class', 'image-container')
+        img_element.setAttribute('src', thumbnail_photo_url)
+        if (original_photo_width > original_photo_height) {
+          img_element.setAttribute('class', 'thumbnail-short')
+        } else {
+          img_element.setAttribute('class', 'thumbnail-long')
+        }
+        description_div.setAttribute('id', div_class)           // why use 'class' instead of 'id'?
+        let photo_description = info.photo.description._content
+        $(document).ready(function(){
+          $(div_class2).text(photo_description);               // syntax required '.'
+        });
+
+        image_div.appendChild(img_element)
+        wrapper.appendChild(image_div)
+        wrapper.appendChild(description_div)
+        grid_container.appendChild(wrapper)
+
+      }));
+  } // end of fetchURLDesc
+
+  function getPhotosets(user_id) {
+    let config = {
+      params: {
+        method: 'flickr.photosets.getPhotos',
+        user_id: user_id,
+        photoset_id: '72157718545940976',
+        api_key: flickr_api_key,
+        format: 'json',
+        nojsoncallback: 1,
+        extras: 'date_upload',
+      }, // end of 'params'
+    } // end of 'config'
+    axios.get(flickr_url, config)
+    .then(function (response) {                                     // then do the cool stuff
+      var data = response.data                                      // get data from api response
+      let photoset = data.photoset.photo
+      for (let i=0; i<photoset.length; ++i) {
+          let photo_id = photoset[i].id
+          fetchURLDesc(photo_id,i)
+      }
+    })
+  } // end of getPublicPhotos
+
+  window.onload = lookupUser
+
   </script>
 </html>
