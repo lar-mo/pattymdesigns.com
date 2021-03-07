@@ -7,8 +7,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"></script>
-    <script src=".env/api_keys.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
+    <script src="api_keys.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap" rel="stylesheet">
@@ -345,7 +345,6 @@
           <div><a href="#about-shop">About the Shop</a></div>
           <div><a href="#about-me">About Me</a></div>
           <div><a href="#portfolio">Floral Design</a></div>
-          <!-- <div><a href="#" onclick="showContactPopup();">Contact</a></div> -->
           <div><a href="#" onclick="formbutton('toggleForm');">Contact</a></div>
         </div>
       </div>
@@ -570,31 +569,13 @@
       action: "https://formspree.io/xpzogzdn",
     })
   </script>
-  <script type="text/javascript">
+  <!-- <script type="text/javascript">
   function showContactPopup(){
         $("#formbutton-button").click()
     }
-  </script>
+  </script> -->
   <script type="text/javascript">
   let flickr_url = 'https://api.flickr.com/services/rest/?'
-  let flickr_username = 'larrym'
-
-  function lookupUser() {
-    let config = {
-      params: {
-        method: 'flickr.urls.lookupUser',
-        url: 'https://www.flickr.com/photos/'+flickr_username,
-        api_key: flickr_api_key,
-        format: 'json',
-        nojsoncallback: 1
-      }, // end of 'params'
-    } // end of 'config'
-    axios.get(flickr_url, config)
-    .then(function (response) {                                     // then do the cool stuff
-      var data = response.data                                      // get data from api response
-      getPhotosets(data.user.id)
-    })
-  } // end of 'lookupUser'
 
   function getSizes(photo_id) {
     let config = {
@@ -607,7 +588,6 @@
       }, // end of 'params'
     } // end of 'config'
     return axios.get(flickr_url, config);
-    // return axios.get('/user/12345');
   }
 
   function getInfo(photo_id) {
@@ -621,7 +601,6 @@
       }, // end of 'params'
     } // end of 'config'
     return axios.get(flickr_url, config)
-    // return axios.get('/user/12345/permissions');
   }
 
   function fetchURLDesc(photo_id,i) {
@@ -629,9 +608,19 @@
       .then(axios.spread(function (url, info) {
         // Both requests are now complete
         var data = url.data                                      // get data from api response
+        if (data.stat == 'ok') {
+          console.log("valid response: getSizes API ")
+        } else {
+          console.log("error: getSizes API")
+        }
         // console.log(data)
 
         var info = info.data                                      // get data from api response
+        if (data.stat == 'ok') {
+          console.log("valid response: getInfo API")
+        } else {
+          console.log("error: getInfo API")
+        }
         // console.log(info)
 
         // *** matt's code below ***
@@ -648,8 +637,8 @@
         let description_div = document.createElement('div')
 
         // set variables (class names)
-        let div_class = 'flickr-image' + i   // for setAttribute on line 652
-        let div_class2 = '#flickr-image' + i // for jquery hack on line 655
+        let div_class = 'flickr-image' + i   // for setAttribute on line 651
+        let div_class2 = '#flickr-image' + i // for jquery hack on line 654
 
         // set attributes + values
         wrapper.setAttribute('class', 'image-container')
@@ -670,14 +659,18 @@
         wrapper.appendChild(description_div)
         grid_container.appendChild(wrapper)
 
-      }));
+      }))
+      .catch(err => {
+          // what now?
+          console.log(err);
+      })
   } // end of fetchURLDesc
 
   function getPhotosets(user_id) {
     let config = {
       params: {
         method: 'flickr.photosets.getPhotos',
-        user_id: user_id,
+        user_id: '67858665@N00',
         photoset_id: '72157718545940976',
         api_key: flickr_api_key,
         format: 'json',
@@ -689,14 +682,23 @@
     .then(function (response) {                                     // then do the cool stuff
       var data = response.data                                      // get data from api response
       let photoset = data.photoset.photo
+      if (photoset.length > 0) {
+        console.log("valid response: getPhotosets API")
+      } else {
+        console.log("error: getPhotosets API")
+      }
       for (let i=0; i<photoset.length; ++i) {
           let photo_id = photoset[i].id
           fetchURLDesc(photo_id,i)
       }
     })
+    .catch(err => {
+        // what now?
+        console.log(err);
+    })
   } // end of getPublicPhotos
 
-  window.onload = lookupUser
+  window.onload = getPhotosets
 
   </script>
 </html>
