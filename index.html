@@ -19,7 +19,7 @@
       html, body {
         background-image: url('images/hero2.png');
         background-attachment: fixed;
-        background-repeat: no-repeat;
+        background-repeat: repeat;
         background-size: cover;
         background-position: top;
         box-sizing: border-box;
@@ -74,7 +74,6 @@
         font-family: 'Courgette', cursive;
         color: #fff;
         text-shadow: 2px 2px 4px #000000;
-        /* padding: 325px 20px; */
         padding-top: calc(100vh * 2/5);
         padding-bottom: calc(100vh * 3/5);
         width: 100%;
@@ -118,7 +117,6 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        /* margin: auto; */
         width: 100%;
         background-color: rgba(81,81,81,0.75);
       }
@@ -147,21 +145,14 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        /* padding: 40px; */
       }
 
       .about-shop > div {
         background-color: #fff;
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
-        justify-content: flex-start;
-        /* padding: 40px; */
-        /* margin: 10px; */
-      }
-
-      .about-shop-text {
-        /* vertical-align: top; */
+        align-items: center;
+        justify-content: center;
       }
 
       .about-shop-image > img {
@@ -254,6 +245,12 @@
       }
 
       @media all and (max-width: 1024px) {
+        html, body {
+          background-attachment: inherit;
+        }
+        .large-image {
+          background-color: #515151;
+        }
         .hero-text {
           padding: calc(100vh/2 - 50px) 20px;
         }
