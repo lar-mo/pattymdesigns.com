@@ -751,14 +751,15 @@
     	    return decodeURIComponent(results[2].replace(/\+/g, " "));
     	}
     	// Give the parameter a variable name
-    	var dynamicContent = getParameterByName('rev');
+          var v1 = getParameterByName('v1');
+          var v2 = getParameterByName('v2');
 
     	 $(document).ready(function() {
 
-    		if (dynamicContent == 'v1') {
+    		if (v1 !== null) {
           $('#large-porch-image').attr("src", "images/IMG_0955.jpg");
     		}
-    		else if (dynamicContent == 'v2') {
+    		else if (v2 !== null) {
           $('#large-porch-image').attr("src", "images/IMG_0958.jpg");
     		}
     		// Check if the URL parmeter is empty or not defined, display default content
