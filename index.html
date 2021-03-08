@@ -675,17 +675,13 @@
         .then(axios.spread(function (url, info) {
           // Both requests are now complete
           var data = url.data;                                      // get data from api response
-          if (data.stat == 'ok') {
-            console.log("valid response: getSizes API ");
-          } else {
+          if (data.stat !== 'ok') {
             console.log("error: getSizes API");
           }
           // console.log(data)
 
           var info = info.data;                                      // get data from api response
-          if (data.stat == 'ok') {
-            console.log("valid response: getInfo API");
-          } else {
+          if (data.stat !== 'ok') {
             console.log("error: getInfo API");
           }
           // console.log(info)
@@ -750,9 +746,7 @@
       .then(function (response) {                                     // then do the cool stuff
         let data = response.data;                                      // get data from api response
         let photoset = data.photoset.photo;
-        if (photoset.length > 0) {
-          console.log("valid response: getArrangements API");
-        } else {
+        if (photoset.length == 0) {
           console.log("error: getArrangements API");
         }
         for (let i=0; i<photoset.length; ++i) {
