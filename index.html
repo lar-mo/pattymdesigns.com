@@ -2,7 +2,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -161,6 +162,7 @@
         display: flex;
         flex-direction: row;
         align-items: flex-start;
+        justify-content: space-between;
         flex-wrap: wrap;
         margin-top: 50px;
       }
@@ -334,10 +336,22 @@
           width: 100vw;
         }
       }
+      .carousel-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* align-items: flex-start; */
+      }
+      .carousel-iframe {
+        width: calc(100vw - 120px);
+        height: 250px;
+        /* text-align: center; */
+        border: none;
+      }
      </style>
   </head>
   <body>
-
     <div id="container">
       <div id="header">
         <div class="header-links">
@@ -345,7 +359,7 @@
           <div><a href="#about-shop">About the Shop</a></div>
           <div><a href="#about-me">About Me</a></div>
           <div><a href="#portfolio">Floral Design</a></div>
-          <div><a href="#" onclick="formbutton('toggleForm');">Contact</a></div>
+          <div><a href="#" onclick="formbutton('toggleForm');return false">Contact</a></div>
         </div>
       </div>
 
@@ -361,7 +375,7 @@
           <h1>Floral Shop on NE 23rd</h1>
           <h4>4834 NE 23rd Ave, steps from Alberta St.<br>(503)&nbsp;293-8035</h4>
           <p><u><b>Hours:</b></u><br>Thursday – Saturday 10:00 – 4:00<br>Sunday 11:00 – 3:00</p>
-          <p><a href="#" onclick="formbutton('toggleForm');"><b>Send a request</b></a> for information by email and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
+          <p><a href="#" onclick="formbutton('toggleForm');return false"><b>Send a request</b></a> for information by email and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
           <p><b>An appointment is preferred</b> during these times of COVID-19 but if you knock on the door during my open hours I'll come to the door and we can talk outside on my porch wearing masks. I would love to meet you.</p>
         </div>
         <div class="large-image-img">
@@ -374,7 +388,7 @@
         <h1>About the Floral Shop</h1>
         <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
         <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
-        <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="formbutton('toggleForm');">use the contact form</a></p>
+        <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="formbutton('toggleForm');return false">use the contact form</a></p>
         <p><a href="#additional-info">Additional Information About My Shop</a></p>
       </div> <!-- end about-shop div -->
 
@@ -405,37 +419,45 @@
         <p>The containers in the photos might not be available. We can always work with similar containers or we can use one of your personal favorites. That's always fun.</p>
         <div id="grid_container">
 
+          <!-- Uncomment to have three placeholders, in case API fails. -->
+          <!-- Currently only catching errors => console.log            -->
+
           <!-- <div class="image-container">
-            <img src="images/IMG_0889.jpg" class="thumbnail-short" />
+            <div><img src="images/IMG_0889.jpg" class="thumbnail-short" /></div>
             <div>An asymmetrical triangle with implied lines using branches</div>
           </div>
 
           <div class="image-container">
-            <img src="images/IMG_0668.jpg" class="thumbnail-short" />
+            <div><img src="images/IMG_0668.jpg" class="thumbnail-short" /></div>
             <div>A round symmetrical mix of spring flowers in a basket</div>
           </div>
 
           <div class="image-container">
-            <img src="images/IMG_0903.jpg" class="thumbnail-short" />
+            <div><img src="images/IMG_0903.jpg" class="thumbnail-short" /></div>
             <div>Small, horizontal with focal point and implied lines using branches</div>
-          </div>
+          </div> -->
 
-          <div class="image-container">
-            <img src="images/IMG_0647.jpg" class="thumbnail-long" />
+          <!-- <div class="image-container">
+            <div><img src="images/IMG_0647.jpg" class="thumbnail-long" /></div>
             <div>Tall, round and elegant</div>
           </div>
 
           <div class="image-container">
-            <img src="images/IMG_0637.jpg" class="thumbnail-long" />
+            <div><img src="images/IMG_0637.jpg" class="thumbnail-long" /></div>
             <div>A small triangle of sequenced plant material</div>
           </div>
 
           <div class="image-container">
-            <img src="images/IMG_0891.jpg" class="thumbnail-long" />
+            <div><img src="images/IMG_0891.jpg" class="thumbnail-long" /></div>
             <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
           </div> -->
 
         </div>
+
+        <div class="carousel-container">
+          <iframe class="carousel-iframe" src="available-containers.html"></iframe>
+        </div>
+
       </div> <!-- end portfolio-grid div -->
 
       <a name="additional-info"></a>
@@ -472,233 +494,235 @@
           </span>
         </div>
       </div> <!-- end footer div -->
-    </div> <!-- end container div -->
-  </body>
-  <script type="text/javascript">
-      // Credit:
-      // https://codepen.io/nickcil/pen/sfutl
-      // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
-      $(window).scroll(function(){
-        $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
-      });
-  </script>
-  <script type="text/javascript">
-      // Credit:
-      // https://www.w3schools.com/jquery/jquery_animate.asp
-      // https://stackoverflow.com/questions/31353418/how-to-animate-background-color-in-jqueryd
-      $("div.title_description").hover(
-        function() {
-          $(this).animate({opacity: '1.0'}, "slow");
-        },
-        function() {
-          $(this).animate({opacity: '0.8'}, "slow");
-        }
-      );
-  </script>
-  <script type="text/javascript">
-      // When the user scrolls down 50px from the top of the document, resize the header's font size
-    window.onscroll = function() {scrollFunction()};
-      function scrollFunction() {
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        document.getElementById("header").style.padding = "0px";
-      } else {
-        if (window.innerWidth > 800) {
-          document.getElementById("header").style.padding = "24px";
-        } else if (window.innerWidth > 576 && window.innerWidth < 801) {
-          document.getElementById("header").style.padding = "10px";
-        } else if (window.innerWidth > 501 && window.innerWidth < 575) {
-          document.getElementById("header").style.padding = "5px";
-        } else if (window.innerWidth < 500) {
+
+    </div> <!-- end container div  (opening tag just below <body>)-->
+    <script type="text/javascript">
+        // Credit:
+        // https://codepen.io/nickcil/pen/sfutl
+        // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
+        $(window).scroll(function(){
+          $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
+        });
+    </script>
+    <script type="text/javascript">
+        // Credit:
+        // https://www.w3schools.com/jquery/jquery_animate.asp
+        // https://stackoverflow.com/questions/31353418/how-to-animate-background-color-in-jqueryd
+        $("div.title_description").hover(
+          function() {
+            $(this).animate({opacity: '1.0'}, "slow");
+          },
+          function() {
+            $(this).animate({opacity: '0.8'}, "slow");
+          }
+        );
+    </script>
+    <script type="text/javascript">
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+      window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
           document.getElementById("header").style.padding = "0px";
         } else {
-          document.getElementById("header").style.padding = "0px";
+          if (window.innerWidth > 800) {
+            document.getElementById("header").style.padding = "24px";
+          } else if (window.innerWidth > 576 && window.innerWidth < 801) {
+            document.getElementById("header").style.padding = "10px";
+          } else if (window.innerWidth > 501 && window.innerWidth < 575) {
+            document.getElementById("header").style.padding = "5px";
+          } else if (window.innerWidth < 500) {
+            document.getElementById("header").style.padding = "0px";
+          } else {
+            document.getElementById("header").style.padding = "0px";
+          }
         }
       }
-    }
-  </script>
-  <script src="https://formspree.io/js/formbutton-v1.0.4.min.js" defer></script>
-  <script type="text/javascript">
-    window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-    formbutton("create", {
-      theme: "classic",
-      title: "Contact me",
-      description: "",
-      styles: {
-        button: {
-          background: "#842242"
+    </script>
+    <script src="https://formspree.io/js/formbutton-v1.0.4.min.js" defer></script>
+    <script type="text/javascript">
+      window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+      formbutton("create", {
+        theme: "classic",
+        title: "Contact me",
+        description: "",
+        styles: {
+          button: {
+            background: "#842242"
+          },
+          title: {
+            background: "#842242",
+            letterSpacing: "0.05em",
+            fontFamily:'"Courgette", cursive',
+          }
         },
-        title: {
-          background: "#842242",
-          letterSpacing: "0.05em",
-          fontFamily:'"Courgette", cursive',
-        }
-      },
-        fields: [
-      {
-        name: "_subject",
-        type: "hidden",
-        label: "",
-        value: "New submission!",
-      },
-      {
-        name: "name",
-        type: "text",
-        label: "Name",
-        required: true,
-      },
-      {
-        name: "email",
-        type: "email",
-        label: "Email",
-        required: true,
-      },
-      {
-        name: "phone number",
-        type: "text",
-        label: "Phone Number",
-      },
-      {
-        name: "Message",
-        type: "textarea",
-      },
-      {
-        name: "Submit",
-        type: "submit",
-        value: "Submit Form",
-      }],
-      action: "https://formspree.io/xpzogzdn",
-    })
-  </script>
-  <!-- <script type="text/javascript">
-  function showContactPopup(){
-        $("#formbutton-button").click()
+          fields: [
+        {
+          name: "_subject",
+          type: "hidden",
+          label: "",
+          value: "New submission!",
+        },
+        {
+          name: "name",
+          type: "text",
+          label: "Name",
+          required: true,
+        },
+        {
+          name: "email",
+          type: "email",
+          label: "Email",
+          required: true,
+        },
+        {
+          name: "phone number",
+          type: "text",
+          label: "Phone Number",
+        },
+        {
+          name: "Message",
+          type: "textarea",
+        },
+        {
+          name: "Submit",
+          type: "submit",
+          value: "Submit Form",
+        }],
+        action: "https://formspree.io/xpzogzdn",
+      })
+    </script>
+    <!-- <script type="text/javascript">
+    function showContactPopup(){
+          $("#formbutton-button").click()
+      }
+    </script> -->
+    <script type="text/javascript">
+    let flickr_url = 'https://api.flickr.com/services/rest/?'
+
+    function getSizes(photo_id) {
+      let config = {
+        params: {
+          method: 'flickr.photos.getSizes',
+          photo_id: photo_id,
+          api_key: flickr_api_key,
+          format: 'json',
+          nojsoncallback: 1
+        }, // end of 'params'
+      } // end of 'config'
+      return axios.get(flickr_url, config);
     }
-  </script> -->
-  <script type="text/javascript">
-  let flickr_url = 'https://api.flickr.com/services/rest/?'
 
-  function getSizes(photo_id) {
-    let config = {
-      params: {
-        method: 'flickr.photos.getSizes',
-        photo_id: photo_id,
-        api_key: flickr_api_key,
-        format: 'json',
-        nojsoncallback: 1
-      }, // end of 'params'
-    } // end of 'config'
-    return axios.get(flickr_url, config);
-  }
+    function getInfo(photo_id) {
+      let config = {
+        params: {
+          method: 'flickr.photos.getInfo',
+          photo_id: photo_id,
+          api_key: flickr_api_key,
+          format: 'json',
+          nojsoncallback: 1
+        }, // end of 'params'
+      } // end of 'config'
+      return axios.get(flickr_url, config)
+    }
 
-  function getInfo(photo_id) {
-    let config = {
-      params: {
-        method: 'flickr.photos.getInfo',
-        photo_id: photo_id,
-        api_key: flickr_api_key,
-        format: 'json',
-        nojsoncallback: 1
-      }, // end of 'params'
-    } // end of 'config'
-    return axios.get(flickr_url, config)
-  }
+    function fetchURLDescArrangements(photo_id,i) {
+      axios.all([getSizes(photo_id), getInfo(photo_id)])
+        .then(axios.spread(function (url, info) {
+          // Both requests are now complete
+          var data = url.data                                      // get data from api response
+          if (data.stat == 'ok') {
+            console.log("valid response: getSizes API ")
+          } else {
+            console.log("error: getSizes API")
+          }
+          // console.log(data)
 
-  function fetchURLDesc(photo_id,i) {
-    axios.all([getSizes(photo_id), getInfo(photo_id)])
-      .then(axios.spread(function (url, info) {
-        // Both requests are now complete
-        var data = url.data                                      // get data from api response
-        if (data.stat == 'ok') {
-          console.log("valid response: getSizes API ")
+          var info = info.data                                      // get data from api response
+          if (data.stat == 'ok') {
+            console.log("valid response: getInfo API")
+          } else {
+            console.log("error: getInfo API")
+          }
+          // console.log(info)
+
+          // *** matt's code below ***
+          let photo_size_array = data.sizes.size
+          let thumbnail_photo_url = photo_size_array[6].source
+          let original_photo_url = photo_size_array[photo_size_array.length-1].source
+          let original_photo_width = photo_size_array[photo_size_array.length-1].width
+          let original_photo_height = photo_size_array[photo_size_array.length-1].height
+
+          // create elements
+          let wrapper = document.createElement('div')
+          let image_div = document.createElement('div')
+          let img_element = document.createElement('img')
+          let description_div = document.createElement('div')
+
+          // set variables (class names)
+          let div_id = 'flickr-image' + i   // for setAttribute on line 651
+          let div_id2 = '#flickr-image' + i // for jquery hack on line 654
+
+          // set attributes + values
+          wrapper.setAttribute('class', 'image-container')
+          img_element.setAttribute('src', thumbnail_photo_url)
+          if (original_photo_width > original_photo_height) {
+            img_element.setAttribute('class', 'thumbnail-short')
+          } else {
+            img_element.setAttribute('class', 'thumbnail-long')
+          }
+          description_div.setAttribute('id', div_id)
+          let photo_description = info.photo.description._content
+          $(document).ready(function(){
+            $(div_id2).text(photo_description);               // syntax required '.'
+          });
+
+          image_div.appendChild(img_element)
+          wrapper.appendChild(image_div)
+          wrapper.appendChild(description_div)
+          grid_container.appendChild(wrapper)
+
+        }))
+        .catch(err => {
+            // what now?
+            console.log(err);
+        })
+    } // end of fetchURLDesc
+
+    function getArrangements() {
+      // 72157718545940976 - PattyM Designs Flowers
+      let config = {
+        params: {
+          method: 'flickr.photosets.getPhotos',
+          user_id: '67858665@N00',
+          photoset_id: '72157718545940976',
+          api_key: flickr_api_key,
+          format: 'json',
+          nojsoncallback: 1,
+          extras: 'date_upload',
+        }, // end of 'params'
+      } // end of 'config'
+      axios.get(flickr_url, config)
+      .then(function (response) {                                     // then do the cool stuff
+        var data = response.data                                      // get data from api response
+        let photoset = data.photoset.photo
+        if (photoset.length > 0) {
+          console.log("valid response: getArrangements API")
         } else {
-          console.log("error: getSizes API")
+          console.log("error: getArrangements API")
         }
-        // console.log(data)
-
-        var info = info.data                                      // get data from api response
-        if (data.stat == 'ok') {
-          console.log("valid response: getInfo API")
-        } else {
-          console.log("error: getInfo API")
+        for (let i=0; i<photoset.length; ++i) {
+            let photo_id = photoset[i].id
+            fetchURLDescArrangements(photo_id,i)
         }
-        // console.log(info)
-
-        // *** matt's code below ***
-        let photo_size_array = data.sizes.size
-        let thumbnail_photo_url = photo_size_array[6].source
-        let original_photo_url = photo_size_array[photo_size_array.length-1].source
-        let original_photo_width = photo_size_array[photo_size_array.length-1].width
-        let original_photo_height = photo_size_array[photo_size_array.length-1].height
-
-        // create elements
-        let wrapper = document.createElement('div')
-        let image_div = document.createElement('div')
-        let img_element = document.createElement('img')
-        let description_div = document.createElement('div')
-
-        // set variables (class names)
-        let div_class = 'flickr-image' + i   // for setAttribute on line 651
-        let div_class2 = '#flickr-image' + i // for jquery hack on line 654
-
-        // set attributes + values
-        wrapper.setAttribute('class', 'image-container')
-        img_element.setAttribute('src', thumbnail_photo_url)
-        if (original_photo_width > original_photo_height) {
-          img_element.setAttribute('class', 'thumbnail-short')
-        } else {
-          img_element.setAttribute('class', 'thumbnail-long')
-        }
-        description_div.setAttribute('id', div_class)           // why use 'class' instead of 'id'?
-        let photo_description = info.photo.description._content
-        $(document).ready(function(){
-          $(div_class2).text(photo_description);               // syntax required '.'
-        });
-
-        image_div.appendChild(img_element)
-        wrapper.appendChild(image_div)
-        wrapper.appendChild(description_div)
-        grid_container.appendChild(wrapper)
-
-      }))
+      })
       .catch(err => {
           // what now?
           console.log(err);
       })
-  } // end of fetchURLDesc
+    } // end of getArrangements
 
-  function getPhotosets(user_id) {
-    let config = {
-      params: {
-        method: 'flickr.photosets.getPhotos',
-        user_id: '67858665@N00',
-        photoset_id: '72157718545940976',
-        api_key: flickr_api_key,
-        format: 'json',
-        nojsoncallback: 1,
-        extras: 'date_upload',
-      }, // end of 'params'
-    } // end of 'config'
-    axios.get(flickr_url, config)
-    .then(function (response) {                                     // then do the cool stuff
-      var data = response.data                                      // get data from api response
-      let photoset = data.photoset.photo
-      if (photoset.length > 0) {
-        console.log("valid response: getPhotosets API")
-      } else {
-        console.log("error: getPhotosets API")
-      }
-      for (let i=0; i<photoset.length; ++i) {
-          let photo_id = photoset[i].id
-          fetchURLDesc(photo_id,i)
-      }
-    })
-    .catch(err => {
-        // what now?
-        console.log(err);
-    })
-  } // end of getPublicPhotos
+    window.onload = getArrangements
 
-  window.onload = getPhotosets
-
-  </script>
+    </script>
+  </body>
 </html>

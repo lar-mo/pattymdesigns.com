@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Patty M Designs - Available Containers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+  <!-- Demo styles -->
+  <style>
+  html, body {
+    position: relative;
+    height: 100%;
+  }
+
+  body {
+    background: #eee;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+  }
+  .swiper-slide > div > img {
+    height: 150px;
+  }
+  .container-text {
+    font-size: 0.8em;
+  }
+  @media all and (max-width: 500px) {
+    .swiper-slide > div > img {
+      height: 75px;
+    }
+  }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper" id="swiperWrapper">
+      <!-- <div class="swiper-slide">
+        <div><img src="images/containers/batch_copper.jpg"></div>
+        <div class="container-text">Copper</div>
+      </div>
+      <div class="swiper-slide">
+        <div><img src="images/containers/batch_glazed-ceramic.jpg"></div>
+        <div class="container-text">Ceramic</div>
+      </div>
+      <div class="swiper-slide">
+        <div><img src="images/containers/batch_gray-ceramic.jpg"></div>
+        <div class="container-text">Ceramic 2</div>
+      </div>
+      <div class="swiper-slide">
+        <div><img src="images/containers/batch_round-glass.jpg"></div>
+        <div class="container-text">Glass</div>
+      </div>
+      <div class="swiper-slide">
+        <div><img src="images/containers/batch_square-glass.jpg"></div>
+        <div class="container-text">Glass 2</div>
+      </div> -->
+    </div> <!-- end of swiper-wrapper -->
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div> <!-- end of swiper-container -->
+
+<!-- Swiper JS -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+  <script type="text/javascript">
+
+    function initialize_swiper() {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,
+        centeredSlides: false,
+        preloadImages: true,
+        effect: 'slide',
+        loop: true,
+        // spaceBetween: 30,
+        grabCursor: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        autoplay: {
+          delay: 3000,
+        },
+        keyboard: {
+          enabled: true,
+          onlyInViewport: false,
+        },
+      });
+    }
+  </script>
+
+  <script src=".env/api_keys.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
+
+  <script type="text/javascript">
+  let flickr_url = 'https://api.flickr.com/services/rest/?'
+
+  function getSizes(photo_id) {
+    let config = {
+      params: {
+        method: 'flickr.photos.getSizes',
+        photo_id: photo_id,
+        api_key: flickr_api_key,
+        format: 'json',
+        nojsoncallback: 1
+      }, // end of 'params'
+    } // end of 'config'
+    return axios.get(flickr_url, config);
+  }
+
+  function getInfo(photo_id) {
+    let config = {
+      params: {
+        method: 'flickr.photos.getInfo',
+        photo_id: photo_id,
+        api_key: flickr_api_key,
+        format: 'json',
+        nojsoncallback: 1
+      }, // end of 'params'
+    } // end of 'config'
+    return axios.get(flickr_url, config)
+  }
+
+  function fetchURLDescContainers(photo_id,i) {
+    axios.all([getSizes(photo_id), getInfo(photo_id)])
+      .then(axios.spread(function (url, info) {
+        // Both requests are now complete
+        var data = url.data                                      // get data from api response
+        if (data.stat == 'ok') {
+          console.log("valid response: getSizes API ")
+        } else {
+          console.log("error: getSizes API")
+        }
+        // console.log(data)
+
+        var info = info.data                                      // get data from api response
+        if (data.stat == 'ok') {
+          console.log("valid response: getInfo API")
+        } else {
+          console.log("error: getInfo API")
+        }
+        // console.log(info)
+
+        setTimeout(function(){
+          // delay by 50ms
+          initialize_swiper()
+        }, 50);
+
+        // *** matt's code below ***
+        let photo_size_array = data.sizes.size
+        let thumbnail_photo_url = photo_size_array[6].source
+        let original_photo_url = photo_size_array[photo_size_array.length-1].source
+        // let original_photo_width = photo_size_array[photo_size_array.length-1].width
+        // let original_photo_height = photo_size_array[photo_size_array.length-1].height
+
+        // <div class="swiper-slide">
+        //   <div><img src="images/containers/batch_glazed-ceramic.jpg"></div>
+        //   <div class="container-text">Ceramic</div>
+        // </div>
+
+        // create elements
+        let wrapper = document.createElement('div')
+        let image_div = document.createElement('div')
+        let img_element = document.createElement('img')
+        let description_div = document.createElement('div')
+
+        // set variables (class names)
+        let div_id = 'flickr-image-container' + i   // for setAttribute on line 651
+        let div_id2 = '#flickr-image-container' + i // for jquery hack on line 654
+
+        // set attributes + values
+        wrapper.setAttribute('class', 'swiper-slide')
+        img_element.setAttribute('src', thumbnail_photo_url)
+        // if (original_photo_width > original_photo_height) {
+        //   img_element.setAttribute('class', 'placeholder')
+        // } else {
+        //   img_element.setAttribute('class', 'placeholder')
+        // }
+
+        description_div.setAttribute('id', div_id)
+        description_div.setAttribute('class', 'container-text')
+        let photo_title = info.photo.title._content
+        console.log(`photo_title: ${photo_title}`)
+        let photo_description = info.photo.description._content
+
+        $(document).ready(function(){
+          $(div_id2).text(photo_title);               // syntax required '.'
+        });
+
+        image_div.appendChild(img_element)
+        wrapper.appendChild(image_div)
+        wrapper.appendChild(description_div)
+        swiperWrapper.appendChild(wrapper)
+
+      }))
+      .catch(err => {
+          // what now?
+          console.log(err);
+      })
+  } // end of fetchURLDesc
+
+  function getContainers() {
+    // 72157718562548688 - PattyM Designs Containers
+    let config = {
+      params: {
+        method: 'flickr.photosets.getPhotos',
+        user_id: '67858665@N00',
+        photoset_id: '72157718562548688',
+        api_key: flickr_api_key,
+        format: 'json',
+        nojsoncallback: 1,
+        extras: 'date_upload',
+      }, // end of 'params'
+    } // end of 'config'
+    axios.get(flickr_url, config)
+    .then(function (response) {                                     // then do the cool stuff
+      var data = response.data                                      // get data from api response
+      let photoset = data.photoset.photo
+      if (photoset.length > 0) {
+        console.log("valid response: getContainers API")
+      } else {
+        console.log("error: getContainers API")
+      }
+      for (let i=0; i<photoset.length; ++i) {
+          let photo_id = photoset[i].id
+          fetchURLDescContainers(photo_id,i)
+      }
+    })
+    .catch(err => {
+        // what now?
+        console.log(err);
+    })
+  } // end of getContainers
+
+  window.onload = getContainers
+
+  </script>
+  </body>
+</html>
