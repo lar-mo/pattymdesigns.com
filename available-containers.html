@@ -103,7 +103,7 @@
   <script type="text/javascript">
 
     function initialize_swiper() {
-      var swiper = new Swiper('.swiper-container', {
+      let swiper = new Swiper('.swiper-container', {
         slidesPerView: 3,
         centeredSlides: false,
         preloadImages: true,
@@ -155,35 +155,31 @@
         nojsoncallback: 1
       }, // end of 'params'
     } // end of 'config'
-    return axios.get(flickr_url, config)
+    return axios.get(flickr_url, config);
   }
 
   function fetchURLDescContainers(photo_id,i) {
     axios.all([getSizes(photo_id), getInfo(photo_id)])
       .then(axios.spread(function (url, info) {
         // Both requests are now complete
-        var data = url.data                                      // get data from api response
-        if (data.stat == 'ok') {
-          console.log("valid response: getSizes API ")
-        } else {
-          console.log("error: getSizes API")
+        var data = url.data;                                      // get data from api response
+        if (data.stat !== 'ok') {
+          console.log("error: getSizes API");
         }
         // console.log(data)
 
-        var info = info.data                                      // get data from api response
-        if (data.stat == 'ok') {
-          console.log("valid response: getInfo API")
-        } else {
-          console.log("error: getInfo API")
+        var info = info.data;                                      // get data from api response
+        if (data.stat !== 'ok') {
+          console.log("error: getInfo API");
         }
         // console.log(info)
 
         // *** matt's code below ***
-        let photo_size_array = data.sizes.size
-        let thumbnail_photo_url = photo_size_array[6].source
-        let original_photo_url = photo_size_array[photo_size_array.length-1].source
-        // let original_photo_width = photo_size_array[photo_size_array.length-1].width
-        // let original_photo_height = photo_size_array[photo_size_array.length-1].height
+        let photo_size_array = data.sizes.size;
+        let thumbnail_photo_url = photo_size_array[6].source;
+        let original_photo_url = photo_size_array[photo_size_array.length-1].source;
+        // let original_photo_width = photo_size_array[photo_size_array.length-1].width;
+        // let original_photo_height = photo_size_array[photo_size_array.length-1].height;
 
         // <div class="swiper-slide">
         //   <div><img src="images/containers/batch_glazed-ceramic.jpg"></div>
@@ -191,21 +187,21 @@
         // </div>
 
         // create elements
-        let wrapper = document.createElement('div')
-        wrapper.setAttribute('class', 'swiper-slide')
+        let wrapper = document.createElement('div');
+        wrapper.setAttribute('class', 'swiper-slide');
 
-        let image_div = document.createElement('div')
-        let img_element = document.createElement('img')
-        img_element.setAttribute('src', thumbnail_photo_url)
+        let image_div = document.createElement('div');
+        let img_element = document.createElement('img');
+        img_element.setAttribute('src', thumbnail_photo_url);
 
-        let description_div = document.createElement('div')
-        let div_id = 'flickr-image-container' + i   // for setAttribute on line 217
-        let div_id2 = '#flickr-image-container' + i // for jquery hack on line 225
+        let description_div = document.createElement('div');
+        let div_id = 'flickr-image-container' + i;   // for setAttribute on line 217
+        let div_id2 = '#flickr-image-container' + i; // for jquery hack on line 225
 
-        description_div.setAttribute('id', div_id)
-        description_div.setAttribute('class', 'container-text')
+        description_div.setAttribute('id', div_id);
+        description_div.setAttribute('class', 'container-text');
 
-        let photo_title = info.photo.title._content
+        let photo_title = info.photo.title._content;
 
         // console.log(`photo_title: ${photo_title}`)
         // let photo_description = info.photo.description._content
@@ -215,10 +211,10 @@
           $(div_id2).text(photo_title);               // syntax required '.'
         });
 
-        image_div.appendChild(img_element)
-        wrapper.appendChild(image_div)
-        wrapper.appendChild(description_div)
-        swiperWrapper.appendChild(wrapper)
+        image_div.appendChild(img_element);
+        wrapper.appendChild(image_div);
+        wrapper.appendChild(description_div);
+        swiperWrapper.appendChild(wrapper);
 
         setTimeout(function(){
           // delay by 50ms      // I added a delay because sometimes labels would not be written
@@ -247,16 +243,14 @@
     } // end of 'config'
     axios.get(flickr_url, config)
     .then(function (response) {                                     // then do the cool stuff
-      var data = response.data                                      // get data from api response
-      let photoset = data.photoset.photo
-      if (photoset.length > 0) {
-        console.log("valid response: getContainers API")
-      } else {
-        console.log("error: getContainers API")
+      let data = response.data;                                      // get data from api response
+      let photoset = data.photoset.photo;
+      if (photoset.length == 0) {
+        console.log("error: getContainers API");
       }
       for (let i=0; i<photoset.length; ++i) {
-          let photo_id = photoset[i].id
-          fetchURLDescContainers(photo_id,i)
+          let photo_id = photoset[i].id;
+          fetchURLDescContainers(photo_id,i);
       }
     })
     .catch(err => {
@@ -265,7 +259,7 @@
     })
   } // end of getContainers
 
-  window.onload = getContainers
+  window.onload = getContainers;
 
   </script>
   </body>
