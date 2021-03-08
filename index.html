@@ -144,6 +144,30 @@
 
       .about-shop {
         background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* padding: 40px; */
+      }
+
+      .about-shop > div {
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        /* padding: 40px; */
+        /* margin: 10px; */
+      }
+
+      .about-shop-text {
+        /* vertical-align: top; */
+      }
+
+      .about-shop-image > img {
+        width: 250px;
+        /* visibility: hidden; */
+        display: none;
       }
 
       .about-me {
@@ -391,7 +415,7 @@
         </div>
         <div class="large-image-img">
           <!-- <img src="images/IMG_0955.jpg" id="large-porch-image"> -->
-          <!-- <img src="images/IMG_0958.JPG" id="large-porch-image"> -->
+          <!-- <img src="images/IMG_0958.jpg" id="large-porch-image"> -->
           <img src="images/porch-store-cropped-again.jpg" id="large-porch-image">
         </div>
       </div> <!-- end large-image div -->
@@ -399,10 +423,17 @@
       <a name="about-shop"></a>
       <div class="about-shop container-padding">
         <h1>About the Floral Shop</h1>
-        <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
-        <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
-        <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="formbutton('toggleForm');return false" class="link-underline">use the contact form</a></p>
-        <p><a href="#additional-info" class="link-underline">Additional Information About My Shop</a></p>
+        <div>
+          <span class="about-shop-text">
+            <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
+            <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
+            <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="formbutton('toggleForm');return false" class="link-underline">use the contact form</a></p>
+            <p><a href="#additional-info" class="link-underline">Additional Information About My Shop</a></p>
+          </span>
+          <span class="about-shop-image">
+            <img id="about-shop-image" src="images/IMG_0958.jpg">
+          </span>
+        </div>
       </div> <!-- end about-shop div -->
 
       <a name="about-me"></a>
@@ -636,64 +667,64 @@
           nojsoncallback: 1
         }, // end of 'params'
       } // end of 'config'
-      return axios.get(flickr_url, config)
+      return axios.get(flickr_url, config);
     }
 
     function fetchURLDescArrangements(photo_id,i) {
       axios.all([getSizes(photo_id), getInfo(photo_id)])
         .then(axios.spread(function (url, info) {
           // Both requests are now complete
-          var data = url.data                                      // get data from api response
+          var data = url.data;                                      // get data from api response
           if (data.stat == 'ok') {
-            console.log("valid response: getSizes API ")
+            console.log("valid response: getSizes API ");
           } else {
-            console.log("error: getSizes API")
+            console.log("error: getSizes API");
           }
           // console.log(data)
 
-          var info = info.data                                      // get data from api response
+          var info = info.data;                                      // get data from api response
           if (data.stat == 'ok') {
-            console.log("valid response: getInfo API")
+            console.log("valid response: getInfo API");
           } else {
-            console.log("error: getInfo API")
+            console.log("error: getInfo API");
           }
           // console.log(info)
 
           // *** matt's code below ***
-          let photo_size_array = data.sizes.size
-          let thumbnail_photo_url = photo_size_array[6].source
-          let original_photo_url = photo_size_array[photo_size_array.length-1].source
-          let original_photo_width = photo_size_array[photo_size_array.length-1].width
-          let original_photo_height = photo_size_array[photo_size_array.length-1].height
+          let photo_size_array = data.sizes.size;
+          let thumbnail_photo_url = photo_size_array[6].source;
+          let original_photo_url = photo_size_array[photo_size_array.length-1].source;
+          let original_photo_width = photo_size_array[photo_size_array.length-1].width;
+          let original_photo_height = photo_size_array[photo_size_array.length-1].height;
 
           // create elements
-          let wrapper = document.createElement('div')
-          let image_div = document.createElement('div')
-          let img_element = document.createElement('img')
-          let description_div = document.createElement('div')
+          let wrapper = document.createElement('div');
+          let image_div = document.createElement('div');
+          let img_element = document.createElement('img');
+          let description_div = document.createElement('div');
 
           // set variables (class names)
           let div_id = 'flickr-image' + i   // for setAttribute on line 651
           let div_id2 = '#flickr-image' + i // for jquery hack on line 654
 
           // set attributes + values
-          wrapper.setAttribute('class', 'image-container')
-          img_element.setAttribute('src', thumbnail_photo_url)
+          wrapper.setAttribute('class', 'image-container');
+          img_element.setAttribute('src', thumbnail_photo_url);
           if (original_photo_width > original_photo_height) {
-            img_element.setAttribute('class', 'thumbnail-short')
+            img_element.setAttribute('class', 'thumbnail-short');
           } else {
-            img_element.setAttribute('class', 'thumbnail-long')
+            img_element.setAttribute('class', 'thumbnail-long');
           }
-          description_div.setAttribute('id', div_id)
-          let photo_description = info.photo.description._content
+          description_div.setAttribute('id', div_id);
+          let photo_description = info.photo.description._content;
           $(document).ready(function(){
             $(div_id2).text(photo_description);               // syntax required '.'
           });
 
-          image_div.appendChild(img_element)
-          wrapper.appendChild(image_div)
-          wrapper.appendChild(description_div)
-          grid_container.appendChild(wrapper)
+          image_div.appendChild(img_element);
+          wrapper.appendChild(image_div);
+          wrapper.appendChild(description_div);
+          grid_container.appendChild(wrapper);
 
         }))
         .catch(err => {
@@ -717,16 +748,16 @@
       } // end of 'config'
       axios.get(flickr_url, config)
       .then(function (response) {                                     // then do the cool stuff
-        var data = response.data                                      // get data from api response
-        let photoset = data.photoset.photo
+        let data = response.data;                                      // get data from api response
+        let photoset = data.photoset.photo;
         if (photoset.length > 0) {
-          console.log("valid response: getArrangements API")
+          console.log("valid response: getArrangements API");
         } else {
-          console.log("error: getArrangements API")
+          console.log("error: getArrangements API");
         }
         for (let i=0; i<photoset.length; ++i) {
-            let photo_id = photoset[i].id
-            fetchURLDescArrangements(photo_id,i)
+            let photo_id = photoset[i].id;
+            fetchURLDescArrangements(photo_id,i);
         }
       })
       .catch(err => {
@@ -735,7 +766,7 @@
       })
     } // end of getArrangements
 
-    window.onload = getArrangements
+    window.onload = getArrangements;
 
     </script>
 
@@ -744,24 +775,32 @@
     	function getParameterByName(name, url) {
     	    if (!url) url = window.location.href;
     	    name = name.replace(/[\[\]]/g, "\\$&");
-    	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    	    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
     	        results = regex.exec(url);
     	    if (!results) return null;
     	    if (!results[2]) return '';
     	    return decodeURIComponent(results[2].replace(/\+/g, " "));
     	}
     	// Give the parameter a variable name
-          var v1 = getParameterByName('v1');
-          var v2 = getParameterByName('v2');
+          let v1 = getParameterByName('v1');
+          let v2 = getParameterByName('v2');
+          let v2a = getParameterByName('v2a');
+          let v3 = getParameterByName('v3');
 
     	 $(document).ready(function() {
 
     		if (v1 !== null) {
           $('#large-porch-image').attr("src", "images/IMG_0955.jpg");
     		}
-    		else if (v2 !== null) {
+        else if (v2 !== null) {
           $('#large-porch-image').attr("src", "images/IMG_0958.jpg");
     		}
+        else if (v2a !== null) {
+          $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
+    		}
+        else if (v3 !== null) {
+          $('.about-shop-image > img').css("display", "block");
+        }
     		// Check if the URL parmeter is empty or not defined, display default content
     		else {
           $('#large-porch-image').attr("src", "images/porch-store-cropped-again.jpg");
