@@ -434,7 +434,7 @@
             <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
             <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
             <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="formbutton('toggleForm');return false" class="link-underline">use the contact form</a></p>
-            <p><a href="#additional-info" class="link-underline">Additional Information About My Shop</a></p>
+            <p><a href="#additional-info" class="link-underline" onClick=”_gaq.push([‘_trackEvent’, ‘internal_links’, ‘click’, 'more_info', '0']);”>Additional Information About My Shop</a></p>
           </span>
           <span class="about-shop-image">
             <img id="about-shop-image" src="images/IMG_0958.jpg">
@@ -746,6 +746,7 @@
         if (photoset.length == 0) {
           console.log("error: getArrangements API");
         }
+        // https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
         // Returns a Promise that resolves after "ms" Milliseconds
         const timer = ms => new Promise(res => setTimeout(res, ms))
 
