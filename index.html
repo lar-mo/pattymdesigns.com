@@ -677,7 +677,6 @@
     }
 
     async function fetchURLDescArrangements(photo_id,i) {
-      
       const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)])
           // Both requests are now complete
       var data = url.data;                                      // get data from api response
