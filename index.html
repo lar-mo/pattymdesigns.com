@@ -676,62 +676,58 @@
       return axios.get(flickr_url, config);
     }
 
-    function fetchURLDescArrangements(photo_id,i) {
-      axios.all([getSizes(photo_id), getInfo(photo_id)])
-        .then(axios.spread(function (url, info) {
+    async function fetchURLDescArrangements(photo_id,i) {
+      
+      const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)])
           // Both requests are now complete
-          var data = url.data;                                      // get data from api response
-          if (data.stat !== 'ok') {
-            console.log("error: getSizes API");
-          }
-          // console.log(data)
+      var data = url.data;                                      // get data from api response
+      if (data.stat !== 'ok') {
+        console.log("error: getSizes API");
+      }
+      // console.log(data)
 
-          var info = info.data;                                      // get data from api response
-          if (data.stat !== 'ok') {
-            console.log("error: getInfo API");
-          }
-          // console.log(info)
+      var p_info = info.data;                                      // get data from api response
+      if (p_info.stat !== 'ok') {
+        console.log("error: getInfo API");
+      }
+      // console.log(info)
 
-          // *** matt's code below ***
-          let photo_size_array = data.sizes.size;
-          let thumbnail_photo_url = photo_size_array[6].source;
-          let original_photo_url = photo_size_array[photo_size_array.length-1].source;
-          let original_photo_width = photo_size_array[photo_size_array.length-1].width;
-          let original_photo_height = photo_size_array[photo_size_array.length-1].height;
+      // *** matt's code below ***
+      let photo_size_array = data.sizes.size;
+      let thumbnail_photo_url = photo_size_array[6].source;
+      let original_photo_url = photo_size_array[photo_size_array.length-1].source;
+      let original_photo_width = photo_size_array[photo_size_array.length-1].width;
+      let original_photo_height = photo_size_array[photo_size_array.length-1].height;
 
-          // create elements
-          let wrapper = document.createElement('div');
-          let image_div = document.createElement('div');
-          let img_element = document.createElement('img');
-          let description_div = document.createElement('div');
+      // create elements
+      let wrapper = document.createElement('div');
+      let image_div = document.createElement('div');
+      let img_element = document.createElement('img');
+      let description_div = document.createElement('div');
 
-          // set variables (class names)
-          let div_id = 'flickr-image' + i   // for setAttribute on line 651
-          let div_id2 = '#flickr-image' + i // for jquery hack on line 654
+      // set variables (class names)
+      let div_id = 'flickr-image' + i   // for setAttribute on line 651
+      let div_id2 = '#flickr-image' + i // for jquery hack on line 654
 
-          // set attributes + values
-          wrapper.setAttribute('class', 'image-container');
-          img_element.setAttribute('src', thumbnail_photo_url);
-          if (original_photo_width > original_photo_height) {
-            img_element.setAttribute('class', 'thumbnail-short');
-          } else {
-            img_element.setAttribute('class', 'thumbnail-long');
-          }
-          description_div.setAttribute('id', div_id);
-          let photo_description = info.photo.description._content;
-          $(document).ready(function(){
-            $(div_id2).text(photo_description);               // syntax required '.'
-          });
+      // set attributes + values
+      wrapper.setAttribute('class', 'image-container');
+      img_element.setAttribute('src', thumbnail_photo_url);
+      if (original_photo_width > original_photo_height) {
+        img_element.setAttribute('class', 'thumbnail-short');
+      } else {
+        img_element.setAttribute('class', 'thumbnail-long');
+      }
+      description_div.setAttribute('id', div_id);
+      let photo_description = p_info.photo.description._content;
+      $(document).ready(function(){
+        $(div_id2).text(photo_description);               // syntax required '.'
+      });
 
-          image_div.appendChild(img_element);
-          wrapper.appendChild(image_div);
-          wrapper.appendChild(description_div);
-          grid_container.appendChild(wrapper);
+      image_div.appendChild(img_element);
+      wrapper.appendChild(image_div);
+      wrapper.appendChild(description_div);
+      grid_container.appendChild(wrapper);
 
-        }))
-        .catch(err => {
-            console.log(err);
-        })
     } // end of fetchURLDesc
 
     function getArrangements() {
