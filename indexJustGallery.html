@@ -414,6 +414,7 @@
             <div>Small, horizontal with focal point and implied lines using branches</div>
           </div> -->
 
+          <!-- three more placeholders -->
           <!-- <div class="image-container">
             <div><img src="images/IMG_0647.jpg" class="thumbnail-long" /></div>
             <div>Tall, round and elegant</div>
@@ -448,98 +449,6 @@
           $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
         });
     </script>
-    <!-- <script type="text/javascript">
-        // Credit:
-        // https://www.w3schools.com/jquery/jquery_animate.asp
-        // https://stackoverflow.com/questions/31353418/how-to-animate-background-color-in-jqueryd
-        $("div.title_description").hover(
-          function() {
-            $(this).animate({opacity: '1.0'}, "slow");
-          },
-          function() {
-            $(this).animate({opacity: '0.8'}, "slow");
-          }
-        );
-    </script> -->
-    <!-- <script type="text/javascript">
-        // When the user scrolls down 50px from the top of the document, resize the header's font size
-      window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          document.getElementById("header").style.padding = "0px";
-        } else {
-          if (window.innerWidth > 800) {
-            document.getElementById("header").style.padding = "24px";
-          } else if (window.innerWidth > 576 && window.innerWidth < 801) {
-            document.getElementById("header").style.padding = "10px";
-          } else if (window.innerWidth > 501 && window.innerWidth < 575) {
-            document.getElementById("header").style.padding = "5px";
-          } else if (window.innerWidth < 500) {
-            document.getElementById("header").style.padding = "0px";
-          } else {
-            document.getElementById("header").style.padding = "0px";
-          }
-        }
-      }
-    </script> -->
-    <script src="https://formspree.io/js/formbutton-v1.0.4.min.js" defer></script>
-    <script type="text/javascript">
-      window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-      formbutton("create", {
-        theme: "classic",
-        title: "Contact me",
-        description: "",
-        styles: {
-          button: {
-            background: "#842242"
-          },
-          title: {
-            background: "#842242",
-            letterSpacing: "0.05em",
-            fontFamily:'"Courgette", cursive',
-          }
-        },
-          fields: [
-        {
-          name: "_subject",
-          type: "hidden",
-          label: "",
-          value: "New submission!",
-        },
-        {
-          name: "name",
-          type: "text",
-          label: "Name",
-          required: true,
-        },
-        {
-          name: "email",
-          type: "email",
-          label: "Email",
-          required: true,
-        },
-        {
-          name: "phone number",
-          type: "text",
-          label: "Phone Number",
-        },
-        {
-          name: "Message",
-          type: "textarea",
-        },
-        {
-          name: "Submit",
-          type: "submit",
-          value: "Submit Form",
-        }],
-        action: "https://formspree.io/xpzogzdn",
-      })
-    </script>
-    <!-- <script type="text/javascript">
-    function showContactPopup(){
-          $("#formbutton-button").click()
-      }
-    </script> -->
     <script type="text/javascript">
     let flickr_url = 'https://api.flickr.com/services/rest/?'
 
@@ -569,34 +478,39 @@
       return axios.get(flickr_url, config);
     }
 
+    // Source: https://github.com/axios/axios/issues/1042
+    // METHOD 1
     async function fetchURLDescArrangements(photo_id,i) {
-      console.log(`photo_id (before): ${photo_id}`);                         // photos_ids in order: True
+    //   console.log(`photo_id_${i} (before): ${photo_id}`);                         // photos_ids in order: True
+    const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)]) // Method 1
 
-      // METHOD 1
-      // Source: https://github.com/axios/axios/issues/1042
-      const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)]) // Method 1
+    // METHOD 2
+    // function fetchURLDescArrangements(photo_id,i) {
+      // console.log(`photo_id_${i} (before): ${photo_id}`);                         // photos_ids in order: True
+      // Promise.all([getSizes(photo_id), getInfo(photo_id)])
+      // .then(function ([url, info]) {
+        // Both requests are now complete
 
-      // METHOD 2
+      // METHOD 3
       // TypeScript Method (UNTESTED)
       // const [url, info] = await Promise.all<{ data: getSizes[] },  { data: getInfo[] }>([
       //   getSizes(photo_id),
       //   getInfo(photo_id),
       // ]);
 
-      // METHOD 3
+      // METHOD 4
       // axios.all([getSizes(photo_id), getInfo(photo_id)])         // UNCOMMENT THIS FOR ORIGINAL AXIOS
       //   .then(axios.spread(function (url, info) {                // UNCOMMENT THIS FOR ORIGINAL AXIOS
 
-      console.log(`photo_id (after): ${photo_id}`);     // photos_ids in order: Intermittently False
+      // console.log(`photo_id_${i} (after): ${photo_id}`);                        // photos_ids in order: Intermittently False
       // Both requests are now complete
 
       var data = url.data;                                      // get data from api response
       if (data.stat !== 'ok') {
         console.log("error: getSizes API");
       }
-      // console.log(data)
 
-      var photo_info = info.data;                                      // get data from api response
+      var photo_info = info.data;                               // get data from api response
       if (photo_info.stat !== 'ok') {
         console.log("error: getInfo API");
       }
@@ -639,12 +553,13 @@
       wrapper.appendChild(description_div);
       grid_container.appendChild(wrapper);
 
-      // UNCOMMENT BELOW THIS FOR ORIGINAL AXIOS (METHOD 3)
-        // }))
-        // .catch(err => {
-        //     console.log(err);
-        // })
-      // UNCOMMENT ABOVE THIS FOR ORIGINAL AXIOS (METHOD 3)
+    // }); // METHOD 2 END
+    // UNCOMMENT BELOW THIS FOR ORIGINAL AXIOS (METHOD 4)
+      // }))
+      // .catch(err => {
+      //     console.log(err);
+      // })
+    // UNCOMMENT ABOVE THIS FOR ORIGINAL AXIOS (METHOD 4)
     } // end of fetchURLDesc
 
     function getArrangements() {
@@ -668,11 +583,25 @@
           console.log("error: getArrangements API");
         }
         // console.log(data);                           // ids are returned in correct order
-        for (let i=0; i<photoset.length; ++i) {
+        // for (let i=0; i<photoset.length; ++i) {
+        //     let photo_id = photoset[i].id;
+        //     // console.log(`photo_id: ${photo_id}`);    // ids => fetchURLDescArrangements in correct order
+        //     fetchURLDescArrangements(photo_id,i);
+        // }
+
+        // Returns a Promise that resolves after "ms" Milliseconds
+        const timer = ms => new Promise(res => setTimeout(res, ms))
+
+        async function load () { // We need to wrap the loop into an async function for this to work
+          for (let i=0; i<photoset.length; ++i) {
             let photo_id = photoset[i].id;
             // console.log(`photo_id: ${photo_id}`);    // ids => fetchURLDescArrangements in correct order
             fetchURLDescArrangements(photo_id,i);
+            await timer(250); // then the created Promise can be awaited
+          }
         }
+        load();
+
       })
       .catch(err => {
           console.log(err);
@@ -683,42 +612,5 @@
 
     </script>
 
-    <script type="text/javascript">
-    	// Parse the URL parameter
-    	function getParameterByName(name, url) {
-    	    if (!url) url = window.location.href;
-    	    name = name.replace(/[\[\]]/g, "\\$&");
-    	    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    	        results = regex.exec(url);
-    	    if (!results) return null;
-    	    if (!results[2]) return '';
-    	    return decodeURIComponent(results[2].replace(/\+/g, " "));
-    	}
-    	// Give the parameter a variable name
-          let v1 = getParameterByName('v1');
-          let v2 = getParameterByName('v2');
-          let v2a = getParameterByName('v2a');
-          let v3 = getParameterByName('v3');
-
-    	 $(document).ready(function() {
-
-    		if (v1 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0955.jpg");
-    		}
-        else if (v2 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958.jpg");
-    		}
-        else if (v2a !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
-    		}
-        else if (v3 !== null) {
-          $('.about-shop-image > img').css("display", "block");
-        }
-    		// Check if the URL parmeter is empty or not defined, display default content
-    		else {
-          $('#large-porch-image').attr("src", "images/porch-store-cropped-again.jpg");
-    		}
-    	});
-    </script>
   </body>
 </html>
