@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <title>Patty M Designs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
+    <script src=".env/api_keys.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style media="screen" type="text/css">
+
+      html, body {
+        background-image: url('images/hero2.png');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        font-family: 'Raleway', sans-serif;
+      }
+
+      #container {
+        height: calc(var(--vh, 1vh) * 100);
+        display: flex;
+        flex-direction: column;
+      }
+
+      #header {
+        background-color: rgba(81,81,81,0.7);
+        position: fixed;
+        width: 100%;
+        top: 0px;
+        color: #fff;
+        padding: 24px;
+        z-index: 999;
+        box-shadow:           3px 3px 5px 0 rgba(25,25,25,0.4);
+        -moz-box-shadow:      3px 3px 5px 0 rgba(25,25,25,0.4);
+        -webkit-box-shadow:   3px 3px 5px 0 rgba(25,25,25,0.4);
+        transition: 0.2s;
+      }
+
+      .header-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: auto;
+      }
+
+      .header-links > div {
+        padding: 0 20px;
+      }
+
+      #header-logo {
+        font-size: 36px;
+      }
+
+      .hero {
+        height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+        height: calc(var(--vh, 1vh) * 100);
+      }
+
+      .hero-text {
+        font-family: 'Courgette', cursive;
+        color: #fff;
+        text-shadow: 2px 2px 4px #000000;
+        /* padding: 325px 20px; */
+        padding-top: calc(100vh * 2/5);
+        padding-bottom: calc(100vh * 3/5);
+        width: 100%;
+      }
+
+      .hero-title {
+        font-size: 60px;
+      }
+
+      .hero-subtitle {
+        font-size: 25px;
+      }
+
+      .center-text {
+        text-align: center;
+      }
+
+      h1, h3 {
+        font-family: 'Courgette', cursive;
+      }
+
+      a:link {
+        text-decoration: none;
+      }
+
+      a.link-underline {
+        text-decoration: underline;
+      }
+
+      a.link-underline:hover,
+      a.link-underline:visited,
+      a.link-underline:active {
+        text-decoration: underline;
+      }
+
+      a:hover, a:visited, a:active {
+        text-decoration: overline;
+      }
+
+      .large-image {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        /* margin: auto; */
+        width: 100%;
+        background-color: rgba(81,81,81,0.75);
+      }
+
+      .large-image-text {
+        width: 35%;
+        padding: 45px;
+        color: #fff;
+      }
+
+      #large-porch-image {
+        width: calc(100vw * 0.65);
+      }
+
+      .email-link {
+        color: pink;
+        text-decoration: none;
+      }
+
+      .container-padding {
+        padding: 75px 250px;
+      }
+
+      .about-shop {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        /* padding: 40px; */
+      }
+
+      .about-shop > div {
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: flex-start;
+        /* padding: 40px; */
+        /* margin: 10px; */
+      }
+
+      .about-shop-text {
+        /* vertical-align: top; */
+      }
+
+      .about-shop-image > img {
+        width: 250px;
+        /* visibility: hidden; */
+        display: none;
+      }
+
+      .about-me {
+        background-color: rgba(81,81,81,0.75);
+        width: 100vw;
+        color: #fff;
+      }
+
+      .about-me-heading {
+        text-decoration: underline;
+        font-weight: bold;
+      }
+
+      .about-me > div {
+        padding: 20px 0;
+      }
+
+      .text-slant {
+        font-style: italic;
+      }
+
+      .portfolio-grid {
+        background-color: #fff;
+      }
+
+      #grid_container {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 50px;
+      }
+
+      .thumbnail-short {
+        width: 275px;
+        height: 207px;
+        border-radius: 6px;
+      }
+
+      .thumbnail-long {
+        width: 275px;
+        height: 366px;
+        border-radius: 6px;
+      }
+
+      .image-container div:last-child {
+        width: 275px;
+        margin: 10px;
+        padding-bottom: 40px;
+      }
+
+      .desc-container {
+        width: 275px;
+        margin: 10px;
+        padding-bottom: 40px;
+      }
+
+      .additional-info {
+        background-color: rgba(81,81,81,0.75);
+        color: #fff;
+      }
+
+      .footer {
+        background-color: #515151;
+        color: #fff;
+        padding: 10px;
+        width: 100vw;
+        box-shadow:           3px 3px 5px 4px rgba(25,25,25,0.4);
+        -moz-box-shadow:      3px 3px 5px 4px rgba(25,25,25,0.4);
+        -webkit-box-shadow:   3px 3px 5px 4px rgba(25,25,25,0.4);
+      }
+
+      .footer-links {
+        font-size: 0.8em;
+        padding-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-links-container {
+        text-align: left;
+      }
+
+      @media all and (max-width: 1024px) {
+        .hero-text {
+          padding: calc(100vh/2 - 50px) 20px;
+        }
+        .container-padding {
+          padding: 75px 100px;
+        }
+        .thumbnail-short {
+          width: 245px;
+          height: 184.4px;
+        }
+        .thumbnail-long {
+          width: 245px;
+          height: 326.1px;
+        }
+        .image-container > div {
+          width: 245px;
+          margin: 8px;
+          padding: 17px;
+        }
+      }
+
+      @media all and (max-width: 800px) {
+        body {
+          font-size: 0.82em;
+        }
+        h1 {
+          font-size: 2.1em;
+        }
+        #header {
+          padding: 10px;
+        }
+        .header-links {
+          font-size: 0.9em;
+        }
+        .container-padding {
+          padding: 75px 120px;
+        }
+        .large-image-text {
+          width: 80%;
+          padding: 45px;
+          color: #fff;
+        }
+        .large-image-img > img {
+          width: 500px;
+        }
+      }
+      @media all and (max-width: 575px) {
+        body {
+          font-size: 0.82em;
+        }
+        h1 {
+          font-size: 2.1em;
+        }
+        #header {
+          padding: 5px;
+        }
+        #header-logo {
+          font-size: 30px;
+        }
+        .header-links {
+          font-size: 0.75em;
+        }
+        .header-links > div {
+          padding: 0 15px;
+        }
+        .hero-title {
+          font-size: 45px;
+        }
+        .hero-subtitle {
+          font-size: 20px;
+        }
+        .container-padding {
+          padding: 70px 90px;
+        }
+        .large-image {
+          flex-direction: column;
+        }
+        .large-image-text {
+          width: 99%;
+          padding: 45px;
+          color: #fff;
+        }
+        .large-image-img > img {
+          width: auto;
+        }
+      }
+      @media all and (max-width: 500px) {
+        #header {
+          padding: 0px;
+        }
+        #header-logo {
+          font-size: 26px;
+        }
+        .header-links {
+          font-size: 0.6em;
+        }
+        .hero-title {
+          font-size: 40px;
+        }
+        .hero-subtitle {
+          font-size: 15px;
+        }
+        .container-padding {
+          padding: 60px 75px;
+        }
+        .large-image {
+          flex-direction: column;
+        }
+        .large-image-text {
+          width: 99%;
+          padding: 45px;
+          color: #fff;
+        }
+        #large-porch-image {
+          width: 100vw;
+        }
+      }
+      .carousel-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        /* align-items: flex-start; */
+      }
+      .carousel-iframe {
+        width: calc(100vw - 120px);
+        height: 250px;
+        /* text-align: center; */
+        border: none;
+      }
+     </style>
+  </head>
+  <body>
+    <div id="container">
+
+      <a name="portfolio"></a>
+      <div class="portfolio-grid container-padding">
+        <h1>A Few Design Styles</h1>
+        <p>Here are a few designs for you to think about and there are many more styles we can explore. Plant materials can be interchanged. For example, chrysanthemums or carnations can be used instead of roses.</p>
+        <p>The containers in the photos might not be available. We can always work with similar containers or we can use one of your personal favorites. That's always fun.</p>
+        <div id="grid_container">
+
+          <!-- Uncomment to have three placeholders, in case API fails. -->
+          <!-- Currently only catching errors => console.log            -->
+
+          <!-- <div class="image-container">
+            <div><img src="images/IMG_0889.jpg" class="thumbnail-short" /></div>
+            <div>An asymmetrical triangle with implied lines using branches</div>
+          </div>
+
+          <div class="image-container">
+            <div><img src="images/IMG_0668.jpg" class="thumbnail-short" /></div>
+            <div>A round symmetrical mix of spring flowers in a basket</div>
+          </div>
+
+          <div class="image-container">
+            <div><img src="images/IMG_0903.jpg" class="thumbnail-short" /></div>
+            <div>Small, horizontal with focal point and implied lines using branches</div>
+          </div> -->
+
+          <!-- <div class="image-container">
+            <div><img src="images/IMG_0647.jpg" class="thumbnail-long" /></div>
+            <div>Tall, round and elegant</div>
+          </div>
+
+          <div class="image-container">
+            <div><img src="images/IMG_0637.jpg" class="thumbnail-long" /></div>
+            <div>A small triangle of sequenced plant material</div>
+          </div>
+
+          <div class="image-container">
+            <div><img src="images/IMG_0891.jpg" class="thumbnail-long" /></div>
+            <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
+          </div> -->
+
+        </div>
+
+        <h3>Samples of Containers</h3>
+        <div class="carousel-container">
+          <iframe class="carousel-iframe" src="available-containers.html"></iframe>
+        </div>
+
+      </div> <!-- end portfolio-grid div -->
+
+
+    </div> <!-- end container div  (opening tag just below <body>)-->
+    <script type="text/javascript">
+        // Credit:
+        // https://codepen.io/nickcil/pen/sfutl
+        // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
+        $(window).scroll(function(){
+          $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
+        });
+    </script>
+    <!-- <script type="text/javascript">
+        // Credit:
+        // https://www.w3schools.com/jquery/jquery_animate.asp
+        // https://stackoverflow.com/questions/31353418/how-to-animate-background-color-in-jqueryd
+        $("div.title_description").hover(
+          function() {
+            $(this).animate({opacity: '1.0'}, "slow");
+          },
+          function() {
+            $(this).animate({opacity: '0.8'}, "slow");
+          }
+        );
+    </script> -->
+    <!-- <script type="text/javascript">
+        // When the user scrolls down 50px from the top of the document, resize the header's font size
+      window.onscroll = function() {scrollFunction()};
+        function scrollFunction() {
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+          document.getElementById("header").style.padding = "0px";
+        } else {
+          if (window.innerWidth > 800) {
+            document.getElementById("header").style.padding = "24px";
+          } else if (window.innerWidth > 576 && window.innerWidth < 801) {
+            document.getElementById("header").style.padding = "10px";
+          } else if (window.innerWidth > 501 && window.innerWidth < 575) {
+            document.getElementById("header").style.padding = "5px";
+          } else if (window.innerWidth < 500) {
+            document.getElementById("header").style.padding = "0px";
+          } else {
+            document.getElementById("header").style.padding = "0px";
+          }
+        }
+      }
+    </script> -->
+    <script src="https://formspree.io/js/formbutton-v1.0.4.min.js" defer></script>
+    <script type="text/javascript">
+      window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+      formbutton("create", {
+        theme: "classic",
+        title: "Contact me",
+        description: "",
+        styles: {
+          button: {
+            background: "#842242"
+          },
+          title: {
+            background: "#842242",
+            letterSpacing: "0.05em",
+            fontFamily:'"Courgette", cursive',
+          }
+        },
+          fields: [
+        {
+          name: "_subject",
+          type: "hidden",
+          label: "",
+          value: "New submission!",
+        },
+        {
+          name: "name",
+          type: "text",
+          label: "Name",
+          required: true,
+        },
+        {
+          name: "email",
+          type: "email",
+          label: "Email",
+          required: true,
+        },
+        {
+          name: "phone number",
+          type: "text",
+          label: "Phone Number",
+        },
+        {
+          name: "Message",
+          type: "textarea",
+        },
+        {
+          name: "Submit",
+          type: "submit",
+          value: "Submit Form",
+        }],
+        action: "https://formspree.io/xpzogzdn",
+      })
+    </script>
+    <!-- <script type="text/javascript">
+    function showContactPopup(){
+          $("#formbutton-button").click()
+      }
+    </script> -->
+    <script type="text/javascript">
+    let flickr_url = 'https://api.flickr.com/services/rest/?'
+
+    function getSizes(photo_id) {
+      let config = {
+        params: {
+          method: 'flickr.photos.getSizes',
+          photo_id: photo_id,
+          api_key: flickr_api_key,
+          format: 'json',
+          nojsoncallback: 1
+        }, // end of 'params'
+      } // end of 'config'
+      return axios.get(flickr_url, config);
+    }
+
+    function getInfo(photo_id) {
+      let config = {
+        params: {
+          method: 'flickr.photos.getInfo',
+          photo_id: photo_id,
+          api_key: flickr_api_key,
+          format: 'json',
+          nojsoncallback: 1
+        }, // end of 'params'
+      } // end of 'config'
+      return axios.get(flickr_url, config);
+    }
+
+    async function fetchURLDescArrangements(photo_id,i) {
+      console.log(`photo_id (before): ${photo_id}`);                         // photos_ids in order: True
+
+      // METHOD 1
+      // Source: https://github.com/axios/axios/issues/1042
+      const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)]) // Method 1
+
+      // METHOD 2
+      // TypeScript Method (UNTESTED)
+      // const [url, info] = await Promise.all<{ data: Category[] },  { data: Manufacturer[] }>([
+      //   getSizes(photo_id),
+      //   getInfo(photo_id),
+      // ]);
+
+      // METHOD 3
+      // axios.all([getSizes(photo_id), getInfo(photo_id)])         // UNCOMMENT THIS FOR ORIGINAL AXIOS
+      //   .then(axios.spread(function (url, info) {                // UNCOMMENT THIS FOR ORIGINAL AXIOS
+
+          console.log(`photo_id (after): ${photo_id}`);     // photos_ids in order: Intermittently False
+          // Both requests are now complete
+
+          var data = url.data;                                      // get data from api response
+          if (data.stat !== 'ok') {
+            console.log("error: getSizes API");
+          }
+          // console.log(data)
+
+          var photo_info = info.data;                                      // get data from api response
+          if (photo_info.stat !== 'ok') {
+            console.log("error: getInfo API");
+          }
+          // console.log(info)
+          // console.log(`photo_id: ${photo_id}`)
+
+          // *** matt's code below ***
+          let photo_size_array = data.sizes.size;
+          let thumbnail_photo_url = photo_size_array[6].source;
+          let original_photo_url = photo_size_array[photo_size_array.length-1].source;
+          let original_photo_width = photo_size_array[photo_size_array.length-1].width;
+          let original_photo_height = photo_size_array[photo_size_array.length-1].height;
+
+          // create elements
+          let wrapper = document.createElement('div');
+          let image_div = document.createElement('div');
+          let img_element = document.createElement('img');
+          let description_div = document.createElement('div');
+
+          // set variables (class names)
+          let div_id = 'flickr-image' + i   // for setAttribute on line 651
+          let div_id2 = '#flickr-image' + i // for jquery hack on line 654
+
+          // set attributes + values
+          wrapper.setAttribute('class', 'image-container');
+          img_element.setAttribute('src', thumbnail_photo_url);
+          if (original_photo_width > original_photo_height) {
+            img_element.setAttribute('class', 'thumbnail-short');
+          } else {
+            img_element.setAttribute('class', 'thumbnail-long');
+          }
+          description_div.setAttribute('id', div_id);
+          let photo_description = photo_info.photo.description._content;
+          $(document).ready(function(){
+            $(div_id2).text(photo_description);               // syntax required '.' or '#' (see line 607)
+          });
+
+          image_div.appendChild(img_element);
+          wrapper.appendChild(image_div);
+          wrapper.appendChild(description_div);
+          grid_container.appendChild(wrapper);
+
+          // UNCOMMENT BELOW THIS FOR ORIGINAL AXIOS (METHOD 3)
+            // }))
+            // .catch(err => {
+            //     console.log(err);
+            // })
+          // UNCOMMENT ABOVE THIS FOR ORIGINAL AXIOS (METHOD 3)
+    } // end of fetchURLDesc
+
+    function getArrangements() {
+      // 72157718545940976 - PattyM Designs Flowers
+      let config = {
+        params: {
+          method: 'flickr.photosets.getPhotos',
+          user_id: '67858665@N00',
+          photoset_id: '72157718545940976',
+          api_key: flickr_api_key,
+          format: 'json',
+          nojsoncallback: 1,
+          extras: 'date_upload',
+        }, // end of 'params'
+      } // end of 'config'
+      axios.get(flickr_url, config)
+      .then(function (response) {                                     // then do the cool stuff
+        let data = response.data;                                      // get data from api response
+        let photoset = data.photoset.photo;
+        if (photoset.length == 0) {
+          console.log("error: getArrangements API");
+        }
+        // console.log(data);                           // ids are returned in correct order
+        for (let i=0; i<photoset.length; ++i) {
+            let photo_id = photoset[i].id;
+            // console.log(`photo_id: ${photo_id}`);    // ids => fetchURLDescArrangements in correct order
+            fetchURLDescArrangements(photo_id,i);
+        }
+      })
+      .catch(err => {
+          console.log(err);
+      })
+    } // end of getArrangements
+
+    window.onload = getArrangements;
+
+    </script>
+
+    <script type="text/javascript">
+    	// Parse the URL parameter
+    	function getParameterByName(name, url) {
+    	    if (!url) url = window.location.href;
+    	    name = name.replace(/[\[\]]/g, "\\$&");
+    	    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    	        results = regex.exec(url);
+    	    if (!results) return null;
+    	    if (!results[2]) return '';
+    	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    	}
+    	// Give the parameter a variable name
+          let v1 = getParameterByName('v1');
+          let v2 = getParameterByName('v2');
+          let v2a = getParameterByName('v2a');
+          let v3 = getParameterByName('v3');
+
+    	 $(document).ready(function() {
+
+    		if (v1 !== null) {
+          $('#large-porch-image').attr("src", "images/IMG_0955.jpg");
+    		}
+        else if (v2 !== null) {
+          $('#large-porch-image').attr("src", "images/IMG_0958.jpg");
+    		}
+        else if (v2a !== null) {
+          $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
+    		}
+        else if (v3 !== null) {
+          $('.about-shop-image > img').css("display", "block");
+        }
+    		// Check if the URL parmeter is empty or not defined, display default content
+    		else {
+          $('#large-porch-image').attr("src", "images/porch-store-cropped-again.jpg");
+    		}
+    	});
+    </script>
+  </body>
+</html>
