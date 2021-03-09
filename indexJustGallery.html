@@ -4,11 +4,6 @@
     <meta charset="utf-8">
     <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <meta property="og:title" content="Patty M Floral Designs - Custom floral arrangements for you or someone special">
-    <meta property="og:image" content="https://pattymdesigns.com/images/IMG_0955.jpg">
-    <meta property="og:description" content="My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.">
-    <meta property="og:url" content="https://www.pattymdesigns.com/">
-    <meta property="og:type" content="website">
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -17,21 +12,21 @@
     <script src=".env/api_keys.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style media="screen" type="text/css">
 
       html, body {
         background-image: url('images/hero2.png');
         background-attachment: fixed;
-        background-repeat: repeat;
+        background-repeat: no-repeat;
         background-size: cover;
-        background-position: top, center;
+        background-position: top;
         box-sizing: border-box;
         margin: 0;
         padding: 0;
-        width: 100vw;
-        height: 100vh;
+        width: 100%;
+        height: 100%;
         font-family: 'Raleway', sans-serif;
       }
 
@@ -79,6 +74,7 @@
         font-family: 'Courgette', cursive;
         color: #fff;
         text-shadow: 2px 2px 4px #000000;
+        /* padding: 325px 20px; */
         padding-top: calc(100vh * 2/5);
         padding-bottom: calc(100vh * 3/5);
         width: 100%;
@@ -122,6 +118,7 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        /* margin: auto; */
         width: 100%;
         background-color: rgba(81,81,81,0.75);
       }
@@ -134,10 +131,6 @@
 
       #large-porch-image {
         width: calc(100vw * 0.65);
-      }
-
-      .emphasis {
-        font-weight: 700;
       }
 
       .email-link {
@@ -154,6 +147,7 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
+        /* padding: 40px; */
       }
 
       .about-shop > div {
@@ -161,7 +155,13 @@
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        justify-content: center;
+        justify-content: flex-start;
+        /* padding: 40px; */
+        /* margin: 10px; */
+      }
+
+      .about-shop-text {
+        /* vertical-align: top; */
       }
 
       .about-shop-image > img {
@@ -254,12 +254,6 @@
       }
 
       @media all and (max-width: 1024px) {
-        html, body {
-          background-attachment: inherit;
-        }
-        .large-image {
-          background-color: #515151;
-        }
         .hero-text {
           padding: calc(100vh/2 - 50px) 20px;
         }
@@ -394,73 +388,6 @@
   </head>
   <body>
     <div id="container">
-      <div id="header">
-        <div class="header-links">
-          <div id="header-logo">💐</div>
-          <div><a href="#about-shop">About the Shop</a></div>
-          <div><a href="#about-me">About Me</a></div>
-          <div><a href="#portfolio">Floral Design</a></div>
-          <div><a href="#" onclick="formbutton('toggleForm');return false">Contact</a></div>
-        </div>
-      </div>
-
-      <div class="hero">
-        <div class="hero-text">
-          <div class="hero-title center-text">Patty M Designs</div>
-          <div class="hero-subtitle center-text">Custom floral arrangements for you or someone special</div>
-        </div>
-      </div> <!-- end hero div -->
-
-      <div class="large-image">
-        <div class="large-image-text">
-          <h1>Floral Shop on NE 23rd</h1>
-          <h4>4834 NE 23rd Ave, steps from Alberta St.<br>(503)&nbsp;293-8035</h4>
-          <p><span class="emphasis">HOURS</span><br>Thursday – Saturday 10:00 – 4:00<br>Sunday 11:00 – 3:00</p>
-          <p><a href="#" onclick="formbutton('toggleForm');return false" class="link-underline"><b>Send a request</b></a> for information by email and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
-          <p><b>An appointment is preferred</b> during these times of COVID-19 but if you knock on the door during my open hours I'll come to the door and we can talk outside on my porch wearing masks. I would love to meet you.</p>
-        </div>
-        <div class="large-image-img">
-          <!-- <img src="images/IMG_0955.jpg" id="large-porch-image"> -->
-          <!-- <img src="images/IMG_0958.jpg" id="large-porch-image"> -->
-          <img src="images/porch-store-cropped-again.jpg" id="large-porch-image">
-        </div>
-      </div> <!-- end large-image div -->
-
-      <a name="about-shop"></a>
-      <div class="about-shop container-padding">
-        <h1>About the Floral Shop</h1>
-        <div>
-          <span class="about-shop-text">
-            <p>Yes, I live here. My home is my studio and flower shop where I design and create custom arrangements for you and for your special occasions. I welcome all inquiries with a smile.</p>
-            <p>I buy my plant materials from suppliers and from local stores when I see beautiful foliage and flowers that I can't resist.</p>
-            <p>Contact me: pattymdesigns@yahoo.com or <a href="#" onclick="formbutton('toggleForm');return false" class="link-underline">use the contact form</a></p>
-            <p><a href="#additional-info" class="link-underline">Additional Information About My Shop</a></p>
-          </span>
-          <span class="about-shop-image">
-            <img id="about-shop-image" src="images/IMG_0958.jpg">
-          </span>
-        </div>
-      </div> <!-- end about-shop div -->
-
-      <a name="about-me"></a>
-      <div class="about-me container-padding">
-        <h1>About me</h1>
-        <p>
-          Incidental to my shop but equally important to me...
-          <br><span class="text-slant">I have been a painter for many years and I especially love painting sunflowers</span>
-        </p>
-        <div>
-          <div class="about-me-heading">My credentials</div>
-          <div>BA degree in Education from San Diego State University</div>
-          <div>BA degree in Art Practices from Portland State University</div>
-        </div>
-        <div>
-          <div class="about-me-heading">Most Important Workshops for Me</div>
-          <div>Plein Air painting in Tuscany with Sam D'Ambruoso</div>
-          <div>Printmaking in Guanajuato MX with Mandee Schroer</div>
-          <div>Intensive Course at Floral Design Institute</div>
-        </div>
-      </div> <!-- end about-me div -->
 
       <a name="portfolio"></a>
       <div class="portfolio-grid container-padding">
@@ -487,6 +414,7 @@
             <div>Small, horizontal with focal point and implied lines using branches</div>
           </div> -->
 
+          <!-- three more placeholders -->
           <!-- <div class="image-container">
             <div><img src="images/IMG_0647.jpg" class="thumbnail-long" /></div>
             <div>Tall, round and elegant</div>
@@ -506,45 +434,11 @@
 
         <h3>Samples of Containers</h3>
         <div class="carousel-container">
-          <iframe class="carousel-iframe" src="available-containers.html" sandbox="allow-scripts allow-same-origin"></iframe>
+          <iframe class="carousel-iframe" src="available-containers.html"></iframe>
         </div>
 
       </div> <!-- end portfolio-grid div -->
 
-      <a name="additional-info"></a>
-      <div class="additional-info container-padding">
-        <h1>Additional Information</h1>
-        <p><span class="emphasis">Pricing</span> depends on plant material selected and where I can make the purchase at the best price. I will always do the best I can for your situation.</p>
-        <p><span class="emphasis">Delivery and pick up</span>
-          <br>I am a small part-time and local shop so I only take orders within Portland.</p>
-        <p>No charge if you pick up from my shop. There is a $10 delivery charge if I deliver within 5 miles from my shop.</p>
-        <p>I will need to use a delivery service outside of my five mile limit and that charge will be passed on to you.</p>
-      </div> <!-- end additional-info div -->
-
-      <div class="footer">
-        <div class="center-text">&copy; 2021 Patty McMahan | All Rights Reserved.</div>
-        <span class="footer-links">
-          <div class="footer-links-container">
-            <div>
-              <span>Email:</span>
-              <span><a href="mailto:pattymdesigns@yahoo.com">pattymdesigns@yahoo.com</a></span>
-            </div>
-            <div>
-              <span>Address:</span>
-              <span>4834 NE 23rd Ave, Portland, Ore.</span>
-            </div>
-            <div>
-              <span>Phone:</span>
-              <span>(503)&nbsp;293-8035</span>
-            </div>
-            <div>
-              <span><a href="#privacy" onClick="return false">Privacy</a></span>
-              <span>|</span>
-              <span><a href="https://www.instagram.com/pattym_designs/" target="_blank">Instagram</a></span>
-            </div>
-          </span>
-        </div>
-      </div> <!-- end footer div -->
 
     </div> <!-- end container div  (opening tag just below <body>)-->
     <script type="text/javascript">
@@ -555,95 +449,6 @@
           $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
         });
     </script>
-    <script type="text/javascript">
-        // Credit:
-        // https://www.w3schools.com/jquery/jquery_animate.asp
-        // https://stackoverflow.com/questions/31353418/how-to-animate-background-color-in-jqueryd
-        $("div.title_description").hover(
-          function() {
-            $(this).animate({opacity: '1.0'}, "slow");
-          },
-          function() {
-            $(this).animate({opacity: '0.8'}, "slow");
-          }
-        );
-    </script>
-    <script type="text/javascript">
-        // When the user scrolls down 50px from the top of the document, resize the header's font size
-      window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          document.getElementById("header").style.padding = "0px";
-        } else {
-          if (window.innerWidth > 800) {
-            document.getElementById("header").style.padding = "24px";
-          } else if (window.innerWidth > 576 && window.innerWidth < 801) {
-            document.getElementById("header").style.padding = "10px";
-          } else if (window.innerWidth > 501 && window.innerWidth < 575) {
-            document.getElementById("header").style.padding = "5px";
-          } else if (window.innerWidth < 500) {
-            document.getElementById("header").style.padding = "0px";
-          } else {
-            document.getElementById("header").style.padding = "0px";
-          }
-        }
-      }
-    </script>
-    
-    <script src="https://formspree.io/js/formbutton-v1.0.4.min.js" defer></script>
-    <script type="text/javascript">
-      window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-      formbutton("create", {
-        theme: "classic",
-        title: "Contact me",
-        description: "",
-        styles: {
-          button: {
-            background: "#842242"
-          },
-          title: {
-            background: "#842242",
-            letterSpacing: "0.05em",
-            fontFamily:'"Courgette", cursive',
-          }
-        },
-          fields: [
-        {
-          name: "_subject",
-          type: "hidden",
-          label: "",
-          value: "New submission!",
-        },
-        {
-          name: "name",
-          type: "text",
-          label: "Name",
-          required: true,
-        },
-        {
-          name: "email",
-          type: "email",
-          label: "Email",
-          required: true,
-        },
-        {
-          name: "phone number",
-          type: "text",
-          label: "Phone Number",
-        },
-        {
-          name: "Message",
-          type: "textarea",
-        },
-        {
-          name: "Submit",
-          type: "submit",
-          value: "Submit Form",
-        }],
-        action: "https://formspree.io/xpzogzdn",
-      })
-    </script>
-
     <script type="text/javascript">
     let flickr_url = 'https://api.flickr.com/services/rest/?'
 
@@ -673,20 +478,44 @@
       return axios.get(flickr_url, config);
     }
 
+    // Source: https://github.com/axios/axios/issues/1042
+    // METHOD 1
     async function fetchURLDescArrangements(photo_id,i) {
-      const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)])
-          // Both requests are now complete
+    //   console.log(`photo_id_${i} (before): ${photo_id}`);                         // photos_ids in order: True
+    const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)]) // Method 1
+
+    // METHOD 2
+    // function fetchURLDescArrangements(photo_id,i) {
+      // console.log(`photo_id_${i} (before): ${photo_id}`);                         // photos_ids in order: True
+      // Promise.all([getSizes(photo_id), getInfo(photo_id)])
+      // .then(function ([url, info]) {
+        // Both requests are now complete
+
+      // METHOD 3
+      // TypeScript Method (UNTESTED)
+      // const [url, info] = await Promise.all<{ data: getSizes[] },  { data: getInfo[] }>([
+      //   getSizes(photo_id),
+      //   getInfo(photo_id),
+      // ]);
+
+      // METHOD 4
+      // axios.all([getSizes(photo_id), getInfo(photo_id)])         // UNCOMMENT THIS FOR ORIGINAL AXIOS
+      //   .then(axios.spread(function (url, info) {                // UNCOMMENT THIS FOR ORIGINAL AXIOS
+
+      // console.log(`photo_id_${i} (after): ${photo_id}`);                        // photos_ids in order: Intermittently False
+      // Both requests are now complete
+
       var data = url.data;                                      // get data from api response
       if (data.stat !== 'ok') {
         console.log("error: getSizes API");
       }
-      // console.log(data)
 
-      var p_info = info.data;                                      // get data from api response
-      if (p_info.stat !== 'ok') {
+      var photo_info = info.data;                               // get data from api response
+      if (photo_info.stat !== 'ok') {
         console.log("error: getInfo API");
       }
       // console.log(info)
+      // console.log(`photo_id: ${photo_id}`)
 
       // *** matt's code below ***
       let photo_size_array = data.sizes.size;
@@ -714,9 +543,9 @@
         img_element.setAttribute('class', 'thumbnail-long');
       }
       description_div.setAttribute('id', div_id);
-      let photo_description = p_info.photo.description._content;
+      let photo_description = photo_info.photo.description._content;
       $(document).ready(function(){
-        $(div_id2).text(photo_description);               // syntax required '.'
+        $(div_id2).text(photo_description);               // syntax required '.' or '#' (see line 607)
       });
 
       image_div.appendChild(img_element);
@@ -724,6 +553,13 @@
       wrapper.appendChild(description_div);
       grid_container.appendChild(wrapper);
 
+    // }); // METHOD 2 END
+    // UNCOMMENT BELOW THIS FOR ORIGINAL AXIOS (METHOD 4)
+      // }))
+      // .catch(err => {
+      //     console.log(err);
+      // })
+    // UNCOMMENT ABOVE THIS FOR ORIGINAL AXIOS (METHOD 4)
     } // end of fetchURLDesc
 
     function getArrangements() {
@@ -746,10 +582,26 @@
         if (photoset.length == 0) {
           console.log("error: getArrangements API");
         }
-        for (let i=0; i<photoset.length; ++i) {
+        // console.log(data);                           // ids are returned in correct order
+        // for (let i=0; i<photoset.length; ++i) {
+        //     let photo_id = photoset[i].id;
+        //     // console.log(`photo_id: ${photo_id}`);    // ids => fetchURLDescArrangements in correct order
+        //     fetchURLDescArrangements(photo_id,i);
+        // }
+
+        // Returns a Promise that resolves after "ms" Milliseconds
+        const timer = ms => new Promise(res => setTimeout(res, ms))
+
+        async function load () { // We need to wrap the loop into an async function for this to work
+          for (let i=0; i<photoset.length; ++i) {
             let photo_id = photoset[i].id;
+            // console.log(`photo_id: ${photo_id}`);    // ids => fetchURLDescArrangements in correct order
             fetchURLDescArrangements(photo_id,i);
+            await timer(250); // then the created Promise can be awaited
+          }
         }
+        load();
+
       })
       .catch(err => {
           console.log(err);
@@ -760,51 +612,5 @@
 
     </script>
 
-    <script type="text/javascript">
-    	// Parse the URL parameter
-    	function getParameterByName(name, url) {
-    	    if (!url) url = window.location.href;
-    	    name = name.replace(/[\[\]]/g, "\\$&");
-    	    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    	        results = regex.exec(url);
-    	    if (!results) return null;
-    	    if (!results[2]) return '';
-    	    return decodeURIComponent(results[2].replace(/\+/g, " "));
-    	}
-    	// Give the parameter a variable name
-          let v1 = getParameterByName('v1');
-          let v2 = getParameterByName('v2');
-          let v2a = getParameterByName('v2a');
-          let v3 = getParameterByName('v3');
-
-    	 $(document).ready(function() {
-
-    		if (v1 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0955.jpg");
-    		}
-        else if (v2 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958.jpg");
-    		}
-        else if (v2a !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
-    		}
-        else if (v3 !== null) {
-          $('.about-shop-image > img').css("display", "block");
-        }
-    		// Check if the URL parmeter is empty or not defined, display default content
-    		else {
-          $('#large-porch-image').attr("src", "images/porch-store-cropped-again.jpg");
-    		}
-    	});
-    </script>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DRTPQWZ4QZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-DRTPQWZ4QZ');
-    </script>
   </body>
 </html>
