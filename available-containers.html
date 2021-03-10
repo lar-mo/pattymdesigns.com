@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,6 +95,7 @@
     </div> <!-- end of swiper-wrapper -->
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
+
   </div> <!-- end of swiper-container -->
 
 <!-- Swiper JS -->
@@ -188,20 +190,19 @@
 
         // create elements
         let wrapper = document.createElement('div');
-        wrapper.setAttribute('class', 'swiper-slide');
-
+        let description_div = document.createElement('div');
         let image_div = document.createElement('div');
         let img_element = document.createElement('img');
-        img_element.setAttribute('src', thumbnail_photo_url);
 
-        let description_div = document.createElement('div');
+        let photo_title = info.photo.title._content;
         let div_id = 'flickr-image-container' + i;   // for setAttribute on line 217
         let div_id2 = '#flickr-image-container' + i; // for jquery hack on line 225
 
+        wrapper.setAttribute('class', 'swiper-slide');
+        img_element.setAttribute('src', thumbnail_photo_url);
+        img_element.setAttribute('alt', photo_title)
         description_div.setAttribute('id', div_id);
         description_div.setAttribute('class', 'container-text');
-
-        let photo_title = info.photo.title._content;
 
         // console.log(`photo_title: ${photo_title}`)
         // let photo_description = info.photo.description._content
