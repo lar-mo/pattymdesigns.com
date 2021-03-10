@@ -51,6 +51,7 @@
         background-color: rgba(81,81,81,0.7);
         position: fixed;
         width: 100%;
+        min-width: 384px;
         top: 0px;
         color: #fff;
         padding: 24px;
@@ -297,6 +298,10 @@
         }
         .header-links {
           font-size: 0.9em;
+          justify-content: space-around;
+        }
+        .header-links > div {
+          padding: 0 10px;
         }
         .container-padding {
           padding: 75px 120px;
@@ -324,10 +329,11 @@
           font-size: 30px;
         }
         .header-links {
-          font-size: 0.75em;
+          font-size: 1.0em;
+          justify-content: space-around;
         }
         .header-links > div {
-          padding: 0 15px;
+          padding: 0 10px;
         }
         .hero-title {
           font-size: 45px;
@@ -356,9 +362,6 @@
         }
         #header-logo {
           font-size: 20px;
-        }
-        .header-links {
-          font-size: 0.6em;
         }
         .hero-title {
           font-size: 40px;
