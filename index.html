@@ -89,20 +89,30 @@
       <a name="about-me"></a>
       <div class="about-me container-padding">
         <h1>About me</h1>
-        <p>
-          Incidental to my shop but equally important to me...
-          <br><span class="text-slant">I have been a painter for many years and I especially love painting sunflowers</span>
-        </p>
-        <div>
-          <div class="about-me-heading">My credentials</div>
-          <div>BA degree in Education from San Diego State University</div>
-          <div>BA degree in Art Practices from Portland State University</div>
-        </div>
-        <div>
-          <div class="about-me-heading">Most Important Workshops for Me</div>
-          <div>Plein Air painting in Tuscany with Sam D'Ambruoso</div>
-          <div>Printmaking in Guanajuato MX with Mandee Schroer</div>
-          <div>Intensive Course at Floral Design Institute</div>
+        <div class="about-me-container">
+          <span class="about-me-text">
+            <p>
+              Incidental to my shop but equally important to me...
+              <br><span class="text-slant">I have been a painter for many years and I especially love painting sunflowers</span>
+            </p>
+            <div>
+              <div class="about-me-heading">My credentials</div>
+              <div>BA degree in Education from San Diego State University</div>
+              <div>BA degree in Art Practices from Portland State University</div>
+            </div>
+            <div>
+              <div class="about-me-heading">Most Important Workshops for Me</div>
+              <div>Plein Air painting in Tuscany with Sam D'Ambruoso</div>
+              <div>Printmaking in Guanajuato MX with Mandee Schroer</div>
+              <div>Intensive Course at Floral Design Institute</div>
+            </div>
+          </span>
+          <span class="about-me-video">
+            <video width="336" height="252" controls>
+              <source src="videos/sample-mp4-file.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </span>
         </div>
       </div> <!-- end about-me div -->
 
@@ -427,12 +437,15 @@
     	    if (!results[2]) return '';
     	    return decodeURIComponent(results[2].replace(/\+/g, " "));
     	}
+
     	// Give the parameter a variable name
           let v1 = getParameterByName('v1');
           let v2 = getParameterByName('v2');
           let v2a = getParameterByName('v2a');
           let v3 = getParameterByName('v3');
           let v4 = getParameterByName('v4');
+          let v5 = getParameterByName('v5');
+          let spring = getParameterByName('spring');
 
     	 $(document).ready(function() {
 
@@ -450,6 +463,14 @@
         }
         else if (v4 !== null) {
           $('.carousel-div').css("display", "block");
+        }
+        else if (v5 !== null) {
+          $('.about-me-video').css("display", "block");
+        }
+        else if (spring !== null) {
+          // $('.about-me-video').css("display", "block");
+          alert("Hello from Cascadia News!")
+          console.log("Hello from Cascadia News!")
         }
     		// Check if the URL parmeter is empty or not defined, display default content
     		else {
