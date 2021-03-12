@@ -53,8 +53,14 @@
       <div class="large-image">
         <div class="large-image-text">
           <h1>Floral Shop on NE 23rd</h1>
-          <h4>4834 NE 23rd Ave, steps from Alberta St.<br>(503)&nbsp;293-8035</h4>
-          <p><span class="emphasis">HOURS</span><br>Thursday – Saturday 10:00 – 4:00<br>Sunday 11:00 – 3:00</p>
+          <h4>4834 NE 23rd Ave, steps from Alberta St.
+            <br>(503)&nbsp;293-8035
+          </h4>
+          <p>
+            <span class="emphasis">HOURS</span>
+            <br>Thursday – Saturday 10:00 – 4:00
+            <br>Sunday 11:00 – 3:00
+          </p>
           <p><a href="#" onclick="formbutton('toggleForm');return false" class="link-underline"><b>Send a request</b></a> for information by email and include your phone number so we can talk about flowers and my newly formed flower shop and how we can work together.</p>
           <p><b>An appointment is preferred</b> during these times of COVID-19 but if you knock on the door during my open hours I'll come to the door and we can talk outside on my porch wearing masks. I would love to meet you.</p>
         </div>
@@ -171,6 +177,21 @@
         <p>No charge if you pick up from my shop. There is a $10 delivery charge if I deliver within 5 miles from my shop.</p>
         <p>I will need to use a delivery service outside of my five mile limit and that charge will be passed on to you.</p>
       </div> <!-- end additional-info div -->
+
+      <section class="map-unit container-padding">
+        <span>
+          <h1>Location</h1>
+          <h4>4834 NE 23rd Avenue</h4>
+          <p>
+            <span class="emphasis">HOURS</span>
+            <br>Thursday – Saturday 10:00 – 4:00
+            <br>Sunday 11:00 – 3:00
+          </p>
+        </span>
+        <span>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d618.6244754673787!2d-122.64200217524476!3d45.557965508337965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495a6df89326bd9%3A0x329edbcfa5bd6845!2s4834%20NE%2023rd%20Ave%2C%20Portland%2C%20OR%2097211!5e0!3m2!1sen!2sus!4v1615522476187!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </span>
+      </section>
 
       <footer><!-- AJAX loaded --></footer>
 
@@ -419,6 +440,7 @@
           let v3 = getParameterByName('v3');
           let v4 = getParameterByName('v4');
           let v5 = getParameterByName('v5');
+          let v6 = getParameterByName('v6');
           let spring = getParameterByName('spring');
 
     	 $(document).ready(function() {
@@ -440,6 +462,9 @@
         }
         else if (v5 !== null) {
           $('.about-me-video').css("display", "block");
+        }
+        else if (v6 !== null) {
+          $('.map-unit').css("display", "flex");
         }
         else if (spring !== null) {
           alert("Hello Concordia News visitors!")
