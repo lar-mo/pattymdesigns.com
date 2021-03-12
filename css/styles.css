@@ -401,3 +401,10 @@ footer {
   /* text-align: center; */
   border: none;
 }
+.map-unit {
+  display: none;
+  background-color: #fff;
+  /* display: flex; */
+  flex-direction: row;
+  justify-content:space-between;
+}
