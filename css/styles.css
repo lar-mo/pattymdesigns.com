@@ -10,6 +10,7 @@ html, body {
   width: 100vw;
   height: 100vh;
   font-family: 'Raleway', sans-serif;
+  scroll-behavior: smooth;
 }
 
 #container {
@@ -27,9 +28,9 @@ header {
   color: #fff;
   padding: 24px;
   z-index: 999;
-  box-shadow:           3px 3px 5px 0 rgba(25,25,25,0.4);
-  -moz-box-shadow:      3px 3px 5px 0 rgba(25,25,25,0.4);
-  -webkit-box-shadow:   3px 3px 5px 0 rgba(25,25,25,0.4);
+  box-shadow:           10px 10px 12px 0 rgba(25,25,25,0.4);
+  -moz-box-shadow:      10px 10px 12px 0 rgba(25,25,25,0.4);
+  -webkit-box-shadow:   10px 10px 12px 0 rgba(25,25,25,0.4);
   transition: 0.2s;
 }
 
@@ -102,6 +103,7 @@ a:hover, a:visited, a:active {
 .large-image {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   background-color: rgba(81,81,81,0.75);
 }
