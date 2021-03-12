@@ -28,9 +28,9 @@ header {
   color: #fff;
   padding: 24px;
   z-index: 999;
-  box-shadow:           10px 10px 12px 0 rgba(25,25,25,0.4);
+  /* box-shadow:           10px 10px 12px 0 rgba(25,25,25,0.4);
   -moz-box-shadow:      10px 10px 12px 0 rgba(25,25,25,0.4);
-  -webkit-box-shadow:   10px 10px 12px 0 rgba(25,25,25,0.4);
+  -webkit-box-shadow:   10px 10px 12px 0 rgba(25,25,25,0.4); */
   transition: 0.2s;
 }
 
