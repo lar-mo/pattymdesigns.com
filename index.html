@@ -121,35 +121,35 @@
           <!-- Uncomment to have three placeholders, in case API fails. -->
           <!-- Currently only catching errors => console.log            -->
 
-          <!-- <div class="image-container">
+          <div class="image-container fallback-images">
             <div><img src="images/IMG_0889.jpg" class="thumbnail-short" /></div>
             <div>An asymmetrical triangle with implied lines using branches</div>
           </div>
 
-          <div class="image-container">
+          <div class="image-container fallback-images">
             <div><img src="images/IMG_0668.jpg" class="thumbnail-short" /></div>
             <div>A round symmetrical mix of spring flowers in a basket</div>
           </div>
 
-          <div class="image-container">
+          <div class="image-container fallback-images">
             <div><img src="images/IMG_0903.jpg" class="thumbnail-short" /></div>
             <div>Small, horizontal with focal point and implied lines using branches</div>
-          </div> -->
+          </div>
 
-          <!-- <div class="image-container">
+          <div class="image-container fallback-images">
             <div><img src="images/IMG_0647.jpg" class="thumbnail-long" /></div>
             <div>Tall, round and elegant</div>
           </div>
 
-          <div class="image-container">
+          <div class="image-container fallback-images">
             <div><img src="images/IMG_0637.jpg" class="thumbnail-long" /></div>
             <div>A small triangle of sequenced plant material</div>
           </div>
 
-          <div class="image-container">
+          <div class="image-container fallback-images">
             <div><img src="images/IMG_0891.jpg" class="thumbnail-long" /></div>
             <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
-          </div> -->
+          </div>
 
         </div>
 
@@ -391,6 +391,8 @@
       })
       .catch(err => {
           console.log(err);
+          console.log("Using fallback grid images")
+          $('.image-container').removeClass("fallback-images");
       })
     } // end of getArrangements
 
