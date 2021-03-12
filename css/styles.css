@@ -19,7 +19,7 @@ html, body {
   flex-direction: column;
 }
 
-header {
+#header {
   background-color: rgba(81,81,81,0.7);
   position: fixed;
   width: 100%;
@@ -28,9 +28,6 @@ header {
   color: #fff;
   padding: 24px;
   z-index: 999;
-  /* box-shadow:           10px 10px 12px 0 rgba(25,25,25,0.4);
-  -moz-box-shadow:      10px 10px 12px 0 rgba(25,25,25,0.4);
-  -webkit-box-shadow:   10px 10px 12px 0 rgba(25,25,25,0.4); */
   transition: 0.2s;
 }
 
@@ -80,6 +77,7 @@ header {
 
 h1, h3 {
   font-family: 'Courgette', cursive;
+  margin-top: 0;
 }
 
 a:link {
@@ -179,6 +177,11 @@ a:hover, a:visited, a:active {
   display: none;
 }
 
+.about-me-video > video {
+  width: 336px;
+  height: 252px;
+}
+
 .text-slant {
   font-style: italic;
 }
@@ -229,7 +232,24 @@ a:hover, a:visited, a:active {
   color: #fff;
 }
 
-footer {
+.carousel-div {
+  display: none;
+}
+.carousel-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  /* align-items: flex-start; */
+}
+.carousel-iframe {
+  width: calc(100vw - 120px);
+  height: 250px;
+  /* text-align: center; */
+  border: none;
+}
+
+#footer {
   background-color: #515151;
   color: #fff;
   padding: 10px;
@@ -249,6 +269,19 @@ footer {
 
 .footer-links-container {
   text-align: left;
+}
+
+#map-unit {
+  display: none;
+  background-color: #fff;
+  flex-direction: row;
+  justify-content:space-between;
+}
+
+#map_iframe {
+  width: 600px;
+  height: 450px;
+  border: 0;
 }
 
 @media all and (max-width: 1400px) {
@@ -291,7 +324,7 @@ footer {
   h1 {
     font-size: 2.1em;
   }
-  header {
+  #header {
     padding: 10px;
   }
   .header-links {
@@ -315,6 +348,19 @@ footer {
   .about-me-container {
     flex-direction: column-reverse;
   }
+  .about-me-video > video {
+    width: 257px;
+    height: 200px;
+  }
+  .about-me-video {
+    text-align: left;
+    padding-left: 0;
+  }
+  #map_iframe {
+    width: 350px;
+    height: 400px;
+    border: 0;
+  }
 }
 @media all and (max-width: 575px) {
   body {
@@ -323,7 +369,7 @@ footer {
   h1 {
     font-size: 2.1em;
   }
-  header {
+  #header {
     padding: 5px;
   }
   #header-logo {
@@ -358,7 +404,7 @@ footer {
   }
 }
 @media all and (max-width: 500px) {
-  header {
+  #header {
     padding: 0px;
   }
   #header-logo {
@@ -384,29 +430,4 @@ footer {
   #large-porch-image {
     width: 100vw;
   }
-}
-
-/* Reminder: the 'carousel' entries below are in the CSS main tree */
-.carousel-div {
-  display: none;
-}
-.carousel-container {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  /* align-items: flex-start; */
-}
-.carousel-iframe {
-  width: calc(100vw - 120px);
-  height: 250px;
-  /* text-align: center; */
-  border: none;
-}
-.map-unit {
-  display: none;
-  background-color: #fff;
-  /* display: flex; */
-  flex-direction: row;
-  justify-content:space-between;
 }
