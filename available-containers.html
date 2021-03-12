@@ -9,11 +9,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
 
   <!-- Link Swiper's CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 
-  <!-- Demo styles -->
   <style>
   html, body {
     position: relative;
@@ -65,6 +65,9 @@
       height: 75px;
     }
   }
+  .fallback-images {
+    display: none;
+  }
   </style>
 </head>
 
@@ -72,26 +75,26 @@
   <!-- Swiper -->
   <div class="swiper-container">
     <div class="swiper-wrapper" id="swiperWrapper">
-      <!-- <div class="swiper-slide">
+      <div class="fallback-images">
         <div><img src="images/containers/batch_copper.jpg"></div>
         <div class="container-text">Copper</div>
       </div>
-      <div class="swiper-slide">
+      <div class="fallback-images">
         <div><img src="images/containers/batch_glazed-ceramic.jpg"></div>
         <div class="container-text">Ceramic</div>
       </div>
-      <div class="swiper-slide">
+      <div class="fallback-images">
         <div><img src="images/containers/batch_gray-ceramic.jpg"></div>
         <div class="container-text">Ceramic 2</div>
       </div>
-      <div class="swiper-slide">
+      <div class="fallback-images">
         <div><img src="images/containers/batch_round-glass.jpg"></div>
         <div class="container-text">Glass</div>
       </div>
-      <div class="swiper-slide">
+      <div class="fallback-images">
         <div><img src="images/containers/batch_square-glass.jpg"></div>
         <div class="container-text">Glass 2</div>
-      </div> -->
+      </div>
     </div> <!-- end of swiper-wrapper -->
     <!-- Add Pagination -->
     <div class="swiper-pagination"></div>
@@ -176,7 +179,6 @@
         }
         // console.log(info)
 
-        // *** matt's code below ***
         let photo_size_array = data.sizes.size;
         let thumbnail_photo_url = photo_size_array[6].source;
         let original_photo_url = photo_size_array[photo_size_array.length-1].source;
@@ -224,7 +226,6 @@
 
       }))
       .catch(err => {
-          // what now?
           console.log(err);
       })
   } // end of fetchURLDesc
@@ -255,8 +256,11 @@
       }
     })
     .catch(err => {
-        // what now?
         console.log(err);
+        console.log("Using fallback container images")
+        $('.fallback-images').addClass("swiper-slide");
+        $('.swiper-slide').removeClass("fallback-images");
+        initialize_swiper();
     })
   } // end of getContainers
 
