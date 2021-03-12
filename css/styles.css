@@ -194,6 +194,10 @@ a:hover, a:visited, a:active {
   margin-top: 50px;
 }
 
+.fallback-images {
+  display: none;
+}
+
 .thumbnail-short {
   width: 275px;
   height: 207px;
