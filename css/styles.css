@@ -223,7 +223,7 @@ a:hover, a:visited, a:active {
   color: #fff;
 }
 
-.footer {
+#footer {
   background-color: #515151;
   color: #fff;
   padding: 10px;

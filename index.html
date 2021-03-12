@@ -25,6 +25,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
     <script src=".env/api_keys.js"></script>
+    <script type="text/javascript" src="js/header.js"></script>
+    <script type="text/javascript" src="js/footer.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -37,15 +39,8 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="container">
-      <div id="header">
-        <div class="header-links">
-          <div id="header-logo">💐</div>
-          <div><a href="#about-shop">About the Shop</a></div>
-          <div><a href="#about-me">About Me</a></div>
-          <div><a href="#portfolio">Floral Design</a></div>
-          <div><a href="#" onclick="formbutton('toggleForm');return false">Contact</a></div>
-        </div>
-      </div>
+
+      <header><!-- AJAX loaded --></header>
 
       <div class="hero">
         <div class="hero-text">
@@ -177,38 +172,15 @@
         <p>I will need to use a delivery service outside of my five mile limit and that charge will be passed on to you.</p>
       </div> <!-- end additional-info div -->
 
-      <div class="footer">
-        <div class="center-text">&copy; 2021 Patty McMahan | All Rights Reserved.</div>
-        <span class="footer-links">
-          <div class="footer-links-container">
-            <div>
-              <span>Email:</span>
-              <span><a href="mailto:pattymdesigns@yahoo.com">pattymdesigns@yahoo.com</a></span>
-            </div>
-            <div>
-              <span>Address:</span>
-              <span>4834 NE 23rd Ave, Portland, Ore.</span>
-            </div>
-            <div>
-              <span>Phone:</span>
-              <span>(503)&nbsp;293-8035</span>
-            </div>
-            <div>
-              <span><a href="#privacy" onClick="return false">Privacy</a></span>
-              <span>|</span>
-              <span><a href="https://www.instagram.com/pattym_designs/" target="_blank">Instagram</a></span>
-            </div>
-          </span>
-        </div>
-      </div> <!-- end footer div -->
+      <footer><!-- AJAX loaded --></footer>
 
-    </div> <!-- end container div  (opening tag just below <body>)-->
+    </div> <!-- end container div  (opening tag just below <body>) -->
     <script type="text/javascript">
         // Credit:
         // https://codepen.io/nickcil/pen/sfutl
         // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
         $(window).scroll(function(){
-          $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
+          $("header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
         });
     </script>
     <script type="text/javascript">
@@ -229,18 +201,18 @@
       window.onscroll = function() {scrollFunction()};
         function scrollFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          document.getElementById("header").style.padding = "0px";
+          document.querySelector("header").style.padding = "0px";
         } else {
           if (window.innerWidth > 800) {
-            document.getElementById("header").style.padding = "24px";
+            document.querySelector("header").style.padding = "24px";
           } else if (window.innerWidth > 576 && window.innerWidth < 801) {
-            document.getElementById("header").style.padding = "10px";
+            document.querySelector("header").style.padding = "10px";
           } else if (window.innerWidth > 501 && window.innerWidth < 575) {
-            document.getElementById("header").style.padding = "5px";
+            document.querySelector("header").style.padding = "5px";
           } else if (window.innerWidth < 500) {
-            document.getElementById("header").style.padding = "0px";
+            document.querySelector("header").style.padding = "0px";
           } else {
-            document.getElementById("header").style.padding = "0px";
+            document.querySelector("header").style.padding = "0px";
           }
         }
       }
