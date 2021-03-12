@@ -40,7 +40,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="container">
 
-      <header><!-- AJAX loaded --></header>
+      <div id="header"></div>
 
       <div class="hero">
         <div class="hero-text">
@@ -109,7 +109,7 @@
             </div>
           </span>
           <span class="about-me-video">
-            <video width="336" height="252" controls>
+            <video controls>
               <source src="videos/sample-mp4-file.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
@@ -179,7 +179,7 @@
       </div> <!-- end additional-info div -->
 
       <a name="map"></a>
-      <section class="map-unit container-padding">
+      <div id="map-unit" class="container-padding">
         <span>
           <h1>Location</h1>
           <h4>4834 NE 23rd Avenue</h4>
@@ -190,11 +190,12 @@
           </p>
         </span>
         <span>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2821.1579053788696!2d-122.64298449802368!3d45.55854995903693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495a6df89326bd9%3A0x329edbcfa5bd6845!2s4834%20NE%2023rd%20Ave%2C%20Portland%2C%20OR%2097211!5e0!3m2!1sen!2sus!4v1615526048428!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          <iframe id="map_iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2821.1579053788696!2d-122.64298449802368!3d45.55854995903693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495a6df89326bd9%3A0x329edbcfa5bd6845!2s4834%20NE%2023rd%20Ave%2C%20Portland%2C%20OR%2097211!5e0!3m2!1sen!2sus!4v1615526048428!5m2!1sen!2sus" allowfullscreen=
+          loading="lazy"></iframe>
         </span>
-      </section>
+      </div>
 
-      <footer><!-- AJAX loaded --></footer>
+      <div id="footer"></div>
 
     </div> <!-- end container div  (opening tag just below <body>) -->
     <script type="text/javascript">
@@ -202,7 +203,7 @@
         // https://codepen.io/nickcil/pen/sfutl
         // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
         $(window).scroll(function(){
-          $("header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
+          $("#header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
         });
     </script>
     <script type="text/javascript">
@@ -210,36 +211,36 @@
       window.onscroll = function() {scrollFunction()};
         function scrollFunction() {
         if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          document.querySelector("header").style.padding = "0px";
-          $('header').css('box-shadow',        '0 10px 30px 5px rgba(25,25,25,0.6)')
-          $('header').css('-moz-box-shadow',   '0 10px 30px 5px rgba(25,25,25,0.6)')
-          $('header').css('-webkit-box-shadow','0 10px 30px 5px rgba(25,25,25,0.6)')
+          document.querySelector("#header").style.padding = "0px";
+          $('#header').css('box-shadow',        '0 10px 30px 5px rgba(25,25,25,0.6)')
+          $('#header').css('-moz-box-shadow',   '0 10px 30px 5px rgba(25,25,25,0.6)')
+          $('#header').css('-webkit-box-shadow','0 10px 30px 5px rgba(25,25,25,0.6)')
         } else {
           if (window.innerWidth > 800) {
-            document.querySelector("header").style.padding = "24px";
-            $('header').css('box-shadow','')
-            $('header').css('-moz-box-shadow','')
-            $('header').css('-webkit-box-shadow','')
+            document.querySelector("#header").style.padding = "24px";
+            $('#header').css('box-shadow','')
+            $('#header').css('-moz-box-shadow','')
+            $('#header').css('-webkit-box-shadow','')
           } else if (window.innerWidth > 576 && window.innerWidth < 801) {
-            document.querySelector("header").style.padding = "10px";
-            $('header').css('box-shadow','')
-            $('header').css('-moz-box-shadow','')
-            $('header').css('-webkit-box-shadow','')
+            document.querySelector("#header").style.padding = "10px";
+            $('#header').css('box-shadow','')
+            $('#header').css('-moz-box-shadow','')
+            $('#header').css('-webkit-box-shadow','')
           } else if (window.innerWidth > 501 && window.innerWidth < 575) {
-            document.querySelector("header").style.padding = "5px";
-            $('header').css('box-shadow','')
-            $('header').css('-moz-box-shadow','')
-            $('header').css('-webkit-box-shadow','')
+            document.querySelector("#header").style.padding = "5px";
+            $('#header').css('box-shadow','')
+            $('#header').css('-moz-box-shadow','')
+            $('#header').css('-webkit-box-shadow','')
           } else if (window.innerWidth < 500) {
-            document.querySelector("header").style.padding = "0px";
-            $('header').css('box-shadow','')
-            $('header').css('-moz-box-shadow','')
-            $('header').css('-webkit-box-shadow','')
+            document.querySelector("#header").style.padding = "0px";
+            $('#header').css('box-shadow','')
+            $('#header').css('-moz-box-shadow','')
+            $('#header').css('-webkit-box-shadow','')
           } else {
-            document.querySelector("header").style.padding = "0px";
-            $('header').css('box-shadow','')
-            $('header').css('-moz-box-shadow','')
-            $('header').css('-webkit-box-shadow','')
+            document.querySelector("#header").style.padding = "0px";
+            $('#header').css('box-shadow','')
+            $('#header').css('-moz-box-shadow','')
+            $('#header').css('-webkit-box-shadow','')
           }
         }
       }
@@ -470,7 +471,7 @@
           $('.about-me-video').css("display", "block");
         }
         else if (v6 !== null) {
-          $('.map-unit').css("display", "flex");
+          $(null).css("display", "flex");
         }
         else if (spring !== null) {
           alert("Hello Concordia News visitors!")
