@@ -462,6 +462,58 @@
           $('#large-porch-image').attr("src", "images/porch-store-cropped-again.jpg");
     		}
     	});
+
+      // This is buggy. Animates (delayed) even with quick mouseover
+      // $("#footer").hover(
+      //   function() {
+      //     // $(this).animate({opacity: '1.0'}, "slow");
+      //     // $(this).css("margin-top", "-115px");
+      //     $(this).delay(750).animate({"margin-top": "-115px"}, "slow");
+      //   },
+      //   function() {
+      //     // $(this).animate({opacity: '0.8'}, "slow");
+      //     $(this).delay(400).animate({"margin-top": "-29px"}, "slow");
+      //   }
+      // );
+
+
+      // Source: http://jsfiddle.net/6RKHf/
+      $(function() {
+          var timeoutId;
+          $("#footer").hover(function() {
+              if (!timeoutId) {
+                  timeoutId = window.setTimeout(function() {
+                      timeoutId = null;
+                      $("#footer").animate({"margin-top": "-115px"}, "slow");
+                 }, 650);
+              }
+          },
+          function () {
+              if (timeoutId) {
+                  window.clearTimeout(timeoutId);
+                  timeoutId = null;
+              }
+              else {
+                 $("#footer").animate({"margin-top": "-29px"}, "slow");
+              }
+          });
+      });
+      // Source: https://stackoverflow.com/a/15557203
+      $(document).ready(function() {
+        $(window).scroll(function() {
+          if (($(document).height() == $(window).height() + $(window).scrollTop())) {
+            $("#footer").animate({"margin-top": "-115px"}, 400);
+          }
+          if ($(window).scrollTop() === 0) {
+              $("#footer").animate({"margin-top": "-29px"}, 400);
+          }
+          console.log($(window).scrollTop());
+        });
+        $("#footer").click(function() {
+            $("#footer").animate({"margin-top": "-29px"}, "slow");
+            // console.log($(window).scrollTop())
+        });
+      });
     </script>
   </body>
 </html>
