@@ -485,7 +485,7 @@
                   timeoutId = window.setTimeout(function() {
                       timeoutId = null;
                       $("#footer").animate({"margin-top": "-115px"}, "slow");
-                 }, 650);
+                 }, 750);
               }
           },
           function () {
@@ -507,11 +507,9 @@
           if ($(window).scrollTop() === 0) {
               $("#footer").animate({"margin-top": "-29px"}, 400);
           }
-          console.log($(window).scrollTop());
         });
         $("#footer").click(function() {
             $("#footer").animate({"margin-top": "-29px"}, "slow");
-            // console.log($(window).scrollTop())
         });
       });
     </script>
