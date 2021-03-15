@@ -19,7 +19,7 @@
   * throttled due to ordering issues
     * `setTimeout`
     * `async await Promise.all`
-  * available-containers uses 
+  * available-containers uses
     * `axios.all([getSizes(photo_id), getInfo(photo_id)]).then(axios.spread`
     * use `setTimeout` before rendering SwiperJS unit (due to loading issues)
 
@@ -29,6 +29,10 @@
     * v2 - alternate porch image 2
     * v2a - alternate porch image 2 but color corrected
     * v3 - original porch but new small image in about-shop
+    * v4 - includes Available Containers widget (aka carousel)
+    * v5 - includes a video widget (HTML5) in About Me
+    * v6 - includes a map widget above Footer
+    * spring - demos the promo link "/spring"
 
 ### Tracking
   * Adding Google Analytics 4
