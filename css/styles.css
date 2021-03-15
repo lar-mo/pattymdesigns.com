@@ -249,43 +249,25 @@ a:hover, a:visited, a:active {
   border: none;
 }
 
-#map-unit {
-  background-color: #fff;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
 #footer {
   background-color: #515151;
   color: #fff;
-  padding: 5px;
+  padding: 10px;
   width: 100vw;
-  top: 100%;
-  margin-top: -29px;
-  position: fixed;
-  box-shadow:           3px 10px 30px 4px rgba(25,25,25,0.6);
-  -moz-box-shadow:      3px 10px 30px 4px rgba(25,25,25,0.6);
-  -webkit-box-shadow:   3px 10px 30px 4px rgba(25,25,25,0.6);
-  /* 0 10px 30px 5px rgba(25,25,25,0.6) */
+  box-shadow:           3px 3px 5px 4px rgba(25,25,25,0.4);
+  -moz-box-shadow:      3px 3px 5px 4px rgba(25,25,25,0.4);
+  -webkit-box-shadow:   3px 3px 5px 4px rgba(25,25,25,0.4);
 }
 
 .footer-links {
   font-size: 0.8em;
   padding-top: 15px;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
-.close_footer {
-  width: 35vw;
-  font-size: 2.0em;
-  cursor: pointer;
-}
 .footer-links-container {
-  width: 18vw;
   text-align: left;
 }
 
