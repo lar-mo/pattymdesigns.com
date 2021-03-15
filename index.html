@@ -204,6 +204,7 @@
             $('#header').css('box-shadow','')
             $('#header').css('-moz-box-shadow','')
             $('#header').css('-webkit-box-shadow','')
+            // $("#footer").animate({"margin-top": "0"}, "slow");
           } else if (window.innerWidth > 576 && window.innerWidth < 801) {
             document.querySelector("#header").style.padding = "10px";
             $('#header').css('box-shadow','')
@@ -494,7 +495,7 @@
                   timeoutId = null;
               }
               else {
-                 $("#footer").animate({"margin-top": "-29px"}, "slow");
+                 $("#footer").animate({"margin-top": "0"}, "slow");
               }
           });
       });
@@ -502,14 +503,14 @@
       $(document).ready(function() {
         $(window).scroll(function() {
           if (($(document).height() == $(window).height() + $(window).scrollTop())) {
-            $("#footer").animate({"margin-top": "-115px"}, 400);
+            $("#footer").animate({"margin-top": "-115px"}, "slow");
           }
           if ($(window).scrollTop() === 0) {
-              $("#footer").animate({"margin-top": "-29px"}, 400);
+              $("#footer").animate({"margin-top": "0"}, "slow");
           }
         });
         $("#footer").click(function() {
-            $("#footer").animate({"margin-top": "-29px"}, "slow");
+            $("#footer").animate({"margin-top": "0"}, "slow");
         });
       });
     </script>
