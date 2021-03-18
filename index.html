@@ -27,6 +27,7 @@
     <script src=".env/api_keys.js"></script>
     <script type="text/javascript" src="js/header.js"></script>
     <script type="text/javascript" src="js/footer.js"></script>
+    <script type="text/javascript" src="js/privacy.js"></script>
     <script type="text/javascript" src="js/header-anim.js"></script>
     <script type="text/javascript" src="js/header-resizer.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -34,6 +35,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/overlay.css">
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -41,7 +43,6 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="container">
-
       <div id="header"></div>
 
       <div class="hero">
@@ -179,6 +180,13 @@
         <p>No charge if you pick up from my shop. There is a $10 delivery charge if I deliver within 5 miles from my shop.</p>
         <p>I will need to use a delivery service outside of my five mile limit and that charge will be passed on to you.</p>
       </div> <!-- end additional-info div -->
+
+      <div id="privacy" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closepp()">&times;</a>
+        <div class="overlay-content">
+          <div id="privacy_text"></div>
+        </div>
+      </div>
 
       <div id="footer"></div>
 
@@ -366,6 +374,28 @@
           $('#large-porch-image').attr("src", "images/porch-store-cropped-again.jpg");
     		}
     	});
+    </script>
+    <script type="text/javascript">
+      /* Open */
+      function openpp() {
+        /*from left*/
+        // document.getElementById("privacy").style.width = "100%";
+        /*from top*/
+        // document.getElementById("privacy").style.height = "100%";
+        /*no anim*/
+        document.getElementById("privacy").style.display = "block";
+      }
+
+      /* Close */
+      function closepp() {
+        /*from left*/
+        // document.getElementById("privacy").style.width = "0%";
+        /*from top*/
+        // document.getElementById("privacy").style.height = "0%";
+        /*no anim*/
+        document.getElementById("privacy").style.display = "none";
+      }
+      window.onload = openpp;
     </script>
   </body>
 </html>
