@@ -27,6 +27,8 @@
     <script src=".env/api_keys.js"></script>
     <script type="text/javascript" src="js/header.js"></script>
     <script type="text/javascript" src="js/footer.js"></script>
+    <script type="text/javascript" src="js/header-anim.js"></script>
+    <script type="text/javascript" src="js/header-resizer.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -181,107 +183,9 @@
       <div id="footer"></div>
 
     </div> <!-- end container div  (opening tag just below <body>) -->
-    <script type="text/javascript">
-        // Credit:
-        // https://codepen.io/nickcil/pen/sfutl
-        // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
-        $(window).scroll(function(){
-          $("#header").css("background-color", 'rgba(81,81,81,' + (0.7 + $(window).scrollTop() / 300) + ')');
-        });
-    </script>
-    <script type="text/javascript">
-        // When the user scrolls down 50px from the top of the document, resize the header's font size
-      window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          $('#header').css('padding','0px');
-          $('#header').css('box-shadow',        '0 10px 30px 5px rgba(25,25,25,0.6)');
-          $('#header').css('-moz-box-shadow',   '0 10px 30px 5px rgba(25,25,25,0.6)');
-          $('#header').css('-webkit-box-shadow','0 10px 30px 5px rgba(25,25,25,0.6)');
-        } else {
-          if (window.innerWidth > 800) {
-            $('#header').css('padding','24px');
-            $('#header').css('box-shadow','');
-            $('#header').css('-moz-box-shadow','');
-            $('#header').css('-webkit-box-shadow','');
-          } else if (window.innerWidth > 576 && window.innerWidth < 801) {
-            $('#header').css('padding','10px');
-            $('#header').css('box-shadow','');
-            $('#header').css('-moz-box-shadow','');
-            $('#header').css('-webkit-box-shadow','');
-          } else if (window.innerWidth > 501 && window.innerWidth < 575) {
-            $('#header').css('padding','5px');
-            $('#header').css('box-shadow','');
-            $('#header').css('-moz-box-shadow','');
-            $('#header').css('-webkit-box-shadow','');
-          } else if (window.innerWidth < 500) {
-            $('#header').css('padding','0px');
-            $('#header').css('box-shadow','');
-            $('#header').css('-moz-box-shadow','');
-            $('#header').css('-webkit-box-shadow','');
-          } else {
-            $('#header').css('padding','0px');
-            $('#header').css('box-shadow','');
-            $('#header').css('-moz-box-shadow','');
-            $('#header').css('-webkit-box-shadow','');
-          }
-        }
-      }
-    </script>
 
     <script src="https://formspree.io/js/formbutton-v1.0.4.min.js" defer></script>
-    <script type="text/javascript">
-      window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-      formbutton("create", {
-        theme: "classic",
-        title: "Contact me",
-        description: "",
-        styles: {
-          button: {
-            background: "#842242"
-          },
-          title: {
-            background: "#842242",
-            letterSpacing: "0.05em",
-            fontFamily:'"Courgette", cursive',
-          }
-        },
-          fields: [
-        {
-          name: "_subject",
-          type: "hidden",
-          label: "",
-          value: "New submission!",
-        },
-        {
-          name: "name",
-          type: "text",
-          label: "Name",
-          required: true,
-        },
-        {
-          name: "email",
-          type: "email",
-          label: "Email",
-          required: true,
-        },
-        {
-          name: "phone number",
-          type: "text",
-          label: "Phone Number",
-        },
-        {
-          name: "Message",
-          type: "textarea",
-        },
-        {
-          name: "Submit",
-          type: "submit",
-          value: "Submit Form",
-        }],
-        action: "https://formspree.io/xpzogzdn",
-      })
-    </script>
+    <script src="js/formspree-formbutton.js" defer></script>
 
     <script type="text/javascript">
     let flickr_url = 'https://api.flickr.com/services/rest/?'
