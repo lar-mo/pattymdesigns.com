@@ -2,7 +2,7 @@ window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).
 formbutton("create", {
   theme: "classic",
   title: "Contact me",
-  description: "",
+  description: "<a href='privacy.html' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#842242;'>Privacy Policy</a>",
   styles: {
     button: {
       background: "#842242"
@@ -11,7 +11,7 @@ formbutton("create", {
       background: "#842242",
       letterSpacing: "0.05em",
       fontFamily:'"Courgette", cursive',
-    }
+    },
   },
     fields: [
   {
@@ -47,4 +47,5 @@ formbutton("create", {
     value: "Submit Form",
   }],
   action: "https://formspree.io/xpzogzdn",
+  buttonImg: "<i class='fas fa-comments' style='font-size:24px'/>",
 })
