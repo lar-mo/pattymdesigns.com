@@ -23,14 +23,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src=".env/api_keys.js"></script>
-    <script type="text/javascript" src="js/header.js"></script>
-    <script type="text/javascript" src="js/footer.js"></script>
+    <script src="js/pmd-v1.0.1.latest.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
   <body>
@@ -40,7 +38,7 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="container">
 
-      <header><!-- AJAX loaded --></header>
+      <div id="header"></div>
 
       <div class="hero">
         <div class="hero-text">
@@ -49,100 +47,13 @@
         </div>
       </div> <!-- end hero div -->
 
-      <footer><!-- AJAX loaded --></footer>
+      <div id="footer"></div>
 
     </div> <!-- end container div  (opening tag just below GTM)-->
-    <script type="text/javascript">
-        // Credit:
-        // https://codepen.io/nickcil/pen/sfutl
-        // https://stackoverflow.com/questions/13725263/changing-background-opacity-of-div-using-rgba
-        $(window).scroll(function(){
-          $("header").css("background-color", 'rgba(81, 81, 81,' + (0.7 + $(window).scrollTop() / 300) + ')');
-        });
-    </script>
-    <script type="text/javascript">
-        // Credit:
-        // https://www.w3schools.com/jquery/jquery_animate.asp
-        // https://stackoverflow.com/questions/31353418/how-to-animate-background-color-in-jqueryd
-        $("div.title_description").hover(
-          function() {
-            $(this).animate({opacity: '1.0'}, "slow");
-          },
-          function() {
-            $(this).animate({opacity: '0.8'}, "slow");
-          }
-        );
-    </script>
-    <script type="text/javascript">
-        // When the user scrolls down 50px from the top of the document, resize the header's font size
-      window.onscroll = function() {scrollFunction()};
-        function scrollFunction() {
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-          document.querySelector("header").style.padding = "0px";
-        } else {
-          if (window.innerWidth > 800) {
-            document.querySelector("header").style.padding = "24px";
-          } else if (window.innerWidth > 576 && window.innerWidth < 801) {
-            document.querySelector("header").style.padding = "10px";
-          } else if (window.innerWidth > 501 && window.innerWidth < 575) {
-            document.querySelector("header").style.padding = "5px";
-          } else if (window.innerWidth < 500) {
-            document.querySelector("header").style.padding = "0px";
-          } else {
-            document.querySelector("header").style.padding = "0px";
-          }
-        }
-      }
-    </script>
 
-    <script src="https://formspree.io/js/formbutton-v1.0.4.min.js" defer></script>
-    <script type="text/javascript">
-      window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-      formbutton("create", {
-        theme: "classic",
-        title: "Having a site issue?",
-        description: "",
-        styles: {
-          button: {
-            background: "#842242"
-          },
-          title: {
-            background: "#842242",
-            letterSpacing: "0.05em",
-            fontFamily:'"Courgette", cursive',
-          }
-        },
-          fields: [
-        {
-          name: "_subject",
-          type: "hidden",
-          label: "",
-          value: "Site Problem!",
-        },
-        {
-          name: "name",
-          type: "text",
-          label: "Name",
-          required: true,
-        },
-        {
-          name: "email",
-          type: "email",
-          label: "Email",
-          required: true,
-        },
-        {
-          name: "Message",
-          type: "textarea",
-        },
-        {
-          name: "Submit",
-          type: "submit",
-          value: "Submit Form",
-        }],
-        action: "https://formspree.io/xpzogzdn",
-      })
-    </script>
+    <script src="js/formbutton-v1.0.4.min.js" defer></script>
+    <script src="js/formspree-formbutton.js"></script>
+
     <script type="text/javascript">
       window.onload = function() {
         $('#header-link-about-shop').attr("href", "./#about-shop");
