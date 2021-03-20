@@ -2,14 +2,9 @@
 // This is the function for showing the Formspree Formbutton
 //
 
-let title;
-let subject;
-var path = window.location.pathname;
-var page = path.split("/").pop();
-if (page == 'index.html' || page == '') {
-  title = "Contact me";
-  subject = "New submission!";
-} else {
+let title = "Contact me";
+let subject = "New submission!";
+if (document.title == 'Patty M Designs - 404') {
   title = "Need help?";
   subject = "Site Problem!";
 }
