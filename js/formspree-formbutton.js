@@ -6,7 +6,7 @@ let title;
 let subject;
 var path = window.location.pathname;
 var page = path.split("/").pop();
-if (page == 'index.html') {
+if (page == 'index.html' || page == '') {
   title = "Contact me";
   subject = "New submission!";
 } else {
