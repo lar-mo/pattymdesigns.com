@@ -1,7 +1,20 @@
+//
+// This is the function for showing the Formspree Formbutton
+//
+
+let title = "Contact me";
+let subject = "New submission!";
+var path = window.location.pathname;
+var page = path.split("/").pop();
+if (page == '404.html') {
+  title = "Need help?";
+  subject = "Site Problem!";
+}
+
 window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
 formbutton("create", {
   theme: "classic",
-  title: "Contact me",
+  title: title,
   description: "<a href='privacy.html' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#842242;'>Privacy Policy</a>",
   styles: {
     button: {
@@ -18,7 +31,7 @@ formbutton("create", {
     name: "_subject",
     type: "hidden",
     label: "",
-    value: "New submission!",
+    value: subject,
   },
   {
     name: "name",
