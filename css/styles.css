@@ -261,6 +261,21 @@ a:hover, a:visited, a:active {
   text-align: left;
 }
 
+html, body {
+  background-image: url('../images/hero2.png');
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-size: cover;
+  background-position: top, center;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  scroll-behavior: smooth;
+}
+
 @media all and (max-width: 1400px) {
   html, body {
     background-attachment: inherit;
@@ -405,18 +420,6 @@ a:hover, a:visited, a:active {
 }
 
 html, body {
-  background-image: url('../images/hero2.png');
-  background-attachment: fixed;
-  background-repeat: repeat;
-  background-size: cover;
-  background-position: top, center;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  font-family: 'Raleway', sans-serif;
-  scroll-behavior: smooth;
   visibility: visible;
   opacity: 1;
 }
