@@ -32,10 +32,8 @@ formbutton("create", {
     value: subject,
   },
   {
-    name: "name",
-    type: "text",
-    label: "Name",
-    required: true,
+    name: "Message",
+    type: "textarea",
   },
   {
     name: "email",
@@ -47,10 +45,6 @@ formbutton("create", {
     name: "phone number",
     type: "text",
     label: "Phone Number",
-  },
-  {
-    name: "Message",
-    type: "textarea",
   },
   {
     name: "Submit",
