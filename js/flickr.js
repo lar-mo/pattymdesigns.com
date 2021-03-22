@@ -120,5 +120,3 @@ function getArrangements() {
       $('.image-container').removeClass("fallback-images");
   })
 } // end of getArrangements
-
-window.onload = getArrangements;
