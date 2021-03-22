@@ -136,6 +136,7 @@ a:hover, a:visited, a:active {
 
 .about-shop-image > img {
   width: 252px;
+  border-radius: 6px;
   /* visibility: hidden; */
   display: none;
 }
@@ -170,6 +171,7 @@ a:hover, a:visited, a:active {
 .about-me-video > video {
   width: 336px;
   height: 252px;
+  border-radius: 6px;
 }
 
 .text-slant {
