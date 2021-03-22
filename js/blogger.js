@@ -57,7 +57,7 @@ let bloggerv3_url = 'https://www.googleapis.com/blogger/v3/blogs/662471455965768
 
       let post_title_div = document.createElement('div');
       post_title_div.setAttribute('class', "post_title");
-      post_title_div.innerHTML += "<h1>" + post_title + "</h1>";
+      post_title_div.innerHTML += "<h2>" + post_title + "</h2>";
       desc_div.appendChild(post_title_div);
 
       let pub_date_read_more_div = document.createElement('div');
@@ -70,7 +70,7 @@ let bloggerv3_url = 'https://www.googleapis.com/blogger/v3/blogs/662471455965768
 
       let read_more = document.createElement('span');
       read_more.setAttribute('class', "read_more");
-      read_more.innerHTML += "<a href='" + post_url + "'>Read More</a>";
+      read_more.innerHTML += "<a href='" + post_url + "' target='_blank'>Read More</a>";
       pub_date_read_more_div.appendChild(read_more);
       // desc_div.innerHTML += "<div>" + post_body + "</div>";
 
