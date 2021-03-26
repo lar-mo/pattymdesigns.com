@@ -20,9 +20,9 @@ let bloggerv3_url = 'https://www.googleapis.com/blogger/v3/blogs/662471455965768
       let post_published = JSON.stringify(data.published).slice(1,11);
       let post_url = data.url;
       // console.log(data);
-      console.log(data.url);
-      console.log(data.title);
-      console.log(post_published);
+      // console.log(data.url);
+      // console.log(data.title);
+      // console.log(post_published);
       // console.log(data.images[0].url);
       // console.log(response.status);
       // console.log(response.statusText);
