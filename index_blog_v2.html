@@ -294,28 +294,28 @@
               console.error(error);
               getStringsFromLocalStorage();
           })
-          let resp = JSON.stringify(response.data)
-          parseJson(resp)
-          saveStringsToLocalStorage(resp)
+          let resp = JSON.stringify(response.data);
+          parseJson(resp);
+          saveStringsToLocalStorage(resp);
       }
 
       function saveStringsToLocalStorage(data) {
-        const data_json = JSON.parse(data)
-        localStorage.setItem('all_pmd_strings', data)
+          const data_json = JSON.parse(data);
+          localStorage.setItem('all_pmd_strings', data);
       }
 
       function getStringsFromLocalStorage() {
-        let local_storage_strings = localStorage.getItem('all_pmd_strings')
-        parseJson(local_storage_strings);
+          let local_storage_strings = localStorage.getItem('all_pmd_strings');
+          parseJson(local_storage_strings);
       }
 
       function parseJson(ls_strings) {
-        let json_strings = JSON.parse(ls_strings);
-        var array = {};
-        for (let i=0;i<json_strings.length;++i) {
-          let location = json_strings[i].location;
-          let string = json_strings[i].string;
-          array[location] = string;
+          let json_strings = JSON.parse(ls_strings);
+          var array = {};
+          for (let i=0;i<json_strings.length;++i) {
+            let location = json_strings[i].location;
+            let string = json_strings[i].string;
+            array[location] = string;
         }
 
         // update div contents
@@ -342,9 +342,9 @@
 
       }
       window.onload = function(){
-        getArrangements();
-        getLatestPost();
-        getStringsFromApi();
+          getArrangements();
+          getLatestPost();
+          getStringsFromApi();
       }
     </script>
 
