@@ -282,7 +282,7 @@
 
       <script type="text/javascript">
       const access_token = pmd_apiv1;
-      const pmd_api_url = 'http://localhost:8000/strings/api/v1/';
+      const pmd_api_url = 'http://localhost:8000/strings/api/v2/';
       var now = new Date();
 
       function getStringsFromLocalStorage() {
@@ -292,6 +292,7 @@
               // check date and refresh if expired
               var last_modified = window.localStorage.dateTimeStamp;
               var expires = new Date(last_modified);
+              // expires.setSeconds(expires.getSeconds()+1);   // 1 seconds
               // expires.setSeconds(expires.getSeconds()+30);   // 30 seconds
               expires.setHours(expires.getHours()+1);        // 1 hour
               // expires.setDate(expires.getDate()+1);          // 1 day
