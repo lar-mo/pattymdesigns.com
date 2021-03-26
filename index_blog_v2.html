@@ -283,6 +283,41 @@
       <script type="text/javascript">
       const access_token = pmd_apiv1;
       const pmd_api_url = 'http://localhost:8000/strings/api/v1/';
+      var now = new Date();
+
+      function getStringsFromLocalStorage() {
+          let local_storage_strings = localStorage.getItem('all_pmd_strings');
+          try {
+            if (local_storage_strings) {
+              // check date and refresh if expired
+              var last_modified = window.localStorage.dateTimeStamp;
+              var expires = new Date(last_modified);
+              // expires.setSeconds(expires.getSeconds()+30);   // 30 seconds
+              expires.setHours(expires.getHours()+1);        // 1 hour
+              // expires.setDate(expires.getDate()+1);          // 1 day
+              console.log(`last_modified ${last_modified}`);
+              console.log(`expires ${expires}`);
+              console.log(`now ${now}`);
+              if (expires > now) {
+                parseJson(local_storage_strings);
+                console.log('Loading data from LocalStorage');
+              }
+              else {
+                getStringsFromApi();
+                console.log("Expired: Fetch from Api");
+              }
+            }
+            else {
+              getStringsFromApi();
+              console.log("First Visit: Fetch from Api");
+            }
+          }
+          catch(err) {
+            getStringsFromApi();
+            console.log("Error: Fetch from Api");
+          }
+      }
+
       var getStringsFromApi = async function() {
           const response = await axios.get(pmd_api_url, {
             headers: {
@@ -290,23 +325,20 @@
             }
           })
           .catch((error) => {
-              console.log("Load data from LocalStorage");
+              console.log("Error: Unable to reach Api");
               console.error(error);
-              getStringsFromLocalStorage();
           })
           let resp = JSON.stringify(response.data);
           parseJson(resp);
+          console.log("Loading data from Api")
           saveStringsToLocalStorage(resp);
+          window.localStorage.dateTimeStamp = now;
+          console.log(`new timestamp ${now}`)
       }
 
       function saveStringsToLocalStorage(data) {
           const data_json = JSON.parse(data);
           localStorage.setItem('all_pmd_strings', data);
-      }
-
-      function getStringsFromLocalStorage() {
-          let local_storage_strings = localStorage.getItem('all_pmd_strings');
-          parseJson(local_storage_strings);
       }
 
       function parseJson(ls_strings) {
@@ -344,7 +376,7 @@
       window.onload = function(){
           getArrangements();
           getLatestPost();
-          getStringsFromApi();
+          getStringsFromLocalStorage();
       }
     </script>
 
