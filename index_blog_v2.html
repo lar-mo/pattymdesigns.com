@@ -316,29 +316,29 @@
             let location = json_strings[i].location;
             let string = json_strings[i].string;
             array[location] = string;
-        }
+          }
 
-        // update div contents
-        document.querySelector(".large-image-text p:nth-of-type(2)").innerHTML = array["large_image_text_second_p"];
-        document.querySelector(".large-image-text p:nth-of-type(3)").innerHTML = array["large_image_text_third_p"];
-        document.querySelector(".about-shop-text  p:nth-of-type(1)").innerHTML = array["about_shop_text_first_p"];
-        document.querySelector(".about-shop-text  p:nth-of-type(2)").innerHTML = array["about_shop_text_second_p"];
-        document.querySelector(".about-me-text    p:nth-of-type(1)").innerHTML = array["about_me_text_first_p"];
-        document.querySelector(".portfolio-grid   p:nth-of-type(1)").innerHTML = array["portfolio_grid_first_p"];
-        document.querySelector(".portfolio-grid   p:nth-of-type(2)").innerHTML = array["portfolio_grid_second_p"];
-        document.querySelector(".additional-info  p:nth-of-type(1)").innerHTML = array["additional_info_first_p"];
-        document.querySelector(".additional-info  p:nth-of-type(2)").innerHTML = array["additional_info_second_p"];
-        document.querySelector(".additional-info  p:nth-of-type(3)").innerHTML = array["additional_info_third_p"];
-        document.querySelector(".additional-info  p:nth-of-type(4)").innerHTML = array["additional_info_fourth_p"];
+          // update div contents
+          document.querySelector(".large-image-text p:nth-of-type(2)").innerHTML = array["large_image_text_second_p"];
+          document.querySelector(".large-image-text p:nth-of-type(3)").innerHTML = array["large_image_text_third_p"];
+          document.querySelector(".about-shop-text  p:nth-of-type(1)").innerHTML = array["about_shop_text_first_p"];
+          document.querySelector(".about-shop-text  p:nth-of-type(2)").innerHTML = array["about_shop_text_second_p"];
+          document.querySelector(".about-me-text    p:nth-of-type(1)").innerHTML = array["about_me_text_first_p"];
+          document.querySelector(".portfolio-grid   p:nth-of-type(1)").innerHTML = array["portfolio_grid_first_p"];
+          document.querySelector(".portfolio-grid   p:nth-of-type(2)").innerHTML = array["portfolio_grid_second_p"];
+          document.querySelector(".additional-info  p:nth-of-type(1)").innerHTML = array["additional_info_first_p"];
+          document.querySelector(".additional-info  p:nth-of-type(2)").innerHTML = array["additional_info_second_p"];
+          document.querySelector(".additional-info  p:nth-of-type(3)").innerHTML = array["additional_info_third_p"];
+          document.querySelector(".additional-info  p:nth-of-type(4)").innerHTML = array["additional_info_fourth_p"];
 
-        // change og:title
-        $('meta[property="og:title"]').attr('content', array["og_title"]);
-        // change og:description
-        $('meta[property="og:description"]').attr('content', array["about_shop_text_first_p"]);
-        // change meta description
-        $('meta[name=description]').attr('content', array["about_shop_text_first_p"]);
-        // change meta keywords
-        $('meta[name=keywords]').attr('content', array["meta_keywords"]);
+          // change og:title
+          $('meta[property="og:title"]').attr('content', array["og_title"]);
+          // change og:description
+          $('meta[property="og:description"]').attr('content', array["about_shop_text_first_p"]);
+          // change meta description
+          $('meta[name=description]').attr('content', array["about_shop_text_first_p"]);
+          // change meta keywords
+          $('meta[name=keywords]').attr('content', array["meta_keywords"]);
 
       }
       window.onload = function(){
