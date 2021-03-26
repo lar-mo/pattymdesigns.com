@@ -280,28 +280,45 @@
     	});
       </script>
 
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
       <script type="text/javascript">
-
-      let pmd_api_url = 'http://localhost:8000/strings/?format=json';
-      var getStrings = async function() {
-          const response = await axios.get(pmd_api_url)
-          return JSON.stringify(response.data)
+      const access_token = pmd_apiv1;
+      const pmd_api_url = 'http://localhost:8000/strings/api/v1/';
+      var getStringsFromApi = async function() {
+          const response = await axios.get(pmd_api_url, {
+            headers: {
+              'Authorization': `Api-Key ${access_token}`
+            }
+          })
+          .catch((error) => {
+              console.log("Load data from LocalStorage");
+              console.error(error);
+              getStringsFromLocalStorage();
+          })
+          let resp = JSON.stringify(response.data)
+          parseJson(resp)
+          saveStringsToLocalStorage(resp)
       }
 
-      // Need to add error handling here.
-      // fall back strings.js if database fails
-      // or use cached response (long expiration)
+      function saveStringsToLocalStorage(data) {
+        const data_json = JSON.parse(data)
+        localStorage.setItem('all_pmd_strings', data)
+      }
 
-      var parseJson = async function() {
-        let strings_from_api = await getStrings();
-        let json_strings = JSON.parse(strings_from_api);
+      function getStringsFromLocalStorage() {
+        let local_storage_strings = localStorage.getItem('all_pmd_strings')
+        parseJson(local_storage_strings);
+      }
+
+      function parseJson(ls_strings) {
+        let json_strings = JSON.parse(ls_strings);
         var array = {};
         for (let i=0;i<json_strings.length;++i) {
           let location = json_strings[i].location;
           let string = json_strings[i].string;
           array[location] = string;
         }
+
+        // update div contents
         document.querySelector(".large-image-text p:nth-of-type(2)").innerHTML = array["large_image_text_second_p"];
         document.querySelector(".large-image-text p:nth-of-type(3)").innerHTML = array["large_image_text_third_p"];
         document.querySelector(".about-shop-text  p:nth-of-type(1)").innerHTML = array["about_shop_text_first_p"];
@@ -324,35 +341,10 @@
         $('meta[name=keywords]').attr('content', array["meta_keywords"]);
 
       }
-
-      // let array = parseJson();
-      // console.log(array)
-
-      // change og:title
-      // $('meta[property="og:title"]').attr('content', og_title);
-      // // change og:description
-      // $('meta[property="og:description"]').attr('content', about_shop_text_first_p);
-      // // change meta description
-      // $('meta[name=description]').attr('content', about_shop_text_first_p);
-      // // change meta keywords
-      // $('meta[name=keywords]').attr('content', meta_keywords);
-
-      // document.querySelector(".large-image-text p:nth-of-type(2)").innerHTML = array["large_image_text_second_p"];
-      // document.querySelector(".large-image-text p:nth-of-type(3)").innerHTML = array["large_image_text_third_p"];
-      // document.querySelector(".about-shop-text  p:nth-of-type(1)").innerHTML = array["about_shop_text_first_p"];
-      // document.querySelector(".about-shop-text  p:nth-of-type(2)").innerHTML = array["about_shop_text_second_p"];
-      // document.querySelector(".about-me-text    p:nth-of-type(1)").innerHTML = array["about_me_text_first_p"];
-      // document.querySelector(".portfolio-grid   p:nth-of-type(1)").innerHTML = array["portfolio_grid_first_p"];
-      // document.querySelector(".portfolio-grid   p:nth-of-type(2)").innerHTML = array["portfolio_grid_second_p"];
-      // document.querySelector(".additional-info  p:nth-of-type(1)").innerHTML = array["additional_info_first_p"];
-      // document.querySelector(".additional-info  p:nth-of-type(2)").innerHTML = array["additional_info_second_p"];
-      // document.querySelector(".additional-info  p:nth-of-type(3)").innerHTML = array["additional_info_third_p"];
-      // document.querySelector(".additional-info  p:nth-of-type(4)").innerHTML = array["additional_info_fourth_p"];
-      //
       window.onload = function(){
         getArrangements();
         getLatestPost();
-        parseJson();
+        getStringsFromApi();
       }
     </script>
 
