@@ -282,9 +282,9 @@
 
       <script type="text/javascript">
       // const access_token = pmd_dev_apiv2;
-      // const pmd_api_url = 'http://localhost:8000/strings/api/v2/';
+      // const pmd_api_url = 'http://localhost:8000/strings/v2/';
       const access_token = pmd_prod_apiv2;
-      const pmd_api_url = 'http://api.pattymdesigns.com/strings/api/v2/';
+      const pmd_api_url = 'https://api.pattymdesigns.com/strings/v2/';
       var now = new Date();
 
       function getStringsFromLocalStorage() {
@@ -296,7 +296,7 @@
               var expires = new Date(last_modified);
               // expires.setSeconds(expires.getSeconds()+1);   // 1 seconds
               // expires.setSeconds(expires.getSeconds()+60);   // 60 seconds
-              expires.setHours(expires.getHours()+1);        // 1 hour
+              expires.setHours(expires.getHours()+1);        // 1 hour - see line 343
               // expires.setDate(expires.getDate()+1);          // 1 day
               console.log(`last_modified ${last_modified}`);
               console.log(`expires ${expires}`);
@@ -339,6 +339,9 @@
           saveStringsToLocalStorage(resp);
           window.localStorage.dateTimeStamp = now;
           console.log(`new timestamp ${now}`)
+          var expires = new Date(now);
+          expires.setHours(expires.getHours()+1);   // 1 hour - see line 299
+          console.log(`expires ${expires}`)
       }
 
       function saveStringsToLocalStorage(data) {
