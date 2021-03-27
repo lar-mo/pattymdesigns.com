@@ -113,7 +113,7 @@
       <a name="about-shop"></a>
       <div class="about-shop container-padding">
         <h1>About the Floral Shop</h1>
-        <div>
+        <div class="about-shop-container">
           <span class="about-shop-text">
             <p><!-- inserted from strings.js > about_shop_text_first_p --></p>
             <p><!-- inserted from strings.js > about_shop_text_second_p --></p>
@@ -123,7 +123,7 @@
           <span class="about-shop-image">
             <img id="about-shop-image" src="images/IMG_0958.jpg" alt="close up picture of several flower arrangements">
           </span>
-        </div>
+        </div> <!-- about-shop-container -->
       </div> <!-- end about-shop div -->
 
       <a name="about-me"></a>
@@ -150,7 +150,7 @@
               Your browser does not support the video tag.
             </video>
           </span>
-        </div>
+        </div> <!-- about-me-container -->
       </div> <!-- end about-me div -->
 
       <a name="portfolio"></a>
@@ -281,19 +281,21 @@
       </script>
 
       <script type="text/javascript">
-      const access_token = pmd_apiv1;
-      const pmd_api_url = 'http://localhost:8000/strings/api/v2/';
+      // const access_token = pmd_dev_apiv2;
+      // const pmd_api_url = 'http://localhost:8000/strings/api/v2/';
+      const access_token = pmd_prod_apiv2;
+      const pmd_api_url = 'http://api.pattymdesigns.com/strings/api/v2/';
       var now = new Date();
 
       function getStringsFromLocalStorage() {
-          let local_storage_strings = localStorage.getItem('all_pmd_strings');
+          var local_storage_strings = localStorage.getItem('all_pmd_strings');
           try {
             if (local_storage_strings) {
               // check date and refresh if expired
               var last_modified = window.localStorage.dateTimeStamp;
               var expires = new Date(last_modified);
               // expires.setSeconds(expires.getSeconds()+1);   // 1 seconds
-              // expires.setSeconds(expires.getSeconds()+30);   // 30 seconds
+              // expires.setSeconds(expires.getSeconds()+60);   // 60 seconds
               expires.setHours(expires.getHours()+1);        // 1 hour
               // expires.setDate(expires.getDate()+1);          // 1 day
               console.log(`last_modified ${last_modified}`);
@@ -304,22 +306,22 @@
                 console.log('Loading data from LocalStorage');
               }
               else {
-                getStringsFromApi();
+                getStringsFromApi(local_storage_strings);
                 console.log("Expired: Fetch from Api");
               }
             }
             else {
-              getStringsFromApi();
+              getStringsFromApi(local_storage_strings);
               console.log("First Visit: Fetch from Api");
             }
           }
           catch(err) {
-            getStringsFromApi();
+            getStringsFromApi(local_storage_strings);
             console.log("Error: Fetch from Api");
           }
       }
 
-      var getStringsFromApi = async function() {
+      var getStringsFromApi = async function(local_storage_strings) {
           const response = await axios.get(pmd_api_url, {
             headers: {
               'Authorization': `Api-Key ${access_token}`
@@ -328,6 +330,8 @@
           .catch((error) => {
               console.log("Error: Unable to reach Api");
               console.error(error);
+              console.log("Loading stale data from Local Storage");
+              parseJson(local_storage_strings);
           })
           let resp = JSON.stringify(response.data);
           parseJson(resp);
