@@ -1,4 +1,4 @@
-let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper/';
+let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
 
 function getSizes(photo_id) {
   let config = {
@@ -6,14 +6,14 @@ function getSizes(photo_id) {
       photo_id: photo_id,
     },
   }
-  let method = "flickrApiGetSizes/";
-  let url = api_wrapper_url + method + photo_id;
+  let method = "flickrApiGetSizes";
+  let url = `${api_wrapper_url}/${method}/${photo_id}/`;
   return axios.get(url);
 }
 
 function getInfo(photo_id) {
   let method = 'flickrApiGetInfo/';
-  let url = api_wrapper_url + method + photo_id;
+  let url = `${api_wrapper_url}/${method}/${photo_id}/`;
   return axios.get(url);
 }
 
@@ -68,8 +68,8 @@ async function fetchURLDescArrangements(photo_id,i) {
 } // end of fetchURLDesc
 
 function getArrangements() {
-  let method = 'flickrApiGetArrangements/';
-  let url = api_wrapper_url + method;
+  let method = 'flickrApiGetArrangements';
+  let url = `${api_wrapper_url}/${method}/`;
   axios.get(url)
   .then(function (response) {                                     // then do the cool stuff
     let data = response.data;                                      // get data from api response
