@@ -131,17 +131,17 @@
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
   <script type="text/javascript">
-  let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper/';
+  let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
 
   function getSizes(photo_id) {
-    let method = "flickrApiGetSizes/";
-    let url = api_wrapper_url + method + photo_id;
+    let method = "flickrApiGetSizes";
+    let url = `${api_wrapper_url}/${method}/${photo_id}/`;
     return axios.get(url);
   }
 
   function getInfo(photo_id) {
-    let method = 'flickrApiGetInfo/';
-    let url = api_wrapper_url + method + photo_id;
+    let method = 'flickrApiGetInfo';
+    let url = `${api_wrapper_url}/${method}/${photo_id}/`;
     return axios.get(url);
   }
 
@@ -199,8 +199,8 @@
   } // end of fetchURLDesc
 
   function getContainers() {
-    let method = 'flickrApiGetContainers/';
-    let url = api_wrapper_url + method;
+    let method = 'flickrApiGetContainers';
+    let url = `${api_wrapper_url}/${method}/`;
     axios.get(url)
     .then(function (response) {
       let data = response.data;
