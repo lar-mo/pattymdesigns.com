@@ -1,47 +1,34 @@
-let flickr_url = 'https://api.flickr.com/services/rest/?'
+let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper/';
 
 function getSizes(photo_id) {
   let config = {
     params: {
-      method: 'flickr.photos.getSizes',
       photo_id: photo_id,
-      api_key: flickr_api_key,
-      format: 'json',
-      nojsoncallback: 1
-    }, // end of 'params'
-  } // end of 'config'
-  return axios.get(flickr_url, config);
+    },
+  }
+  let method = "flickrApiGetSizes/";
+  let url = api_wrapper_url + method + photo_id;
+  return axios.get(url);
 }
 
 function getInfo(photo_id) {
-  let config = {
-    params: {
-      method: 'flickr.photos.getInfo',
-      photo_id: photo_id,
-      api_key: flickr_api_key,
-      format: 'json',
-      nojsoncallback: 1
-    }, // end of 'params'
-  } // end of 'config'
-  return axios.get(flickr_url, config);
+  let method = 'flickrApiGetInfo/';
+  let url = api_wrapper_url + method + photo_id;
+  return axios.get(url);
 }
 
 async function fetchURLDescArrangements(photo_id,i) {
   const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)])
-      // Both requests are now complete
-  var data = url.data;                                      // get data from api response
+  var data = url.data;
   if (data.stat !== 'ok') {
     console.log("error: getSizes API");
   }
-  // console.log(data)
 
-  var p_info = info.data;                                      // get data from api response
+  var p_info = info.data;
   if (p_info.stat !== 'ok') {
     console.log("error: getInfo API");
   }
-  // console.log(info)
 
-  // *** matt's code below ***
   let photo_size_array = data.sizes.size;
   let thumbnail_photo_url = photo_size_array[6].source;
   let original_photo_url = photo_size_array[photo_size_array.length-1].source;
@@ -81,19 +68,9 @@ async function fetchURLDescArrangements(photo_id,i) {
 } // end of fetchURLDesc
 
 function getArrangements() {
-  // 72157718545940976 - PattyM Designs Flowers
-  let config = {
-    params: {
-      method: 'flickr.photosets.getPhotos',
-      user_id: '67858665@N00',
-      photoset_id: '72157718545940976',
-      api_key: flickr_api_key,
-      format: 'json',
-      nojsoncallback: 1,
-      extras: 'date_upload',
-    }, // end of 'params'
-  } // end of 'config'
-  axios.get(flickr_url, config)
+  let method = 'flickrApiGetArrangements/';
+  let url = api_wrapper_url + method;
+  axios.get(url)
   .then(function (response) {                                     // then do the cool stuff
     let data = response.data;                                      // get data from api response
     let photoset = data.photoset.photo;
