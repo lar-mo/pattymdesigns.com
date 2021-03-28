@@ -21,21 +21,20 @@
 
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/flickr.js" async></script>
-    <script src="js/pmd-v1.0.1.latest.min.js"></script>
-    <script src="js/strings.js"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20210328"></script>
+    <script src="js/flickr.js?modified=20210328" async></script>
+    <script src="js/blogger.js?modified=20210328" async></script>
     <script src="js/formbutton-v1.0.4.min.js" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210319" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src=".env/api_keys.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="css/styles.css?modified=20210318">
+    <link rel="stylesheet" href="css/styles.css?modified=20210328">
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -78,7 +77,7 @@
       <a name="about-shop"></a>
       <div class="about-shop container-padding">
         <h1>About the Floral Shop</h1>
-        <div>
+        <div class="about-shop-container">
           <span class="about-shop-text">
             <p><!-- inserted from strings.js > about_shop_text_first_p --></p>
             <p><!-- inserted from strings.js > about_shop_text_second_p --></p>
@@ -88,7 +87,7 @@
           <span class="about-shop-image">
             <img id="about-shop-image" src="images/IMG_0958.jpg" alt="close up picture of several flower arrangements">
           </span>
-        </div>
+        </div> <!-- about-shop-container -->
       </div> <!-- end about-shop div -->
 
       <a name="about-me"></a>
@@ -115,7 +114,7 @@
               Your browser does not support the video tag.
             </video>
           </span>
-        </div>
+        </div> <!-- about-me-container -->
       </div> <!-- end about-me div -->
 
       <a name="portfolio"></a>
@@ -166,6 +165,12 @@
 
       </div> <!-- end portfolio-grid div -->
 
+      <a name="blog"></a>
+      <div class="blog_container container-padding">
+        <h1>Patty's Corner</h1>
+        <div id="blog_container"></div>
+      </div>
+
       <a name="additional-info"></a>
       <div class="additional-info container-padding">
         <h1>Additional Information</h1>
@@ -180,77 +185,12 @@
     </div> <!-- end container div  (opening tag just below <body>) -->
 
     <script type="text/javascript">
-    	// Parse the URL parameter
-    	function getParameterByName(name, url) {
-    	    if (!url) url = window.location.href;
-    	    name = name.replace(/[\[\]]/g, "\\$&");
-    	    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    	        results = regex.exec(url);
-    	    if (!results) return null;
-    	    if (!results[2]) return '';
-    	    return decodeURIComponent(results[2].replace(/\+/g, " "));
-    	}
 
-    	// Give the parameter a variable name
-          let v1 = getParameterByName('v1');
-          let v2 = getParameterByName('v2');
-          let v2a = getParameterByName('v2a');
-          let v3 = getParameterByName('v3');
-          let v4 = getParameterByName('v4');
-          let v5 = getParameterByName('v5');
-          let v6 = getParameterByName('v6');
-          let spring = getParameterByName('spring');
-
-    	 $(document).ready(function() {
-
-    		if (v1 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0955.jpg");
-    		}
-        else if (v2 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958.jpg");
-    		}
-        else if (v2a !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
-    		}
-        else if (v3 !== null) {
-          $('.about-shop-image > img').css("display", "block");
-        }
-        else if (v4 !== null) {
-          $('.carousel-div').css("display", "block");
-        }
-        else if (v5 !== null) {
-          $('.about-me-video').css("display", "block");
-        }
-        else if (spring !== null) {
-          alert("Hello Concordia News visitors!")
-          console.log("Hello Concordia News visitors!")
-        }
-    		// Check if the URL parmeter is empty or not defined, display default content
-    		else {
-          $('#large-porch-image').attr("src", "images/porch-store-cropped-again.jpg");
-    		}
-    	});
-
-      // change og:title
-      $('meta[property="og:title"]').attr('content', og_title);
-      // change og:description
-      $('meta[property="og:description"]').attr('content', about_shop_text_first_p);
-      // change meta description
-      $('meta[name=description]').attr('content', about_shop_text_first_p);
-      // change meta keywords
-      $('meta[name=keywords]').attr('content', meta_keywords);
-
-      document.querySelector(".large-image-text p:nth-of-type(2)").innerHTML = large_image_text_second_p;
-      document.querySelector(".large-image-text p:nth-of-type(3)").innerHTML = large_image_text_third_p;
-      document.querySelector(".about-shop-text  p:nth-of-type(1)").innerHTML = about_shop_text_first_p;
-      document.querySelector(".about-shop-text  p:nth-of-type(2)").innerHTML = about_shop_text_second_p;
-      document.querySelector(".about-me-text    p:nth-of-type(1)").innerHTML = about_me_text_first_p;
-      document.querySelector(".portfolio-grid   p:nth-of-type(1)").innerHTML = portfolio_grid_first_p;
-      document.querySelector(".portfolio-grid   p:nth-of-type(2)").innerHTML = portfolio_grid_second_p;
-      document.querySelector(".additional-info  p:nth-of-type(1)").innerHTML = additional_info_first_p;
-      document.querySelector(".additional-info  p:nth-of-type(2)").innerHTML = additional_info_second_p;
-      document.querySelector(".additional-info  p:nth-of-type(3)").innerHTML = additional_info_third_p;
-      document.querySelector(".additional-info  p:nth-of-type(4)").innerHTML = additional_info_fourth_p;
+      window.onload = function(){
+          getArrangements();
+          getLatestPost();
+          getStringsFromLocalStorage();
+      }
 
     </script>
   </body>
