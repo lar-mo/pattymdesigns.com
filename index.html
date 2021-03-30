@@ -23,7 +23,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="js/pmd-combined.latest.min.js?modified=202103230"></script>
     <script src="js/flickr.js?modified=202103281219" async></script>
-    <script src="js/blogger.js?modified=202103281219" async></script>
     <script src="js/formbutton-v1.0.4.min.js" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210319" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -70,13 +69,6 @@
         <div class="about-me-container">
           <span class="about-me-text">
             <!-- inserted from Strings API > about_me -->
-          </span>
-          <span class="about-me-video">
-            <h1>&nbsp;</h1>
-            <video controls>
-              <source src="videos/sample-mp4-file.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
           </span>
         </div> <!-- about-me-container -->
       </div> <!-- end about-me div -->
@@ -127,12 +119,6 @@
 
       </div> <!-- end portfolio-grid div -->
 
-      <a name="blog"></a>
-      <div class="blog_container container-padding">
-        <h1>Patty's Corner</h1>
-        <div id="blog_container"></div>
-      </div>
-
       <a name="additional-info"></a>
       <div class="additional-info container-padding"><!-- inserted from Strings API > additional_info --></div>
 
@@ -172,7 +158,6 @@
 
       window.onload = function(){
           getArrangements();
-          getLatestPost();
           getStringsFromLocalStorage();
       }
 
