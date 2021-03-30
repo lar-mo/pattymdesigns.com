@@ -74,16 +74,6 @@ a:link {
   text-decoration: none;
 }
 
-a.link-underline {
-  text-decoration: underline;
-}
-
-a.link-underline:hover,
-a.link-underline:visited,
-a.link-underline:active {
-  text-decoration: underline;
-}
-
 a:hover, a:visited, a:active {
   text-decoration: overline;
 }
@@ -104,10 +94,6 @@ a:hover, a:visited, a:active {
 
 #large-porch-image {
   width: calc(100vw * 0.65);
-}
-
-.emphasis {
-  font-weight: 700;
 }
 
 .email-link {
@@ -131,11 +117,17 @@ a:hover, a:visited, a:active {
   justify-content:space-between;
 }
 
+.about-shop-text {
+  padding-right: 25px;
+}
+
+.about-shop-image {
+    display: none;
+}
+
 .about-shop-image > img {
   width: 252px;
   border-radius: 6px;
-  /* visibility: hidden; */
-  display: none;
 }
 
 .about-me {
@@ -156,7 +148,7 @@ a:hover, a:visited, a:active {
   /* padding-right: 10px; */
 }
 
-.about-me-text > div:last-of-type {
+.about-me-text {
   padding: 20px 0;
 }
 
