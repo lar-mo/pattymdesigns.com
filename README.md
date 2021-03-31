@@ -1,5 +1,7 @@
 # Floral Design Portfolio
 
+Updates: [March 2021 ↓](#march-2021---major-update)
+
 ## Website
 * Originally developed the Layout in Dreamhost Remixer (soon defunct)
 * Recreated in Javascript (vanilla, JQuery, formspree.io / formbutton, SwiperJS, Google Analytics)
@@ -40,33 +42,35 @@
 ## March 2021 - Major update
 
 ### New API serves Strings for website (developed with Django REST Framework)
-  * Restricted access via API Key and Authenticated Users (r/w) or Anon (r/o)
-  * Versioning (kludgy) is done by replicating views, serializers, urls
+  * Restricted access via API Key and Authenticated Users (r/w) or Anon (r/o).
+  * Versioning (kludgy) is done by replicating views, serializers, urls.
   * v1/v2 - string only; v3 - string_en, string_es, string_fr, string_de
-  * Data is saved in LocalStorage for up to one hour
+  * Data is saved in LocalStorage for up to one hour.
 
 ### All API calls (Flickr, Blogger, PMD Strings) are proxied
-  * Uses Django app to proxy each 3rd party (and 1st party) API calls
-  * Db info, secrets, API keys are all hidden
-  * Front-end uses wrapped API calls
+  * Uses Django app to proxy each 3rd party (and 1st party) API calls.
+  * Db info, secrets, API keys are all hidden.
+  * Front-end uses parses same JSON object so no code changes were required.
 
 ### Improved Front-end code for dynamic insertion of Strings
-  * Previously, individual <p> tags were populated
-  * Now, all text for a section is stored in the Strings
+  * Previously, individual `<p>` tags were populated which made assignment very brittle.
+  * Now, all text for a section is stored in the `string` variable (key).
   * Note: "Strings" is inaccurate as it now includes images & videos (soon) but has dual benefits:
     * Easily edit images shown in sections (w/o having to update front-end code)
     * Include translated text as image ALT tags
 
 ### Multi-language Support
-  * new Strings API allows for storing translated strings
-  * Site now can be displayed in English (default), Spanish (es), French (fr), German (de)
-  * Non-English text was translated via Google Translate and input via Admin Panel (pseudo CMS)
+  * New Strings API allows for storing translated strings.
+  * Site now can be displayed in English (default), Spanish (es), French (fr), German (de).
+  * Non-English text was translated via Google Translate and input via Admin Panel (pseudo CMS).
 
 ### Other improvements
-  * Most error conditions should be handled; static content served (try/catch, async/await)
+  * Most error conditions should be handled; static content served (try/catch, async/await).
   * https://api.pattymdesigns.com is served through Cloudflare (API and wrapper).
+  * Logging: I'm trying out LogRocket to get more insight into site performance and user behavior.
 
 ### Known Issues
   * If Strings API is down on a user's first visit, the UX will be poor.
-  * The fallback to LocalStorage only works after first visit.
+    * The fallback to LocalStorage only works _after_ the first visit.
   * 1 hour "cache" (LocalStorage) might cause unintended issues.
+    * This could be mitigated by using Cloudflare's Purge Browser cache feature after a release (CSS/JS).
