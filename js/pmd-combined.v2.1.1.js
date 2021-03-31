@@ -87,7 +87,7 @@ fetch("./header.html")
             console.log(`now ${now}`);
             if (expires > now) {
               parseJson(local_storage_strings);
-              console.log('Loading data from LocalStorage');
+              console.log('Loading data from Local Storage');
             }
             else {
               getStringsFromApi(local_storage_strings);
