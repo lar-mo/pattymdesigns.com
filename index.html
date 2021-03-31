@@ -21,7 +21,7 @@
 
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=202103230"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20210331"></script>
     <script src="js/flickr.js?modified=202103281219" async></script>
     <script src="js/formbutton-v1.0.4.min.js" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210319" defer></script>
@@ -42,7 +42,15 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="container">
 
-      <div id="header"></div>
+      <div id="header">
+        <div class="header-links">
+          <div id="header-logo">💐</div>
+          <div><a href="#about-shop" id="header-link-about-shop"><!-- inserted from Strings API > header_link_about_shop --></a></div>
+          <div><a href="#about-me" id="header-link-about-me"><!-- inserted from Strings API > header_link_about_me --></a></div>
+          <div><a href="#portfolio" id="header-link-portfolio"><!-- inserted from Strings API > header_link_portfolio --></a></div>
+          <div><a href="#" onclick="formbutton('toggleForm');return false" id="header-link-contact"><!-- inserted from Strings API > header_link_contact --></a></div>
+        </div>
+      </div>
 
       <div class="hero">
         <div class="hero-text">
@@ -122,7 +130,26 @@
       <a name="additional-info"></a>
       <div class="additional-info container-padding"><!-- inserted from Strings API > additional_info --></div>
 
-      <div id="footer"></div>
+      <div id="footer">
+        <div class="center-text">&copy; 2021 Patty McMahan&nbsp;&nbsp;All Rights Reserved.<span id="footer-link-privacy">&nbsp;&nbsp;<a href="privacy.html" target="_blank">Privacy</a>.</span></div>
+        <span class="footer-links">
+          <div class="footer-links-container">
+            <div>
+              <span>Email:</span>
+              <span><a href="mailto:pattymdesigns@yahoo.com">pattymdesigns@yahoo.com</a></span>
+            </div>
+            <div>
+              <span>Address:</span>
+              <span>4834 NE 23rd Ave, Portland, Ore.</span>
+            </div>
+            <div>
+              <span>Phone:</span>
+              <span>(503)&nbsp;293-8035</span>
+            </div>
+            <div>&nbsp;</div>
+          </div>
+        </span>
+      </div>
 
     </div> <!-- end container div  (opening tag just below <body>) -->
 
