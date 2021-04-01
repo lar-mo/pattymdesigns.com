@@ -21,9 +21,9 @@
 
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20210331"></script>
-    <script src="js/flickr.js?modified=202103281219" async></script>
-    <script src="js/blogger.js?modified=202103281219" async></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20210401"></script>
+    <script src="js/flickr.js?modified=20210401" async></script>
+    <script src="js/blogger.js?modified=20210401" async></script>
     <script src="js/formbutton-v1.0.4.min.js" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210319" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -34,7 +34,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
-    <link rel="stylesheet" href="css/styles.css?modified=20210330">
+    <link rel="stylesheet" href="css/styles.css?modified=20210401">
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -180,64 +180,10 @@
     </div> <!-- end container div  (opening tag just below <body>) -->
 
     <script type="text/javascript">
-      var lang = '';
 
-    	// Parse the URL parameter
-    	function getParameterByName(name, url) {
-    	    if (!url) url = window.location.href;
-    	    name = name.replace(/[\[\]]/g, "\\$&");
-    	    let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-    	        results = regex.exec(url);
-    	    if (!results) return null;
-    	    if (!results[2]) return '';
-    	    return decodeURIComponent(results[2].replace(/\+/g, " "));
-    	}
-
-    	// Give the parameter a variable name
-          let v1 = getParameterByName('v1');
-          let v2 = getParameterByName('v2');
-          let v2a = getParameterByName('v2a');
-          let v3 = getParameterByName('v3');
-          let v4 = getParameterByName('v4');
-          let v5 = getParameterByName('v5');
-          let v6 = getParameterByName('v6');
-          let spring = getParameterByName('spring');
-          let es = getParameterByName('es');
-          let fr = getParameterByName('fr');
-          let de = getParameterByName('de');
-          let v6_es = getParameterByName('v6_es');
-
+      let lang = window.location.search;
     	 $(document).ready(function() {
-
-    		if (v1 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0955.jpg");
-    		}
-        else if (v2 !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958.jpg");
-    		}
-        else if (v2a !== null) {
-          $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
-    		}
-        else if (v3 !== null) {
-          $('.about-shop-image > img').css("display", "block");
-        }
-        else if (v4 !== null) {
-          $('.carousel-div').css("display", "block");
-        }
-        else if (v5 !== null) {
-          $('.about-me-video').css("display", "block");
-        }
-        else if (es !== null) {
-          lang = 'es';
-        }
-        else if (fr !== null) {
-          lang = 'fr';
-        }
-        else if (de !== null) {
-          lang = 'de';
-        }
-        else if (v6_es !== null) {
-          lang = 'es';
+        if (lang == "?v6") {
           setTimeout(function () {
             $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
             $('.about-shop-image').css("display", "block");
@@ -247,17 +193,7 @@
           $('.about-me-video').css("display", "block");
           $('.blog_container').css("display", "block");
         }
-        else if (v6 !== null) {
-          setTimeout(function () {
-            $('#large-porch-image').attr("src", "images/IMG_0958a.jpg");
-            $('.about-shop-image').css("display", "block");
-            $('.about-shop-image > img').attr("src", "images/porch-store-cropped-again.jpg");
-          }, 500); // temporary delay
-          $('.carousel-div').css("display", "block");
-          $('.about-me-video').css("display", "block");
-          $('.blog_container').css("display", "block");
-        }
-        else if (spring !== null) {
+        else if (lang == "?spring") {
           alert("Hello Concordia News visitors!")
           console.log("Hello Concordia News visitors!")
         }
