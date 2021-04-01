@@ -23,10 +23,10 @@
 
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20210331"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20210401"></script>
     <script src="js/flickr.js?modified=202103281219" async></script>
     <script src="js/formbutton-v1.0.4.min.js" defer></script>
-    <script src="js/formspree-formbutton.js?modified=20210319" defer></script>
+    <script src="js/formspree-formbutton.js?modified=20210401" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
@@ -34,8 +34,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
     <link rel="stylesheet" href="css/styles.css?modified=20210330">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -133,7 +133,7 @@
       <div class="additional-info container-padding"><!-- inserted from Strings API > additional_info --></div>
 
       <div id="footer">
-        <div class="center-text">&copy; 2021 Patty McMahan&nbsp;&nbsp;All Rights Reserved.<span id="footer-link-privacy">&nbsp;&nbsp;<a href="privacy.html" target="_blank">Privacy</a>.</span></div>
+        <div class="center-text">&copy; 2021 Patty McMahan&nbsp;&nbsp;All Rights Reserved.&nbsp;&nbsp;<a href="privacy.html" target="_blank">Privacy</a>.</div>
         <span class="footer-links">
           <div class="footer-links-container">
             <div>
@@ -156,33 +156,15 @@
     </div> <!-- end container div  (opening tag just below <body>) -->
 
     <script type="text/javascript">
-      var lang = '';
-
-      // Parse the URL parameter
-      function getParameterByName(name, url) {
-          if (!url) url = window.location.href;
-          name = name.replace(/[\[\]]/g, "\\$&");
-          let regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-              results = regex.exec(url);
-          if (!results) return null;
-          if (!results[2]) return '';
-          return decodeURIComponent(results[2].replace(/\+/g, " "));
-      }
-
-      let es = getParameterByName('es');
-      let fr = getParameterByName('fr');
-      let de = getParameterByName('de');
+      let lang = window.location.search;
 
       $(document).ready(function() {
-        if (es !== null) {
-          lang = 'es';
-        }
-        else if (fr !== null) {
-          lang = 'fr';
-        }
-        else if (de !== null) {
-          lang = 'de';
-        }
+        if (lang == '?es') {
+          $('.center-text a').attr("href","privacy.html?es"); }
+        else if (lang == '?fr') {
+          $('.center-text a').attr("href","privacy.html?fr"); }
+        else if (lang == '?de') {
+          $('.center-text a').attr("href","privacy.html?de"); }
       });
 
       window.onload = function(){
