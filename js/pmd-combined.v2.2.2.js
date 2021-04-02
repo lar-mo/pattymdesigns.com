@@ -106,16 +106,16 @@
     }
 
     function parseJson(ls_strings) {
-        let lang = window.location.search;
+        let url_arg = window.location.search;
         let json_strings = JSON.parse(ls_strings);
         var array = {};
         for (let i=0;i<json_strings.length;++i) {
           let location = json_strings[i].location;
-          if (lang == '?es') {
+          if (url_arg == '?es' || lang == "es") {
             var string = json_strings[i].string_es;
-          } else if (lang == '?fr') {
+          } else if (url_arg == '?fr' || lang == "fr") {
             var string = json_strings[i].string_fr;
-          } else if (lang == '?de') {
+          } else if (url_arg == '?de' || lang == "de") {
             var string = json_strings[i].string_de;
           } else {
             var string = json_strings[i].string_en;
