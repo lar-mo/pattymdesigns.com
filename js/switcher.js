@@ -3,7 +3,6 @@ let url_arg = window.location.search;
 $(document).ready(function() {
   if (url_arg == '?es' || lang == "es") {
     $('.center-text a').attr("href","privacy.html?es");
-    // document.querySelector("#lang_label").innerHTML = 'Español';
     $(lang_label).text("Español");
     $("#es_option").css("display","none");
   }
