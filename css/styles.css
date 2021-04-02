@@ -25,10 +25,18 @@ html {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   margin: auto;
 }
 
-.header-links > div {
+.first-three-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.first-three-links > div {
   padding: 0 20px;
 }
 
@@ -279,6 +287,69 @@ a:hover, a:visited, a:active {
 
 .footer-links-container {
   text-align: left;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 14px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  text-align: right;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  min-width: 115px;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #842242;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  width: 334px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 html, body {
