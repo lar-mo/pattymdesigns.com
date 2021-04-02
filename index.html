@@ -23,9 +23,9 @@
 
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20210401"></script>
+    <script src="js/pmd-combined.v2.2.2.js?modified=20210401"></script>
     <script src="js/flickr.js?modified=202103281219" async></script>
-    <script src="js/formbutton-v1.0.4.min.js" defer></script>
+    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210401" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -46,18 +46,33 @@
 
       <div id="header">
         <div class="header-links">
-          <div id="header-logo">💐</div>
-          <div><a href="#about-shop" id="header-link-about-shop"><!-- inserted from Strings API > header_link_about_shop --></a></div>
-          <div><a href="#about-me" id="header-link-about-me"><!-- inserted from Strings API > header_link_about_me --></a></div>
-          <div><a href="#portfolio" id="header-link-portfolio"><!-- inserted from Strings API > header_link_portfolio --></a></div>
-          <div><a href="#" onclick="formbutton('toggleForm');return false" id="header-link-contact"><!-- inserted from Strings API > header_link_contact --></a></div>
+          <div class="first-three-links">
+            <div id="header-logo">💐</div>
+            <div><a href="#about-shop" id="header-link-about-shop">About the Shop<!-- inserted from Strings API > header_link_about_shop --></a></div>
+            <div><a href="#about-me" id="header-link-about-me">About Me<!-- inserted from Strings API > header_link_about_me --></a></div>
+            <div><a href="#portfolio" id="header-link-portfolio">Floral Design<!-- inserted from Strings API > header_link_portfolio --></a></div>
+            <div><a href="#" onclick="formbutton('toggleForm');return false" id="header-link-contact">Contact<!-- inserted from Strings API > header_link_contact --></a></div>
+          </div>
+          <div class="language">
+            <div class="dropdown">
+              <button class="dropbtn"><span id="lang_label">English</span>
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a id="en_option">English</a>
+                <a id="es_option">Español</a>
+                <a id="fr_option">Française</a>
+                <a id="de_option">Deutsche</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="hero">
         <div class="hero-text">
           <div class="hero-title center-text">Patty M Designs</div>
-          <div class="hero-subtitle center-text"><!-- inserted from Strings API > hero_subtitle --></div>
+          <div class="hero-subtitle center-text">Custom floral arrangements for you or someone special<!-- inserted from Strings API > hero_subtitle --></div>
         </div>
       </div> <!-- end hero div -->
 
@@ -156,22 +171,13 @@
     </div> <!-- end container div  (opening tag just below <body>) -->
 
     <script type="text/javascript">
-      let lang = window.location.search;
-
-      $(document).ready(function() {
-        if (lang == '?es') {
-          $('.center-text a').attr("href","privacy.html?es"); }
-        else if (lang == '?fr') {
-          $('.center-text a').attr("href","privacy.html?fr"); }
-        else if (lang == '?de') {
-          $('.center-text a').attr("href","privacy.html?de"); }
-      });
-
+      var lang = '';
       window.onload = function(){
           getArrangements();
           getStringsFromLocalStorage();
+          loadFormbutton();
       }
-
     </script>
+    <script type="text/javascript" src="js/switcher.js"></script>
   </body>
 </html>
