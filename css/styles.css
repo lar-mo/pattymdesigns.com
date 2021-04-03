@@ -44,12 +44,17 @@ html {
   font-size: 36px;
 }
 
+#pancake {
+  display: none;
+}
+
 .hero {
+  min-height: 100vh;
   height: 100vh; /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
-  /* background: url('../images/hero2.png') no-repeat center;
-  background-size: cover;
-  background-attachment: fixed; */
+  /* background: url('../images/hero2.png') no-repeat center; */
+  /* background-size: cover; */
+  /* background-attachment: fixed; */
 }
 
 .hero-text {
@@ -138,6 +143,30 @@ a:hover, a:visited, a:active {
   border-radius: 6px;
 }
 
+.featured-item {
+  background-color:	rgba(135,165,85,0.7);
+  width: 100vw;
+}
+
+.featured-item-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.featured-item-text {
+  padding: 35px;
+  text-align: center;
+  background-color: rgba(241,207,57,0.7);
+  margin: auto;
+  border-radius: 6px 75px;
+}
+
+.featured-item-image > img {
+  width: 452px;
+  border-radius: 75px 6px;
+}
+
 .about-me {
   background-color: rgba(81,81,81,0.75);
   width: 100vw;
@@ -195,13 +224,15 @@ a:hover, a:visited, a:active {
 .thumbnail-short {
   width: 275px;
   height: 207px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
+  border-radius: 50px 6px;
 }
 
 .thumbnail-long {
   width: 275px;
   height: 366px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
+  border-radius: 50px 6px;
 }
 
 .image-container div:last-child {
@@ -296,7 +327,7 @@ a:hover, a:visited, a:active {
 
 .navbar a {
   float: left;
-  font-size: 14px;
+  font-size: 10px;
   color: white;
   text-align: center;
   padding: 14px 16px;
@@ -309,7 +340,7 @@ a:hover, a:visited, a:active {
 }
 
 .dropdown .dropbtn {
-  font-size: 14px;
+  font-size: 12px;
   border: none;
   outline: none;
   color: white;
@@ -410,6 +441,9 @@ html, body {
   #header {
     padding: 10px;
   }
+  #header-logo {
+    display: none;
+  }
   .header-links {
     font-size: 0.9em;
     justify-content: space-around;
@@ -427,6 +461,12 @@ html, body {
   }
   .large-image-img > img {
     width: 500px;
+  }
+  .featured-item-image > img {
+    width: 300px;
+  }
+  .featured-item-text {
+    padding: 20px;
   }
   .about-me-container {
     flex-direction: column-reverse;
@@ -450,8 +490,12 @@ html, body {
   #header {
     padding: 5px;
   }
-  #header-logo {
-    font-size: 30px;
+  .first-three-links {
+    display: none;
+  }
+  #pancake {
+    display: inline-block;
+    /* padding: 10px 15px; */
   }
   .header-links {
     font-size: 1.0em;
@@ -479,6 +523,9 @@ html, body {
   }
   .large-image-img > img {
     width: auto;
+  }
+  .featured-item-container {
+    flex-direction: column-reverse;
   }
 }
 @media all and (max-width: 500px) {
