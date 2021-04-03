@@ -36,33 +36,45 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/styles.css?modified=20210402">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/overlay.css?modified=20210402" async>
+
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q2MQRZ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    <div id="myNav" class="overlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+        <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header_link_about_shop --></a>
+        <a href="#about-me" id="pancake-link-about-me" onclick="closeNav()">About Me<!-- inserted from Strings API > header_link_about_me --></a>
+        <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header_link_portfolio --></a>
+        <a href="#" id="pancake-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header_link_contact --></a>
+      </div>
+    </div>
     <div id="container">
-
       <div id="header">
         <div class="header-links">
+          <span id="pancake" style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776;</span>
           <div class="first-three-links">
             <div id="header-logo">💐</div>
             <div><a href="#about-shop" id="header-link-about-shop">About the Shop<!-- inserted from Strings API > header_link_about_shop --></a></div>
             <div><a href="#about-me" id="header-link-about-me">About Me<!-- inserted from Strings API > header_link_about_me --></a></div>
             <div><a href="#portfolio" id="header-link-portfolio">Floral Design<!-- inserted from Strings API > header_link_portfolio --></a></div>
-            <div><a href="#" onclick="formbutton('toggleForm');return false" id="header-link-contact">Contact<!-- inserted from Strings API > header_link_contact --></a></div>
+            <div><a href="#" id="header-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header_link_contact --></a></div>
+            <div><a href="#featured-item" id="header-link-special" style="font-weight:bold;font-style:italic;color:rgb(241,207,57);">Easter Special!<!-- inserted from Strings API > header_link_special --></a></div>
           </div>
           <div class="language">
             <div class="dropdown">
-              <button class="dropbtn"><span id="lang_label">English</span>
+              <button class="dropbtn"><span id="lang_label"></span>
                 <i class="fa fa-caret-down"></i>
               </button>
               <div class="dropdown-content">
-                <a id="en_option">English</a>
-                <a id="es_option">Español</a>
-                <a id="fr_option">Française</a>
-                <a id="de_option">Deutsche</a>
+                <a href="javascript:void(0)" id="en_option">English</a>
+                <a href="javascript:void(0)" id="es_option">Español</a>
+                <a href="javascript:void(0)" id="fr_option">Français</a>
+                <a href="javascript:void(0)" id="de_option">Deutsche</a>
               </div>
             </div>
           </div>
@@ -82,19 +94,32 @@
         <div class="large-image-img"><!-- inserted from Strings API > large_image_img --></div>
       </div> <!-- end large-image div -->
 
+      <a name="featured-item"></a>
+      <div class="featured-item container-padding">
+        <div class="featured-item-container">
+          <span class="featured-item-image">
+            <img src='http://lar-mo.com/images/IMG_1041_lowres.jpg' />
+            <!-- inserted from Strings API > featured_item_image -->
+          </span>
+          <span class="featured-item-text">
+            <h1>Easter Special</h1>
+            <h4>$40 arrangement<br>including cute vase</h4><!-- inserted from Strings API > featured_item_text -->
+          </span>
+        </div>
+      </div> <!-- end featured-item div -->
+
       <a name="about-shop"></a>
       <div class="about-shop container-padding">
         <div class="about-shop-container">
           <span class="about-shop-text"><!-- inserted from Strings API > about_shop --></span>
-          <span class="about-shop-image"><!-- inserted from Strings API > about_shop_image --></div>
+          <span class="about-shop-image"><!-- inserted from Strings API > about_shop_image --></span>
+        </div>
       </div> <!-- end about-shop div -->
 
       <a name="about-me"></a>
       <div class="about-me container-padding">
         <div class="about-me-container">
-          <span class="about-me-text">
-            <!-- inserted from Strings API > about_me -->
-          </span>
+          <span class="about-me-text"><!-- inserted from Strings API > about_me --></span>
         </div> <!-- about-me-container -->
       </div> <!-- end about-me div -->
 
@@ -169,6 +194,16 @@
       </div>
 
     </div> <!-- end container div  (opening tag just below <body>) -->
+
+    <script>
+      function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+    </script>
 
     <script type="text/javascript">
       var lang = '';
