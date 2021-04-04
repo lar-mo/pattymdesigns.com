@@ -23,13 +23,13 @@
 
     <title>Patty M Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20210402"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20210403"></script>
     <script src="js/flickr.js?modified=202103281219" async></script>
     <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210402" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
@@ -44,7 +44,7 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5Q2MQRZ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="myNav" class="overlay">
+    <div id="mobile_nav" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
         <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header_link_about_shop --></a>
@@ -194,25 +194,6 @@
       </div>
 
     </div> <!-- end container div  (opening tag just below <body>) -->
-
-    <script>
-      function openNav() {
-        document.getElementById("myNav").style.width = "100%";
-      }
-
-      function closeNav() {
-        document.getElementById("myNav").style.width = "0%";
-      }
-    </script>
-
-    <script type="text/javascript">
-      var lang = '';
-      window.onload = function(){
-          getArrangements();
-          getStringsFromLocalStorage();
-          loadFormbutton();
-      }
-    </script>
-    <script type="text/javascript" src="js/switcher.js"></script>
+    <script type="text/javascript" src="js/switcher.js?modified=20210403"></script>
   </body>
 </html>
