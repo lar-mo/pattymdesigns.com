@@ -330,7 +330,7 @@ a:hover, a:visited, a:active {
   font-size: 10px;
   color: white;
   text-align: center;
-  padding: 14px 16px;
+  padding: 15px 16px;
   text-decoration: none;
 }
 
@@ -344,7 +344,7 @@ a:hover, a:visited, a:active {
   border: none;
   outline: none;
   color: white;
-  padding: 16px;
+  padding: 17px;
   text-align: right;
   background-color: inherit;
   font-family: inherit;
@@ -354,6 +354,7 @@ a:hover, a:visited, a:active {
 
 .navbar a:hover, .dropdown:hover .dropbtn {
   background-color: #842242;
+  border-radius: 25px 0;
 }
 
 .dropdown-content {
@@ -361,6 +362,7 @@ a:hover, a:visited, a:active {
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
+  border-radius: 0 25px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
@@ -377,6 +379,7 @@ a:hover, a:visited, a:active {
 
 .dropdown-content a:hover {
   background-color: #ddd;
+  border-radius: 0 25px;
 }
 
 .dropdown:hover .dropdown-content {
