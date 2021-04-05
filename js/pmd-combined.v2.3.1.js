@@ -173,5 +173,3 @@ function openNav() {
 function closeNav() {
   document.getElementById("mobile_nav").style.width = "0%";
 }
-
-getStringsFromLocalStorage();
