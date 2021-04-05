@@ -398,7 +398,7 @@ a:hover, a:visited, a:active {
 }
 
 html, body {
-  background-image: url('../images/hero2.png');
+  background-image: url('https://www.lar-mo.com/images/pmd/hero2.png');
   background-attachment: fixed;
   background-repeat: repeat;
   background-size: cover;
