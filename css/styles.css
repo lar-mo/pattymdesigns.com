@@ -40,10 +40,10 @@ html {
   padding: 0 20px;
 }
 
-.section-links div:last-child {
+/* .section-links div:last-child {
   background-color: rgba(135,165,85,0.5);
   border-radius: 25px 0;
-}
+} */
 
 #header-link-special {
   font-weight: bold;
@@ -146,12 +146,12 @@ a:hover, a:visited, a:active {
 }
 
 .about-shop-image {
-    display: none;
+  display: none;
 }
 
 .about-shop-image > img {
   width: 252px;
-  border-radius: 6px;
+  border-radius: 50px 6px;
 }
 
 .featured-item {
@@ -208,7 +208,7 @@ a:hover, a:visited, a:active {
 .about-me-video > video {
   width: 336px;
   height: 252px;
-  border-radius: 6px;
+  border-radius: 6px 50px;
 }
 
 .text-slant {
@@ -302,7 +302,7 @@ a:hover, a:visited, a:active {
 }
 .post_img > img {
   width: 400px;
-  border-radius: 6px;
+  border-radius: 50px 6px;
 }
 .blog_container {
   background-color: rgba(255, 182, 193, 0.77);
