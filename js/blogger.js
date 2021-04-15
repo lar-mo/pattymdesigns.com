@@ -49,7 +49,7 @@ let bloggerv3_url = 'https://api.pattymdesigns.com/wrapper/bloggerApiGetLatestPo
 
       let read_more = document.createElement('span');
       read_more.setAttribute('class', "read_more");
-      read_more.innerHTML += "<a href='" + post_url + "' target='_blank'>Read More</a>";
+      read_more.innerHTML += "<a href='" + post_url + "' target='_blank' id='read_more'>Read More</a>";
       pub_date_read_more_div.appendChild(read_more);
 
       desc_div.appendChild(pub_date_read_more_div);
