@@ -40,17 +40,6 @@ html {
   padding: 0 20px;
 }
 
-/* .section-links div:last-child {
-  background-color: rgba(135,165,85,0.5);
-  border-radius: 25px 0;
-} */
-
-#header-link-special {
-  font-weight: bold;
-  font-style: italic;
-  color: rgb(241,207,57);
-}
-
 #header-logo {
   font-size: 36px;
 }
@@ -154,8 +143,24 @@ a:hover, a:visited, a:active {
   border-radius: 50px 6px;
 }
 
+/* Special = Featured */
+
+#featured {
+  /* background-color: rgba(112,128,144,0.5); */
+  background-color: #f19cbb;
+  border-radius: 25px 0;
+}
+
+#header-link-special {
+  font-weight: bold;
+  font-style: italic;
+  /* color: rgb(136,39,83); */
+  color:#fff;
+}
+
 .featured-item {
-  background-color:	rgba(135,165,85,0.7);
+  /* background-color:	rgba(112,128,144,0.7); */
+  background-color: #f19cbb;
   width: 100vw;
 }
 
@@ -168,7 +173,8 @@ a:hover, a:visited, a:active {
 .featured-item-text {
   padding: 35px;
   text-align: center;
-  background-color: rgba(241,207,57,0.7);
+  /* background-color: rgba(112,128,144,0.7); */
+  background-color: #fff;
   margin: auto;
   border-radius: 6px 75px;
 }
@@ -237,6 +243,12 @@ a:hover, a:visited, a:active {
   height: 207px;
   /* border-radius: 6px; */
   border-radius: 50px 6px;
+  transition: transform .2s;
+}
+
+.thumbnail-short:hover,
+.thumbnail-long:hover {
+  transform: scale(1.25);
 }
 
 .thumbnail-long {
@@ -244,6 +256,7 @@ a:hover, a:visited, a:active {
   height: 366px;
   /* border-radius: 6px; */
   border-radius: 50px 6px;
+  transition: transform .2s;
 }
 
 .image-container div:last-child {
