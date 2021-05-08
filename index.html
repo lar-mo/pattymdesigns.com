@@ -25,7 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
     <script src="js/pmd-combined.latest.min.js?modified=20210414"></script>
-    <script src="js/flickr.js?modified=20210405" async></script>
+    <script src="js/flickr.js?modified=20210508" async></script>
     <script src="https://formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210405" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -123,6 +123,11 @@
         <div id="grid_container">
 
           <div class="image-container fallback-images">
+            <div><img src="https://live.staticflickr.com/65535/51163531075_63c74b08ca.jpg" class="thumbnail-short" /></div>
+            <div>Mother's Day Special</div>
+          </div>
+
+          <div class="image-container fallback-images">
             <div><img src="images/IMG_0889.jpg" class="thumbnail-short" /></div>
             <div>An asymmetrical triangle with implied lines using branches</div>
           </div>
@@ -192,7 +197,13 @@
     <script type="text/javascript">
       window.onload = function() {
         getStringsFromLocalStorage();
-      }
+      };
+    </script>
+    <script type="text/javascript">
+       $(document).ready(function() {
+         $('.featured-item').css("display", "none");
+         $('#featured').css("display", "none");
+      });
     </script>
   </body>
 </html>

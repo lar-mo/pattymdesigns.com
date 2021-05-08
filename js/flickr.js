@@ -12,7 +12,7 @@ function getSizes(photo_id) {
 }
 
 function getInfo(photo_id) {
-  let method = 'flickrApiGetInfo/';
+  let method = 'flickrApiGetInfo';
   let url = `${api_wrapper_url}/${method}/${photo_id}/`;
   return axios.get(url);
 }
