@@ -1,4 +1,4 @@
-html {
+html, body {
   visibility: hidden;
   opacity:0;
 }
