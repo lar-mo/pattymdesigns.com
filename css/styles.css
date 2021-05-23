@@ -168,6 +168,7 @@ a:hover, a:visited, a:active {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
 .featured-item-text {
@@ -175,13 +176,14 @@ a:hover, a:visited, a:active {
   text-align: center;
   /* background-color: rgba(112,128,144,0.7); */
   background-color: #fff;
-  margin: auto;
   border-radius: 6px 75px;
+  max-width: 350px;
 }
 
 .featured-item-image > img {
   width: 452px;
   border-radius: 75px 6px;
+  padding: 26px;
 }
 
 .about-me {
