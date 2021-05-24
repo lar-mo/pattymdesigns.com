@@ -183,7 +183,12 @@ a:hover, a:visited, a:active {
 .featured-item-image > img {
   width: 452px;
   border-radius: 75px 6px;
-  padding: 26px;
+  padding-left: 26px;
+  transition: transform .2s;
+}
+
+.featured-item-image > img:hover {
+  transform: scale(1.25);
 }
 
 .about-me {
@@ -460,6 +465,13 @@ html, body {
   }
 }
 
+@media all and (max-width: 900px) {
+  .header-links {
+    font-size: 0.9em;
+    justify-content: space-around;
+  }
+}
+
 @media all and (max-width: 800px) {
   body {
     font-size: 0.82em;
@@ -492,7 +504,7 @@ html, body {
     width: 500px;
   }
   .featured-item-image > img {
-    width: 300px;
+    width: 264px;
   }
   .featured-item-text {
     padding: 20px;
@@ -554,7 +566,7 @@ html, body {
     width: auto;
   }
   .featured-item-container {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 }
 @media all and (max-width: 500px) {
