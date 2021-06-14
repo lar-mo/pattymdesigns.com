@@ -131,11 +131,11 @@ a:hover, a:visited, a:active {
 }
 
 .about-shop-text {
-  padding-right: 25px;
+  padding-right: 100px;
 }
 
 .about-shop-image {
-  display: none;
+  display: block;
 }
 
 .about-shop-image > img {
@@ -206,6 +206,7 @@ a:hover, a:visited, a:active {
   display: flex;
   flex-direction: row;
   justify-content:space-between;
+  /* align-content: flex-start; */
   /* padding-right: 10px; */
 }
 
@@ -221,7 +222,7 @@ a:hover, a:visited, a:active {
 .about-me-video > video {
   width: 336px;
   height: 252px;
-  border-radius: 6px 50px;
+  border-radius: 6px;
 }
 
 .text-slant {
@@ -284,7 +285,7 @@ a:hover, a:visited, a:active {
 }
 
 .carousel-div {
-  display: none;
+  display: block;
 }
 .carousel-container {
   display: flex;
