@@ -214,12 +214,12 @@ a:hover, a:visited, a:active {
   padding: 20px 0;
 }
 
-.about-me-video {
+#about-me-video {
   padding-left: 20px;
   display: none;
 }
 
-.about-me-video > video {
+#about-me-video > video {
   width: 336px;
   height: 252px;
   border-radius: 6px;
