@@ -24,7 +24,7 @@
     <title>Patty M Designs - Flower Shop & Floral Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20210614"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=202106141"></script>
     <script src="js/flickr.js?modified=20210513" async></script>
     <script src="https://formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210405" defer></script>
@@ -47,10 +47,10 @@
     <div id="mobile_nav" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
-        <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header_link_portfolio --></a>
-        <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header_link_about_shop --></a>
-        <a href="#about-me" id="pancake-link-about-me" onclick="closeNav()">About Me<!-- inserted from Strings API > header_link_about_me --></a>
-        <a href="#" id="pancake-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header_link_contact --></a>
+        <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a>
+        <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a>
+        <a href="#about-me" id="pancake-link-about-me" onclick="closeNav()">About Me<!-- inserted from Strings API > header-link-about-me --></a>
+        <a href="#" id="pancake-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header-link-contact --></a>
       </div>
     </div>
     <div id="container">
@@ -59,11 +59,11 @@
           <span id="pancake" style="font-size:20px;cursor:pointer" onclick="openNav()">&#9776;</span>
           <div class="section-links">
             <div id="header-logo">💐</div>
-            <div><a href="#portfolio" id="header-link-portfolio">Floral Design<!-- inserted from Strings API > header_link_portfolio --></a></div>
-            <div><a href="#about-shop" id="header-link-about-shop">About the Shop<!-- inserted from Strings API > header_link_about_shop --></a></div>
-            <div><a href="#about-me" id="header-link-about-me">About Me<!-- inserted from Strings API > header_link_about_me --></a></div>
-            <div><a href="#" id="header-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header_link_contact --></a></div>
-            <div id="featured"><a href="#featured-item" id="header-link-special"><!-- inserted from Strings API > header_link_special --></a></div>
+            <div><a href="#portfolio" id="header-link-portfolio">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a></div>
+            <div><a href="#about-shop" id="header-link-about-shop">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a></div>
+            <div><a href="#about-me" id="header-link-about-me">About Me<!-- inserted from Strings API > header-link-about-me --></a></div>
+            <div><a href="#" id="header-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header-link-contact --></a></div>
+            <div id="featured"><a href="#featured-item" id="header-link-special"><!-- inserted from Strings API > header-link-special --></a></div>
           </div>
           <div class="language">
             <div class="dropdown">
@@ -83,28 +83,28 @@
 
       <div class="hero">
         <div class="hero-text">
-          <div class="hero-title center-text">Patty M Designs</div>
-          <div class="hero-subtitle center-text">Custom floral arrangements for you or someone special<!-- inserted from Strings API > hero_subtitle --></div>
+          <div class="center-text" id="hero-title">Patty M Designs</div>
+          <div class="center-text" id="hero-subtitle">Custom floral arrangements for you or someone special<!-- inserted from Strings API > hero-subtitle --></div>
         </div>
       </div> <!-- end hero div -->
 
       <a name="featured-item"></a>
       <div class="featured-item container-padding">
         <div class="featured-item-container">
-          <span class="featured-item-text"><!-- inserted from Strings API > featured_item_text --></span>
-          <span class="featured-item-image"><!-- inserted from Strings API > featured_item_image --></span>
+          <span id="featured-item-text"><!-- inserted from Strings API > featured-item-text --></span>
+          <span id="featured-item-image"><!-- inserted from Strings API > featured-item-image --></span>
         </div>
       </div> <!-- end featured-item div -->
 
       <a name="floral-shop"></a>
       <div class="large-image">
-        <div class="large-image-text"><!-- inserted from Strings API > large_image --></div>
-        <div class="large-image-img"><!-- inserted from Strings API > large_image_img --></div>
+        <div id="large-image-text"><!-- inserted from Strings API > large-image-text --></div>
+        <div id="large-image-img"><!-- inserted from Strings API > large-image-img --></div>
       </div> <!-- end large-image div -->
 
       <a name="portfolio"></a>
       <div class="portfolio-grid container-padding">
-        <div id="portfolio-grid-desc"><!-- inserted from Strings API > portfolio_grid --></div>
+        <div id="portfolio-text"><!-- inserted from Strings API > portfolio-text --></div>
         <div id="grid_container">
 
           <div class="image-container fallback-images">
@@ -145,7 +145,7 @@
         </div>
 
         <div class="carousel-div">
-          <h3>Samples of Containers</h3>
+          <div id="portfolio-containers"><!-- inserted from Strings API > portfolio-containers --></div>
           <div class="carousel-container">
             <iframe class="carousel-iframe" src="available-containers.html" sandbox="allow-scripts allow-same-origin"></iframe>
           </div>
@@ -156,8 +156,8 @@
       <a name="about-me"></a>
       <div class="about-me container-padding">
         <div class="about-me-container">
-          <span class="about-me-text"><!-- inserted from Strings API > about_me --></span>
-          <span class="about-me-video">
+          <span id="about-me-text"><!-- inserted from Strings API > about_me --></span>
+          <span id="about-me-video">
             <h1>&nbsp;</h1>
             <video controls>
               <source src="videos/sample-mp4-file.mp4" type="video/mp4">
@@ -170,8 +170,8 @@
       <a name="about-shop"></a>
       <div class="about-shop container-padding">
         <div class="about-shop-container">
-          <span class="about-shop-text"><!-- inserted from Strings API > about_shop --></span>
-          <span class="about-shop-image"><!-- inserted from Strings API > about_shop_image --></span>
+          <span id="about-shop-text"><!-- inserted from Strings API > about_shop --></span>
+          <span id="about-shop-image"><!-- inserted from Strings API > about_shop_image --></span>
         </div>
       </div> <!-- end about-shop div -->
 
