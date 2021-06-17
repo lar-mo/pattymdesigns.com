@@ -1,4 +1,5 @@
-let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
+// let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
+let api_wrapper_url = 'http://localhost:8000/wrapper';
 
 function getSizes(photo_id) {
   let config = {
@@ -49,7 +50,7 @@ async function fetchURLDescArrangements(photo_id,i) {
   // set attributes + values
   wrapper.setAttribute('class', 'image-container');
   img_element.setAttribute('src', thumbnail_photo_url);
-  if (original_photo_width > original_photo_height) {
+  if (original_photo_width >= original_photo_height) {
     img_element.setAttribute('class', 'thumbnail-short');
   } else {
     img_element.setAttribute('class', 'thumbnail-long');

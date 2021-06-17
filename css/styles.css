@@ -205,9 +205,7 @@ a:hover, a:visited, a:active {
 .about-me-container {
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
-  /* align-content: flex-start; */
-  /* padding-right: 10px; */
+  justify-content: space-between;
 }
 
 #about-me-text {
@@ -223,6 +221,17 @@ a:hover, a:visited, a:active {
   width: 336px;
   height: 252px;
   border-radius: 6px;
+}
+
+#about-me-logos {
+  text-align: center;
+  margin: auto;
+  padding: 25px;
+  background-color: #fff;
+}
+
+#about-me-logos > img {
+  width: 300px;
 }
 
 .text-slant {
@@ -247,7 +256,7 @@ a:hover, a:visited, a:active {
 }
 
 .thumbnail-short {
-  width: 275px;
+  width: auto;
   height: 207px;
   /* border-radius: 6px; */
   border-radius: 50px 6px;
@@ -260,7 +269,7 @@ a:hover, a:visited, a:active {
 }
 
 .thumbnail-long {
-  width: 275px;
+  width: auto;
   height: 366px;
   /* border-radius: 6px; */
   border-radius: 50px 6px;
@@ -521,6 +530,23 @@ html, body {
     text-align: left;
     padding-left: 0;
   }
+  #about-me-logos > img {
+    width: 150px;
+  }
+  .about-me-container, .about-shop-container {
+    flex-direction: column;
+  }
+}
+@media all and (max-width: 675px) {
+  .large-image {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  #large-image-img {
+    padding: auto;
+    margin: auto;
+  }
 }
 @media all and (max-width: 575px) {
   body {
@@ -564,7 +590,8 @@ html, body {
     color: #fff;
   }
   #large-image-img > img {
-    width: auto;
+    width: 65vw;
+    padding-bottom: 30px;
   }
   .featured-item-container {
     flex-direction: column;
