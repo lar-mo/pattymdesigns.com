@@ -225,12 +225,13 @@ a:hover, a:visited, a:active {
 
 #about-me-logos {
   text-align: center;
-  margin: auto;
+  margin: auto 0;
   padding: 25px;
   background-color: #fff;
+  border-radius: 6px;
 }
 
-#about-me-logos > img {
+#about-me-logos > a > img {
   width: 300px;
 }
 
