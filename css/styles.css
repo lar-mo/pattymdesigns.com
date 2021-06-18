@@ -131,7 +131,7 @@ a:hover, a:visited, a:active {
 }
 
 #about-shop-text {
-  padding-right: 100px;
+  /* padding-right: 100px; */
 }
 
 #about-shop-image {
@@ -225,7 +225,7 @@ a:hover, a:visited, a:active {
 
 #about-me-logos {
   text-align: center;
-  margin: auto 0 38px auto;
+  margin: auto 0;
   padding: 25px;
   background-color: #fff;
   border-radius: 6px;
@@ -531,7 +531,7 @@ html, body {
     text-align: left;
     padding-left: 0;
   }
-  #about-me-logos > img {
+  #about-me-logos > a > img {
     width: 150px;
   }
   .about-me-container, .about-shop-container {
@@ -547,6 +547,9 @@ html, body {
   #large-image-img {
     padding: auto;
     margin: auto;
+  }
+  #large-image-img > img {
+    border-radius: 6px;
   }
 }
 @media all and (max-width: 575px) {
@@ -592,7 +595,8 @@ html, body {
   }
   #large-image-img > img {
     width: 65vw;
-    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-radius: 6px;
   }
   .featured-item-container {
     flex-direction: column;
