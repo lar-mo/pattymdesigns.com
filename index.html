@@ -217,14 +217,21 @@
     <script type="text/javascript" src="js/switcher.js?modified=20210403"></script>
     <script type="text/javascript">
       window.onload = function() {
-        getStringsFromLocalStorage();
+          getStringsFromLocalStorage();
       };
     </script>
     <script src="js/simpleLightbox.js"></script>
     <script>
       setTimeout(() => {
-        new SimpleLightbox({elements: '.lightbox'});
-      }, 3000);
+          new SimpleLightbox({elements: '.lightbox'});
+      }, 5000);
+
+      let featured_item = document.querySelector('#featured-item-image');
+      featured_item.onclick = function() {
+          SimpleLightbox.open({
+              items: ['https://lar-mo.com/images/pmd/IMG_1503-compressed.png']
+          });
+      }
     </script>
   </body>
 </html>
