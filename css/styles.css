@@ -131,7 +131,7 @@ a:hover, a:visited, a:active {
 }
 
 #about-shop-text {
-  /* padding-right: 100px; */
+  padding-right: 15px;
 }
 
 #about-shop-image {
@@ -536,6 +536,9 @@ html, body {
   }
   .about-me-container, .about-shop-container {
     flex-direction: column;
+  }
+  #about-shop-text {
+    padding-right: 0px;
   }
 }
 @media all and (max-width: 675px) {

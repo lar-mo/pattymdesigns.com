@@ -39,6 +39,7 @@ async function fetchURLDescArrangements(photo_id,i) {
   // create elements
   let wrapper = document.createElement('div');
   let image_div = document.createElement('div');
+  let a_element = document.createElement('a');
   let img_element = document.createElement('img');
   let description_div = document.createElement('div');
 
@@ -48,6 +49,8 @@ async function fetchURLDescArrangements(photo_id,i) {
 
   // set attributes + values
   wrapper.setAttribute('class', 'image-container');
+  a_element.setAttribute('class', 'lightbox');
+  a_element.setAttribute('href', original_photo_url);
   img_element.setAttribute('src', thumbnail_photo_url);
   if (original_photo_width >= original_photo_height) {
     img_element.setAttribute('class', 'thumbnail-short');
@@ -60,7 +63,8 @@ async function fetchURLDescArrangements(photo_id,i) {
     $(div_id2).text(photo_description);       // syntax requires '#' (id) '.' (class)
   });
 
-  image_div.appendChild(img_element);
+  a_element.appendChild(img_element);
+  image_div.appendChild(a_element);
   wrapper.appendChild(image_div);
   wrapper.appendChild(description_div);
   grid_container.appendChild(wrapper);

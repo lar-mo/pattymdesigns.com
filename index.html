@@ -25,7 +25,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
     <script src="js/pmd-combined.latest.min.js?modified=202106141"></script>
-    <script src="js/flickr.js?modified=202106161" async></script>
+    <script src="js/flickr.js?modified=20210618" async></script>
     <script src="https://formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210405" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -34,9 +34,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=202106165">
+    <link rel="stylesheet" href="css/styles.css?modified=20210618">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210415" async>
+    <link href="css/simpleLightbox.css" rel="stylesheet">
 
   </head>
   <body>
@@ -108,37 +109,50 @@
         <div id="grid_container">
 
           <div class="image-container fallback-images">
-            <div><img src="https://live.staticflickr.com/65535/51163531075_63c74b08ca.jpg" class="thumbnail-short" /></div>
+            <div>
+              <a class="lightbox" href="https://live.staticflickr.com/65535/51163531075_e796b803ca_4k.jpg"><img src="https://live.staticflickr.com/65535/51163531075_63c74b08ca.jpg" class="thumbnail-short" /></a>
+            </div>
             <div>Mother's Day Special</div>
           </div>
 
           <div class="image-container fallback-images">
-            <div><img src="images/IMG_0889.jpg" class="thumbnail-short" /></div>
+            <div>
+              <a class="lightbox" href="images/IMG_0889.jpg"><img src="images/IMG_0889.jpg" class="thumbnail-short" /></a>
+            </div>
             <div>An asymmetrical triangle with implied lines using branches</div>
           </div>
 
           <div class="image-container fallback-images">
-            <div><img src="images/IMG_0668.jpg" class="thumbnail-short" /></div>
+            <div>
+              <a class="lightbox" href="images/IMG_0668.jpg"><img src="images/IMG_0668.jpg" class="thumbnail-short" /></a></div>
             <div>A round symmetrical mix of spring flowers in a basket</div>
           </div>
 
           <div class="image-container fallback-images">
-            <div><img src="images/IMG_0903.jpg" class="thumbnail-short" /></div>
+            <div>
+              <a class="lightbox" href="images/IMG_0903.jpg"><img src="images/IMG_0903.jpg" class="thumbnail-short" /></a>
+            </div>
             <div>Small, horizontal with focal point and implied lines using branches</div>
           </div>
 
           <div class="image-container fallback-images">
-            <div><img src="images/IMG_0647.jpg" class="thumbnail-long" /></div>
+            <div>
+              <a class="lightbox" href="images/IMG_0647.jpg"><img src="images/IMG_0647.jpg" class="thumbnail-long" /></a>
+            </div>
             <div>Tall, round and elegant</div>
           </div>
 
           <div class="image-container fallback-images">
-            <div><img src="images/IMG_0637.jpg" class="thumbnail-long" /></div>
+            <div>
+              <a class="lightbox" href="images/IMG_0637.jpg"><img src="images/IMG_0637.jpg" class="thumbnail-long" /></a>
+            </div>
             <div>A small triangle of sequenced plant material</div>
           </div>
 
           <div class="image-container fallback-images">
-            <div><img src="images/IMG_0891.jpg" class="thumbnail-long" /></div>
+            <div>
+              <a class="lightbox" href="images/IMG_0891.jpg"><img src="images/IMG_0891.jpg" class="thumbnail-long" /></a>
+            </div>
             <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
           </div>
 
@@ -205,6 +219,12 @@
       window.onload = function() {
         getStringsFromLocalStorage();
       };
+    </script>
+    <script src="js/simpleLightbox.js"></script>
+    <script>
+      setTimeout(() => {
+        new SimpleLightbox({elements: '.lightbox'});
+      }, 3000);
     </script>
   </body>
 </html>
