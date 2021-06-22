@@ -1,4 +1,5 @@
 let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
+var flickrLoaded = false;
 
 function getSizes(photo_id) {
   let config = {
@@ -89,7 +90,10 @@ function getArrangements() {
       for (let i=0; i<photoset.length; ++i) {
         let photo_id = photoset[i].id;
         fetchURLDescArrangements(photo_id,i);
-        await timer(250); // then the created Promise can be awaited
+        await timer(250);                       // then, the created Promise can be awaited
+        if (photoset.length - 1 === i) {        // update 'flickrLoaded' var to 'true' when loop is done 
+          flickrLoaded = true;
+        }
       }
     }
     load();
