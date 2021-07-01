@@ -14,7 +14,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta property="og:title" content="" /> <!-- inserted from Strings API > og_title -->
-    <meta property="og:image" content="https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg" />
+    <meta property="og:image" content="https://www.pattymdesigns.com/images/july-special.jpg" />
     <meta property="og:description" content="" /> <!-- inserted from Strings API > og_description -->
     <meta property="og:url" content="https://www.pattymdesigns.com/" />
     <meta property="og:type" content="website" />
@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=20210701">
+    <link rel="stylesheet" href="css/styles.css?modified=202107011">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210415" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
@@ -230,13 +230,13 @@
       let featured_item = document.querySelector('#featured-item-image');
       featured_item.onclick = function() {
           SimpleLightbox.open({
-              items: ['https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
+              items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
           });
       }
       let header_link_special = document.querySelector('#header-link-special');
       header_link_special.onclick = function() {
           SimpleLightbox.open({
-              items: ['https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
+              items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
           });
       }
       let about_shop = document.querySelector('#about-shop-image');
@@ -245,6 +245,16 @@
               items: ['https://www.pattymdesigns.com/images/porch-store-cropped-again.jpg']
           });
       }
+
+    </script>
+    <script type="text/javascript">
+      $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+          $('.featured-item').slideUp(250);
+        } else {
+          $('.featured-item').slideDown(250);
+        }
+      });
     </script>
   </body>
 </html>

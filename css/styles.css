@@ -377,7 +377,7 @@ a:hover, a:visited, a:active {
 
 .footer-links-container {
   text-align: left;
-  margin-bottom: 140px;
+  /* margin-bottom: 140px; */
 }
 
 .navbar {
