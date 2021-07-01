@@ -8,7 +8,7 @@ function loadFormbutton() {
   url_lang = window.location.search;
   if (url_lang == '?es') {
     var title = "Contáctame";
-    var privacy_link = "<a href='privacy.html?es' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#842242;'>Política de privacidad</a>";
+    var privacy_link = "<a href='privacy.html?es' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#5d7548;'>Política de privacidad</a>";
     var message = "Mensaje";
     var email = "Correo electrónico";
     var phone_number = "Número de teléfono";
@@ -19,7 +19,7 @@ function loadFormbutton() {
     }
   } else if (url_lang == '?fr') {
     var title = "Contactez moi";
-    var privacy_link = "<a href='privacy.html?fr' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#842242;'>Politique de confidentialité</a>";
+    var privacy_link = "<a href='privacy.html?fr' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#5d7548;'>Politique de confidentialité</a>";
     var message = "Message";
     var email = "E-mail";
     var phone_number = "Numéro de téléphone";
@@ -30,7 +30,7 @@ function loadFormbutton() {
     }
   } else if (url_lang == '?de') {
     var title = "Kontaktiere mich";
-    var privacy_link = "<a href='privacy.html?de' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#842242;'>Datenschutz-Bestimmungen</a>";
+    var privacy_link = "<a href='privacy.html?de' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#5d7548;'>Datenschutz-Bestimmungen</a>";
     var message = "Botschaft";
     var email = "Email";
     var phone_number = "Telefonnummer";
@@ -41,7 +41,7 @@ function loadFormbutton() {
     }
   } else {
     var title = "Contact me";
-    var privacy_link = "<a href='privacy.html' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#842242;'>Privacy Policy</a>";
+    var privacy_link = "<a href='privacy.html' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#5d7548;'>Privacy Policy</a>";
     var message = "Message";
     var email = "Email";
     var phone_number = "Phone Number";
@@ -59,10 +59,10 @@ function loadFormbutton() {
     description: privacy_link,
     styles: {
       button: {
-        background: "#842242"
+        background: "rgba(51,51,51,0.75)"
       },
       title: {
-        background: "#842242",
+        background: "#5d7548",
         letterSpacing: "0.05em",
         fontFamily:'"Courgette", cursive',
       },
