@@ -14,7 +14,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta property="og:title" content="" /> <!-- inserted from Strings API > og_title -->
-    <meta property="og:image" content="https://lar-mo.com/images/pmd/IMG_1503-compressed.png" />
+    <meta property="og:image" content="https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg" />
     <meta property="og:description" content="" /> <!-- inserted from Strings API > og_description -->
     <meta property="og:url" content="https://www.pattymdesigns.com/" />
     <meta property="og:type" content="website" />
@@ -24,17 +24,17 @@
     <title>Patty M Designs - Flower Shop & Floral Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=202106141"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20210701"></script>
     <script src="js/flickr.js?modified=20210622" async></script>
     <script src="https://formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
-    <script src="js/formspree-formbutton.js?modified=20210405" defer></script>
+    <script src="js/formspree-formbutton.js?modified=20210701" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=20210618">
+    <link rel="stylesheet" href="css/styles.css?modified=20210701">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210415" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
@@ -89,8 +89,7 @@
         </div>
       </div> <!-- end hero div -->
 
-      <a name="featured-item"></a>
-      <div class="featured-item container-padding">
+      <div class="featured-item">
         <div class="featured-item-container">
           <span id="featured-item-text"><!-- inserted from Strings API > featured-item-text --></span>
           <span id="featured-item-image"><!-- inserted from Strings API > featured-item-image --></span>
@@ -135,27 +134,6 @@
             <div>Small, horizontal with focal point and implied lines using branches</div>
           </div>
 
-          <div class="image-container fallback-images">
-            <div>
-              <a class="lightbox" href="images/IMG_0647.jpg"><img src="images/IMG_0647.jpg" class="thumbnail-long" /></a>
-            </div>
-            <div>Tall, round and elegant</div>
-          </div>
-
-          <div class="image-container fallback-images">
-            <div>
-              <a class="lightbox" href="images/IMG_0637.jpg"><img src="images/IMG_0637.jpg" class="thumbnail-long" /></a>
-            </div>
-            <div>A small triangle of sequenced plant material</div>
-          </div>
-
-          <div class="image-container fallback-images">
-            <div>
-              <a class="lightbox" href="images/IMG_0891.jpg"><img src="images/IMG_0891.jpg" class="thumbnail-long" /></a>
-            </div>
-            <div>Tall, with some groupings of similar plant material, implied lines using branches</div>
-          </div>
-
         </div>
 
         <div class="carousel-div">
@@ -166,6 +144,14 @@
         </div>
 
       </div> <!-- end portfolio-grid div -->
+
+      <!-- <a name="blog"></a> -->
+      <!-- <div class="blog_container container-padding"> -->
+        <!-- <div id="latest-blog-header"> -->
+          <!-- inserted from Strings API > latest_blog_header -->
+        <!-- </div> -->
+        <!-- <div id="blog_container"></div> -->
+      <!-- </div> -->
 
       <a name="about-me"></a>
       <div class="about-me container-padding">
@@ -218,6 +204,7 @@
     <script type="text/javascript">
       window.onload = function() {
           getStringsFromLocalStorage();
+          // getLatestPost();
       };
     </script>
     <script src="js/simpleLightbox.js"></script>
@@ -225,7 +212,6 @@
 
       // setTimeout(() => {
       //   new SimpleLightbox({elements: '.lightbox'});
-      //   alert(flickrLoaded);
       // }, 5000);
 
       function isFlickrLoaded() {
@@ -244,7 +230,13 @@
       let featured_item = document.querySelector('#featured-item-image');
       featured_item.onclick = function() {
           SimpleLightbox.open({
-              items: ['https://lar-mo.com/images/pmd/IMG_1503-compressed.png']
+              items: ['https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
+          });
+      }
+      let header_link_special = document.querySelector('#header-link-special');
+      header_link_special.onclick = function() {
+          SimpleLightbox.open({
+              items: ['https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
           });
       }
       let about_shop = document.querySelector('#about-shop-image');

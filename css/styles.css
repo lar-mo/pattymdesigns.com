@@ -10,14 +10,15 @@ html, body {
 }
 
 #header {
-  background-color: rgba(81,81,81,0.7);
+  background-color: rgba(255,255,255,0.85);
   position: fixed;
   width: 100%;
   min-width: 384px;
-  top: 0px;
-  color: #fff;
-  padding: 24px;
-  z-index: 999;
+  top: 0;
+  color: #000;
+  font-weight: 500;
+  padding: 18px;
+  z-index: 3;
   transition: 0.2s;
 }
 
@@ -55,14 +56,15 @@ html, body {
   /* background: url('../images/hero2.png') no-repeat center; */
   /* background-size: cover; */
   /* background-attachment: fixed; */
+  z-index: 1;
 }
 
 .hero-text {
   font-family: 'Courgette', cursive;
   color: #fff;
   text-shadow: 2px 2px 4px #000000;
-  padding-top: calc(100vh * 2/5);
-  padding-bottom: calc(100vh * 3/5);
+  padding-top: calc(100vh * 7/20);
+  padding-bottom: calc(100vh * 13/20);
   width: 100%;
 }
 
@@ -96,13 +98,13 @@ a:hover, a:visited, a:active {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  background-color: rgba(81,81,81,0.75);
+  background-color: rgba(255,255,255,0.85);
 }
 
 #large-image-text {
   width: 35%;
   padding: 45px;
-  color: #fff;
+  color: #000;
 }
 
 #large-porch-image {
@@ -147,21 +149,27 @@ a:hover, a:visited, a:active {
 
 #featured {
   /* background-color: rgba(112,128,144,0.5); */
-  background-color: #f19cbb;
+  /* background-color: #f19cbb; */
+  background: linear-gradient(to right, #B42033, #FEFEFE, #3C3B6E);
   border-radius: 25px 0;
 }
 
 #header-link-special {
   font-weight: bold;
-  font-style: italic;
+  /* font-style: italic; */
   /* color: rgb(136,39,83); */
-  color:#fff;
+  color: #000;
 }
 
 .featured-item {
-  /* background-color:	rgba(112,128,144,0.7); */
-  background-color: #f19cbb;
+  background: linear-gradient(to right, #B42033, #FEFEFE, #3C3B6E);
   width: 100vw;
+  z-index: 1;
+  position: fixed;
+  box-shadow:           0 -10px 30px 5px rgba(25,25,25,0.6);
+  -moz-box-shadow:      0 -10px 30px 5px rgba(25,25,25,0.6);
+  -webkit-box-shadow:   0 -10px 30px 5px rgba(25,25,25,0.6);
+  bottom: 0;
 }
 
 .featured-item-container {
@@ -169,21 +177,25 @@ a:hover, a:visited, a:active {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  padding: 10px;
 }
 
 #featured-item-text {
-  padding: 35px;
+  padding: 25px;
   text-align: center;
   /* background-color: rgba(112,128,144,0.7); */
   background-color: #fff;
-  border-radius: 6px 75px;
+  border-radius: 6px 57px;
   max-width: 350px;
+  margin-right: 10px;
 }
 
 #featured-item-image > img {
-  width: 452px;
-  border-radius: 75px 6px;
-  padding-left: 26px;
+  width: auto;
+  height: 130px;
+  border-radius: 6px 57px;
+  /* padding-left: 10px; */
   transition: transform .2s;
 }
 
@@ -191,10 +203,14 @@ a:hover, a:visited, a:active {
   transform: scale(1.25);
 }
 
+.contactme > a {
+  text-decoration: underline;
+}
+
 .about-me {
-  background-color: rgba(81,81,81,0.75);
+  background-color: rgba(255,255,255,0.85);
   width: 100vw;
-  color: #fff;
+  color: #000;
 }
 
 .about-me-heading {
@@ -336,12 +352,13 @@ a:hover, a:visited, a:active {
   border-radius: 50px 6px;
 }
 .blog_container {
-  background-color: rgba(255, 182, 193, 0.77);
-  display: none;
+  background-color: #7F5B94;
+  display: block;
+  color: #fff;
 }
 
 #footer {
-  background-color: #515151;
+  background-color: #000;
   color: #fff;
   padding: 10px;
   width: 100vw;
@@ -360,6 +377,7 @@ a:hover, a:visited, a:active {
 
 .footer-links-container {
   text-align: left;
+  margin-bottom: 140px;
 }
 
 .navbar {
@@ -370,7 +388,7 @@ a:hover, a:visited, a:active {
 .navbar a {
   float: left;
   font-size: 10px;
-  color: white;
+  color: #000;
   text-align: center;
   padding: 15px 16px;
   text-decoration: none;
@@ -385,7 +403,7 @@ a:hover, a:visited, a:active {
   font-size: 12px;
   border: none;
   outline: none;
-  color: white;
+  color: #000;
   padding: 17px;
   text-align: right;
   background-color: inherit;
@@ -395,8 +413,9 @@ a:hover, a:visited, a:active {
 }
 
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #842242;
+  background-color: #5d7548;
   border-radius: 25px 0;
+  color: #fff;
 }
 
 .dropdown-content {
@@ -406,7 +425,7 @@ a:hover, a:visited, a:active {
   min-width: 160px;
   border-radius: 0 25px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  z-index: 0;
 }
 
 .dropdown-content a {
@@ -429,7 +448,8 @@ a:hover, a:visited, a:active {
 }
 
 html, body {
-  background-image: url('https://www.lar-mo.com/images/pmd/hero2.png');
+  /* background-image: url('https://www.lar-mo.com/images/pmd/hero2.png'); */
+  background-image: url('https://www.pattymdesigns.com/images/IMG_1687-lightened-3761-2302.jpg');
   background-attachment: fixed;
   background-repeat: repeat;
   background-size: cover;
@@ -439,7 +459,7 @@ html, body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -450,8 +470,8 @@ html, body {
   .large-image, .about-me, .additional-info {
     background:
       linear-gradient(
-        rgba(81, 81, 81, 0.7),
-        rgba(81, 81, 81, 0.7)
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.85)
       ),
       url('../images/hero2.png');
     background-size: cover;
@@ -509,13 +529,14 @@ html, body {
   #large-image-text {
     width: 80%;
     padding: 45px;
-    color: #fff;
+    /* color: #000; */
   }
   #large-image-img > img {
     width: 500px;
   }
   #featured-item-image > img {
-    width: 264px;
+    width: auto;
+    height: 120px;
   }
   #featured-item-text {
     padding: 20px;
@@ -594,16 +615,16 @@ html, body {
   #large-image-text {
     width: 99%;
     padding: 45px;
-    color: #fff;
+    /* color: #000; */
   }
   #large-image-img > img {
     width: 65vw;
     margin-bottom: 30px;
     border-radius: 6px;
   }
-  .featured-item-container {
+  /* .featured-item-container {
     flex-direction: column;
-  }
+  } */
 }
 @media all and (max-width: 500px) {
   #header {
@@ -627,7 +648,7 @@ html, body {
   #large-image-text {
     width: 99%;
     padding: 45px;
-    color: #fff;
+    /* color: #fff; */
   }
   #large-porch-image {
     width: 100vw;
