@@ -249,7 +249,9 @@
     </script>
     <script type="text/javascript">
       $(window).scroll(function() {
-        if($(window).scrollTop() + $(window).height() == $(document).height()) {
+        let window_height = $(window).scrollTop() + $(window).height() + 1;
+        let document_height = $(document).height();
+        if(window_height >= document_height) {
           $('.featured-item').slideUp(250);
         } else {
           $('.featured-item').slideDown(250);
