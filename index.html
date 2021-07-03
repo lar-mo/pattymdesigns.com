@@ -249,14 +249,19 @@
     </script>
     <script type="text/javascript">
       $(window).scroll(function() {
-        let window_height = $(window).scrollTop() + $(window).height() + 1;
+        let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_height was slightly < document_height
         let document_height = $(document).height();
-        if(window_height >= document_height) {
+        if(window_height >= document_height) {                              // can check for greater than now
           $('.featured-item').slideUp(250);
         } else {
           $('.featured-item').slideDown(250);
         }
       });
+    </script>
+    <script type="text/javascript">
+      if (window.location.search == '?pancake') {
+        $('#pancake').css('display', 'block');
+      }
     </script>
   </body>
 </html>
