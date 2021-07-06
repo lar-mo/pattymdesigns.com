@@ -662,6 +662,11 @@ html, body {
   #large-porch-image {
     width: 100vw;
   }
+  #close_button {
+    left: 10px;
+    bottom: 2px;
+    font-size: 25px;
+  }
 }
 
 html, body {
