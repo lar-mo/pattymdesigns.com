@@ -203,6 +203,15 @@ a:hover, a:visited, a:active {
   transform: scale(1.25);
 }
 
+#close_button {
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  font-size: 50px;
+  color: #fff;
+  text-decoration: none;
+}
+
 .contactme > a {
   text-decoration: underline;
 }

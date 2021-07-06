@@ -24,7 +24,7 @@
     <title>Patty M Designs - Flower Shop & Floral Designs</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20210701"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20210706"></script>
     <script src="js/flickr.js?modified=20210622" async></script>
     <script src="https://formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210701" defer></script>
@@ -34,9 +34,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=202107011">
+    <link rel="stylesheet" href="css/styles.css?modified=20210706">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/overlay.css?modified=20210415" async>
+    <link rel="stylesheet" href="css/overlay.css?modified=20210706" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
 
   </head>
@@ -46,7 +46,7 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="mobile_nav" class="overlay">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
         <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a>
         <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a>
@@ -90,6 +90,7 @@
       </div> <!-- end hero div -->
 
       <div class="featured-item">
+        <span><a href="javascript:void(0)" id="close_button">&times;</a></span>
         <div class="featured-item-container">
           <span id="featured-item-text"><!-- inserted from Strings API > featured-item-text --></span>
           <span id="featured-item-image"><!-- inserted from Strings API > featured-item-image --></span>
@@ -246,17 +247,30 @@
           });
       }
 
+      let close_button = document.querySelector('#close_button');
+      close_button.onclick = function() {
+        $('.featured-item').css('display', 'none');
+      }
+
     </script>
     <script type="text/javascript">
+    let showFeatured = true;
       $(window).scroll(function() {
-        let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_height was slightly < document_height
-        let document_height = $(document).height();
-        if(window_height >= document_height) {                              // can check for greater than now
-          $('.featured-item').slideUp(250);
-        } else {
-          $('.featured-item').slideDown(250);
+        while (showFeatured) {
+          let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_height was slightly < document_height
+          let document_height = $(document).height();
+          if(window_height >= document_height) {                              // can check for greater than now
+            $('.featured-item').slideUp(250);
+          } else {
+            $('.featured-item').slideDown(250);
+          }
         }
       });
+      let close_button = document.querySelector('#close_button');
+      close_button.onclick = function() {
+        $('.featured-item').css('display', 'none');
+        showFeatured = false;
+      }
     </script>
     <script type="text/javascript">
       if (window.location.search == '?pancake') {

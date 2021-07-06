@@ -1,17 +1,17 @@
-let url_arg = window.location.search;
+let url_arg = window.location.search.substring(1);
 
 $(document).ready(function() {
-  if (url_arg == '?es') {
+  if (url_arg == 'es') {
     $('.center-text a').attr("href","privacy.html?es");
     $(lang_label).text("Español");
     $("#es_option").css("display","none");
   }
-  else if (url_arg == '?fr') {
+  else if (url_arg == 'fr') {
     $('.center-text a').attr("href","privacy.html?fr");
     $(lang_label).text("Français");
     $("#fr_option").css("display","none");
   }
-  else if (url_arg == '?de') {
+  else if (url_arg == 'de') {
     $('.center-text a').attr("href","privacy.html?de");
     $(lang_label).text("Deutsche");
     $("#de_option").css("display","none");
