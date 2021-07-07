@@ -195,7 +195,6 @@ a:hover, a:visited, a:active {
   width: auto;
   height: 130px;
   border-radius: 6px 57px;
-  /* padding-left: 10px; */
   transition: transform .2s;
 }
 
@@ -205,9 +204,9 @@ a:hover, a:visited, a:active {
 
 #close_button {
   position: absolute;
-  left: 50px;
-  bottom: 50px;
-  font-size: 50px;
+  left: 45px;
+  bottom: 45px;
+  font-size: 45px;
   color: #fff;
   text-decoration: none;
 }

@@ -239,6 +239,8 @@
           SimpleLightbox.open({
               items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
           });
+          $('.featured-item').css('display', 'block');
+          showFeatured = true;
       }
       let about_shop = document.querySelector('#about-shop-image');
       about_shop.onclick = function() {
@@ -247,16 +249,11 @@
           });
       }
 
-      let close_button = document.querySelector('#close_button');
-      close_button.onclick = function() {
-        $('.featured-item').css('display', 'none');
-      }
-
     </script>
     <script type="text/javascript">
-    let showFeatured = true;
+      let showFeatured = true;
       $(window).scroll(function() {
-        while (showFeatured) {
+        if (showFeatured) {
           let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_height was slightly < document_height
           let document_height = $(document).height();
           if(window_height >= document_height) {                              // can check for greater than now
@@ -266,6 +263,8 @@
           }
         }
       });
+    </script>
+    <script type="text/javascript">
       let close_button = document.querySelector('#close_button');
       close_button.onclick = function() {
         $('.featured-item').css('display', 'none');
