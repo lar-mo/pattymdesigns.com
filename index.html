@@ -46,8 +46,9 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="mobile_nav" class="overlay">
-      <a href="javascript:void(0)" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
+        <a href="#featured-item" id="header-link-special">Special of the Month<!-- inserted from Strings API > header-link-special --></a>
         <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a>
         <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a>
         <a href="#about-me" id="pancake-link-about-me" onclick="closeNav()">About Me<!-- inserted from Strings API > header-link-about-me --></a>
@@ -239,6 +240,7 @@
           SimpleLightbox.open({
               items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
           });
+          closeNav();
           $('.featured-item').css('display', 'block');
           showFeatured = true;
       }
