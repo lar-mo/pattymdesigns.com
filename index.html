@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=20210707">
+    <link rel="stylesheet" href="css/styles.css?modified=20210708">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210706" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
@@ -46,9 +46,9 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="mobile_nav" class="overlay">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn">&times;</a>
       <div class="overlay-content">
-        <a href="#featured-item" id="header-link-special">Special of the Month<!-- inserted from Strings API > header-link-special --></a>
+        <a href="#featured-item" onclick="closeNav()" id="mobile-header-link-special">Special of the Month<!-- inserted from Strings API > header-link-special --></a>
         <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a>
         <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a>
         <a href="#about-me" id="pancake-link-about-me" onclick="closeNav()">About Me<!-- inserted from Strings API > header-link-about-me --></a>
@@ -212,6 +212,10 @@
     <script src="js/simpleLightbox.js"></script>
     <script type="text/javascript">
 
+      // setTimeout(() => {
+      //   new SimpleLightbox({elements: '.lightbox'});
+      // }, 5000);
+
       function isFlickrLoaded() {
         try {
           if (flickrLoaded) {
@@ -236,6 +240,14 @@
           SimpleLightbox.open({
               items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
           });
+          $('.featured-item').css('display', 'block');
+          showFeatured = true;
+      }
+      let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
+      mobile_header_link_special.onclick = function() {
+          SimpleLightbox.open({
+              items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
+          });
           closeNav();
           $('.featured-item').css('display', 'block');
           showFeatured = true;
@@ -252,10 +264,9 @@
       let showFeatured = true;
       $(window).scroll(function() {
         if (showFeatured) {
-          // +1 since window_height was slightly less than document_height
-          let window_height = $(window).scrollTop() + $(window).height() + 1;
-          // you I can check for greater than now
-          if(window_height >= $(document).height()) {
+          let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_height was slightly < document_height
+          let document_height = $(document).height();
+          if(window_height >= document_height) {                              // can check for greater than now
             $('.featured-item').slideUp(250);
           } else {
             $('.featured-item').slideDown(250);
