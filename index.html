@@ -212,10 +212,6 @@
     <script src="js/simpleLightbox.js"></script>
     <script type="text/javascript">
 
-      // setTimeout(() => {
-      //   new SimpleLightbox({elements: '.lightbox'});
-      // }, 5000);
-
       function isFlickrLoaded() {
         try {
           if (flickrLoaded) {
@@ -256,9 +252,10 @@
       let showFeatured = true;
       $(window).scroll(function() {
         if (showFeatured) {
-          let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_height was slightly < document_height
-          let document_height = $(document).height();
-          if(window_height >= document_height) {                              // can check for greater than now
+          // +1 since window_height was slightly less than document_height
+          let window_height = $(window).scrollTop() + $(window).height() + 1;
+          // you I can check for greater than now
+          if(window_height >= $(document).height()) {
             $('.featured-item').slideUp(250);
           } else {
             $('.featured-item').slideDown(250);
