@@ -179,6 +179,7 @@ a:hover, a:visited, a:active {
   justify-content: center;
   margin: auto;
   padding: 10px;
+  min-height: 150px;
 }
 
 #featured-item-text {
