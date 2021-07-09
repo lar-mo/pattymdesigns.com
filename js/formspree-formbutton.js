@@ -5,8 +5,8 @@ function loadFormbutton() {
 
   let subject = "New submission!";
 
-  url_lang = window.location.search;
-  if (url_lang == '?es') {
+  url_lang = window.location.search.substring(1);
+  if (url_lang == 'es') {
     var title = "Contáctame";
     var privacy_link = "<a href='privacy.html?es' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#5d7548;'>Política de privacidad</a>";
     var message = "Mensaje";
@@ -17,7 +17,7 @@ function loadFormbutton() {
       var title = "Necesitas ayuda?";
       subject = "Site Problem!";
     }
-  } else if (url_lang == '?fr') {
+  } else if (url_lang == 'fr') {
     var title = "Contactez moi";
     var privacy_link = "<a href='privacy.html?fr' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#5d7548;'>Politique de confidentialité</a>";
     var message = "Message";
@@ -28,7 +28,7 @@ function loadFormbutton() {
       var title = "Besoin d'aide?";
       subject = "Site Problem!";
     }
-  } else if (url_lang == '?de') {
+  } else if (url_lang == 'de') {
     var title = "Kontaktiere mich";
     var privacy_link = "<a href='privacy.html?de' target='_blank' style='width:100%;text-align:right;text-decoration:none;color:#5d7548;'>Datenschutz-Bestimmungen</a>";
     var message = "Botschaft";
@@ -59,7 +59,7 @@ function loadFormbutton() {
     description: privacy_link,
     styles: {
       button: {
-        background: "rgba(51,51,51,0.75)"
+        background: "#5d7548"
       },
       title: {
         background: "#5d7548",
@@ -84,11 +84,11 @@ function loadFormbutton() {
       label: email,
       required: true,
     },
-    {
-      name: "phone number",
-      type: "text",
-      label: phone_number,
-    },
+    // {
+    //   name: "phone number",
+    //   type: "text",
+    //   label: phone_number,
+    // },
     {
       name: "Submit",
       type: "submit",

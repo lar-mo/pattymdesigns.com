@@ -207,14 +207,11 @@
       window.onload = function() {
           getStringsFromLocalStorage();
           // getLatestPost();
+          moveButtonUp();
       };
     </script>
     <script src="js/simpleLightbox.js"></script>
     <script type="text/javascript">
-
-      // setTimeout(() => {
-      //   new SimpleLightbox({elements: '.lightbox'});
-      // }, 5000);
 
       function isFlickrLoaded() {
         try {
@@ -232,25 +229,36 @@
       let featured_item = document.querySelector('#featured-item-image');
       featured_item.onclick = function() {
           SimpleLightbox.open({
-              items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
+              items: [
+                'https://www.pattymdesigns.com/images/july-special-3.jpg',
+                'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg'
+              ]
           });
       }
       let header_link_special = document.querySelector('#header-link-special');
       header_link_special.onclick = function() {
           SimpleLightbox.open({
-              items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
+              items: [
+                'https://www.pattymdesigns.com/images/july-special-3.jpg',
+                'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg'
+              ]
           });
           $('.featured-item').css('display', 'block');
           showFeatured = true;
+          moveButtonUp();
       }
       let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
       mobile_header_link_special.onclick = function() {
           SimpleLightbox.open({
-              items: ['https://www.pattymdesigns.com/images/july-special-3.jpg', 'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg']
+              items: [
+                'https://www.pattymdesigns.com/images/july-special-3.jpg',
+                'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg'
+              ]
           });
           closeNav();
           $('.featured-item').css('display', 'block');
           showFeatured = true;
+          moveButtonUp();
       }
       let about_shop = document.querySelector('#about-shop-image');
       about_shop.onclick = function() {
@@ -264,7 +272,7 @@
       let showFeatured = true;
       $(window).scroll(function() {
         if (showFeatured) {
-          let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_height was slightly < document_height
+          let window_height = $(window).scrollTop() + $(window).height() + 1; // added 1 since window_hgt was slightly < document_hgt
           let document_height = $(document).height();
           if(window_height >= document_height) {                              // can check for greater than now
             $('.featured-item').slideUp(250);
@@ -279,11 +287,20 @@
       close_button.onclick = function() {
         $('.featured-item').css('display', 'none');
         showFeatured = false;
+        moveButtonDown();
       }
     </script>
     <script type="text/javascript">
       if (window.location.search == '?pancake') {
         $('#pancake').css('display', 'block');
+      }
+    </script>
+    <script type="text/javascript">
+      function moveButtonUp() {
+        $('#formbutton-button').css('bottom', '140px');
+      }
+      function moveButtonDown() {
+        $('#formbutton-button').css('bottom', '0px');
       }
     </script>
   </body>
