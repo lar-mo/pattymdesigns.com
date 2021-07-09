@@ -543,6 +543,9 @@ html, body {
   #large-image-img > img {
     width: 500px;
   }
+  .featured-item-container {
+    min-height: 140px;
+  }
   #featured-item-image > img {
     width: auto;
     height: 120px;
