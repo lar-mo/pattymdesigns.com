@@ -456,10 +456,6 @@ a:hover, a:visited, a:active {
   display: block;
 }
 
-#formbutton-button {
-  bottom: 140px;
-}
-
 html, body {
   /* background-image: url('https://www.lar-mo.com/images/pmd/hero2.png'); */
   background-image: url('https://www.pattymdesigns.com/images/IMG_1687-lightened-3761-2302.jpg');
@@ -638,9 +634,6 @@ html, body {
     margin-bottom: 30px;
     border-radius: 6px;
   }
-  /* .featured-item-container {
-    flex-direction: column;
-  } */
 }
 @media all and (max-width: 500px) {
   #header {
@@ -674,9 +667,6 @@ html, body {
     bottom: 2px;
     font-size: 25px;
   }
-  /* #formbutton-button {
-    bottom: 140px;
-  } */
 }
 
 html, body {

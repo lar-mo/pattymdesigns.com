@@ -30,11 +30,12 @@
     <script src="js/formspree-formbutton.js?modified=20210709" defer></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=20210709">
+    <link rel="stylesheet" href="css/styles.css?modified=202107091">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210706" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
@@ -207,7 +208,9 @@
       window.onload = function() {
           getStringsFromLocalStorage();
           // getLatestPost();
-          moveButtonUp();
+          if (window.innerWidth < 500) {
+            moveButtonUp();
+          }
       };
     </script>
     <script src="js/simpleLightbox.js"></script>
@@ -245,7 +248,9 @@
           });
           $('.featured-item').css('display', 'block');
           showFeatured = true;
-          moveButtonUp();
+          if (window.innerWidth < 500) {
+            moveButtonUp();
+          }
       }
       let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
       mobile_header_link_special.onclick = function() {
@@ -258,7 +263,9 @@
           closeNav();
           $('.featured-item').css('display', 'block');
           showFeatured = true;
-          moveButtonUp();
+          if (window.innerWidth < 500) {
+            moveButtonUp();
+          }
       }
       let about_shop = document.querySelector('#about-shop-image');
       about_shop.onclick = function() {
@@ -302,6 +309,14 @@
       function moveButtonDown() {
         $('#formbutton-button').css('bottom', '0px');
       }
+      $(window).bind('orientationchange', function(event) {
+        console.log(event.orientation);
+        if (event.orientation == 'portrait') {
+          moveButtonUp();
+        } else if (event.orientation == 'landscape') {
+          moveButtonDown();
+        }
+      });
     </script>
   </body>
 </html>
