@@ -304,10 +304,10 @@
     </script>
     <script type="text/javascript">
       function moveButtonUp() {
-        $('#formbutton-button').css('bottom', '140px');
+        $('#formbutton-button').css({'bottom':'140px','z-index':'5'});
       }
       function moveButtonDown() {
-        $('#formbutton-button').css('bottom', '0px');
+        $('#formbutton-button').css({'bottom':'0px'});
       }
       $(window).bind('orientationchange', function(event) {
         console.log(event.orientation);
