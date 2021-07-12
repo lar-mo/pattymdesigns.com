@@ -306,7 +306,6 @@
         $('#pancake').css('display', 'block');
       }
     </script>
-    <!-- <script src="//code.jquery.com/mobile/1.5.0-alpha.1/jquery.mobile-1.5.0-alpha.1.min.js"></script> -->
     <script type="text/javascript">
       function moveButtonUp() {
         $('#formbutton-button').css({'bottom':'140px','z-index':'5'});
@@ -315,10 +314,12 @@
         $('#formbutton-button').css({'bottom':'0px'});
       }
       $(window).bind('orientationchange', function(event) {
-        console.log(event.orientation);
-        if (event.orientation == 'portrait') {
+        console.log(screen.orientation['type']);
+        console.log($('.featured-item').is(':visible'));
+        let orientation = screen.orientation['type'];
+        if (orientation == 'portrait-primary' && $('.featured-item').is(':visible')) {
           moveButtonUp();
-        } else if (event.orientation == 'landscape') {
+        } else if (orientation == 'landscape-primary') {
           moveButtonDown();
         }
       });
