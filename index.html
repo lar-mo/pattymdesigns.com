@@ -34,7 +34,7 @@
     <link rel="preconnect" href="//fonts.gstatic.com">
     <link href="//fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=202107091">
+    <link rel="stylesheet" href="css/styles.css?modified=20210731">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210706" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
@@ -48,9 +48,9 @@
     <div id="mobile_nav" class="overlay">
       <a href="javascript:void(0)" class="closebtn">&times;</a>
       <div class="overlay-content">
-        <!-- <a href="#featured-item" onclick="closeNav()" id="mobile-header-link-special">Special of the Month -->
+        <a href="#featured-item" onclick="closeNav()" id="mobile-header-link-special">Special of the Month
           <!-- inserted from Strings API > header-link-special -->
-        <!-- </a> -->
+        </a>
         <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a>
         <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a>
         <a href="#about-me" id="pancake-link-about-me" onclick="closeNav()">About Me<!-- inserted from Strings API > header-link-about-me --></a>
@@ -67,9 +67,9 @@
             <div><a href="#about-shop" id="header-link-about-shop">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a></div>
             <div><a href="#about-me" id="header-link-about-me">About Me<!-- inserted from Strings API > header-link-about-me --></a></div>
             <div><a href="#" id="header-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header-link-contact --></a></div>
-            <!-- <div id="featured"><a href="#featured-item" id="header-link-special"> -->
+            <div id="featured"><a href="#featured-item" id="header-link-special">
               <!-- inserted from Strings API > header-link-special -->
-            <!-- </a></div> -->
+            </a></div>
           </div>
           <div class="language">
             <div class="dropdown">
@@ -94,17 +94,17 @@
         </div>
       </div> <!-- end hero div -->
 
-      <!-- <div class="featured-item"> -->
-        <!-- <span><a href="javascript:void(0)" id="close_button">&times;</a></span> -->
-        <!-- <div class="featured-item-container"> -->
-          <!-- <span id="featured-item-text"> -->
+      <div class="featured-item">
+        <span><a href="javascript:void(0)" id="close_button">&times;</a></span>
+        <div class="featured-item-container">
+          <span id="featured-item-text">
             <!-- inserted from Strings API > featured-item-text -->
-          <!-- </span> -->
-          <!-- <span id="featured-item-image"> -->
+          </span>
+          <span id="featured-item-image">
             <!-- inserted from Strings API > featured-item-image -->
-          <!-- </span> -->
-        <!-- </div> -->
-      <!-- </div>  -->
+          </span>
+        </div>
+      </div>
       <!-- end featured-item div -->
 
       <a name="floral-shop"></a>
@@ -241,44 +241,28 @@
       }
       isFlickrLoaded();
 
+      function openPromoLighbox() {
+          SimpleLightbox.open({
+              items: [
+                'https://live.staticflickr.com/65535/51348546199_cbb792796c_4k.jpg'
+              ]
+          });
+          $('.featured-item').css('display', 'block');
+          showFeatured = true;
+          if (window.innerWidth < 500) {
+            moveButtonUp();
+          }
+      }
+
       let featured_item = document.querySelector('#featured-item-image');
-      featured_item.onclick = function() {
-          SimpleLightbox.open({
-              items: [
-                'https://www.pattymdesigns.com/images/july-special-3.jpg',
-                'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg'
-              ]
-          });
-      }
+      featured_item.onclick = openPromoLighbox;
+
       let header_link_special = document.querySelector('#header-link-special');
-      header_link_special.onclick = function() {
-          SimpleLightbox.open({
-              items: [
-                'https://www.pattymdesigns.com/images/july-special-3.jpg',
-                'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg'
-              ]
-          });
-          $('.featured-item').css('display', 'block');
-          showFeatured = true;
-          if (window.innerWidth < 500) {
-            moveButtonUp();
-          }
-      }
+      header_link_special.onclick = openPromoLighbox;
+
       let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
-      mobile_header_link_special.onclick = function() {
-          SimpleLightbox.open({
-              items: [
-                'https://www.pattymdesigns.com/images/july-special-3.jpg',
-                'https://live.staticflickr.com/65535/51284202525_8e315d46e5_4k.jpg'
-              ]
-          });
-          closeNav();
-          $('.featured-item').css('display', 'block');
-          showFeatured = true;
-          if (window.innerWidth < 500) {
-            moveButtonUp();
-          }
-      }
+      mobile_header_link_special.onclick = openPromoLighbox;
+
       let about_shop = document.querySelector('#about-shop-image');
       about_shop.onclick = function() {
           SimpleLightbox.open({
