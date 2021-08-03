@@ -46,9 +46,9 @@
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <div id="mobile_nav" class="overlay">
-      <a href="javascript:void(0)" class="closebtn">&times;</a>
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
-        <a href="#featured-item" onclick="closeNav()" id="mobile-header-link-special">Special of the Month
+        <a href="#featured-item" id="mobile-header-link-special" onclick="closeNav(); openPromoLighbox();">Special of the Month
           <!-- inserted from Strings API > header-link-special -->
         </a>
         <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a>
@@ -260,8 +260,8 @@
       let header_link_special = document.querySelector('#header-link-special');
       header_link_special.onclick = openPromoLighbox;
 
-      let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
-      mobile_header_link_special.onclick = openPromoLighbox;
+      // let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
+      // mobile_header_link_special.onclick = openPromoLighbox;
 
       let about_shop = document.querySelector('#about-shop-image');
       about_shop.onclick = function() {
