@@ -248,16 +248,27 @@ a:hover, a:visited, a:active {
   border-radius: 6px;
 }
 
-#about-me-logos {
+#about-me-photo {
   text-align: center;
   margin: auto 0;
+  padding: 15px;
+}
+
+#about-me-logos {
+  text-align: center;
+  margin: 25px 0;
   padding: 25px;
   background-color: #fff;
   border-radius: 6px;
 }
 
-#about-me-logos > a > img {
+#about-me-photo > div > img {
   width: 300px;
+  border-radius: 6px 57px;
+}
+
+#fdi-logo {
+  width: 200px;
 }
 
 .text-slant {
