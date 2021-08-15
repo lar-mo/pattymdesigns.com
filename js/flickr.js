@@ -1,4 +1,5 @@
 let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
+// let api_wrapper_url = 'http://localhost:8000/wrapper';
 var flickrLoaded = false;
 
 function getSizes(photo_id) {
@@ -33,7 +34,8 @@ async function fetchURLDescArrangements(photo_id,i) {
   let original_photo_url = p_photo_sizes.full.url;
   let original_photo_width = p_photo_sizes.full.width;
   let original_photo_height = p_photo_sizes.full.height;
-  let photo_description = p_info;
+  let photo_title = p_info.photo.title;
+  let photo_desc = p_info.photo.description;
 
   // create elements
   let wrapper = document.createElement('div');
@@ -56,10 +58,10 @@ async function fetchURLDescArrangements(photo_id,i) {
   } else {
     img_element.setAttribute('class', 'thumbnail-long');
   }
-  img_element.setAttribute('alt', photo_description);
+  img_element.setAttribute('alt', photo_desc);
   description_div.setAttribute('id', div_id);
   $(document).ready(function(){
-    $(div_id2).text(photo_description);       // syntax requires '#' (id) '.' (class)
+    $(div_id2).text(photo_desc);       // syntax requires '#' (id) '.' (class)
   });
 
   a_element.appendChild(img_element);

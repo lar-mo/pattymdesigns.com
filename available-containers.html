@@ -133,6 +133,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
   <script type="text/javascript">
   let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
+  // let api_wrapper_url = 'http://localhost:8000/wrapper';
 
   function getSizes(photo_id) {
     let method = "flickrApiGetSizes";
@@ -154,13 +155,15 @@
           console.log("error: getSizes API");
         }
 
-        var photo_title = info.data;
+        var photo_info = info.data;
         if (info.length == 0) {
           console.log("error: getInfo API");
         }
 
         let thumbnail_photo_url = photo_sizes.thumb.url;
         let original_photo_url = photo_sizes.full.url;
+        let photo_title = photo_info.photo.title;
+        let photo_desc = photo_info.photo.description;
 
         // create elements
         let wrapper = document.createElement('div');
