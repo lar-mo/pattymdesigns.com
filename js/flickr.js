@@ -1,4 +1,5 @@
-let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
+// let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
+let api_wrapper_url = 'http://localhost:8000/wrapper';
 var flickrLoaded = false;
 
 function getSizes(photo_id) {
@@ -20,8 +21,8 @@ function getInfo(photo_id) {
 
 async function fetchURLDescArrangements(photo_id,i) {
   const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)])
-  var data = url.data;
-  if (data.stat !== 'ok') {
+  var p_photo_sizes = url.data;
+  if (url.length == 0) {
     console.log("error: getSizes API");
   }
 
@@ -29,12 +30,10 @@ async function fetchURLDescArrangements(photo_id,i) {
   if (info.length == 0) {
     console.log("error: getInfo API");
   }
-
-  let photo_size_array = data.sizes.size;
-  let thumbnail_photo_url = photo_size_array[6].source;
-  let original_photo_url = photo_size_array[photo_size_array.length-1].source;
-  let original_photo_width = photo_size_array[photo_size_array.length-1].width;
-  let original_photo_height = photo_size_array[photo_size_array.length-1].height;
+  let thumbnail_photo_url = p_photo_sizes.thumb.url;
+  let original_photo_url = p_photo_sizes.full.url;
+  let original_photo_width = p_photo_sizes.full.width;
+  let original_photo_height = p_photo_sizes.full.height;
   let photo_description = p_info;
 
   // create elements
