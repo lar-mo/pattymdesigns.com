@@ -1,5 +1,4 @@
 let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
-// let api_wrapper_url = 'http://localhost:8000/wrapper';
 var flickrLoaded = false;
 
 function getSizes(photo_id) {
