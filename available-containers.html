@@ -154,8 +154,8 @@
           console.log("error: getSizes API");
         }
 
-        var info = info.data;
-        if (info.stat !== 'ok') {
+        var photo_title = info.data;
+        if (info.length == 0) {
           console.log("error: getInfo API");
         }
 
@@ -169,7 +169,6 @@
         let image_div = document.createElement('div');
         let img_element = document.createElement('img');
 
-        let photo_title = info.photo.title._content;
         let div_id = 'flickr-image-container' + i;   // for setAttribute on line 217
         let div_id2 = '#flickr-image-container' + i; // for jquery hack on line 225
 
@@ -204,14 +203,13 @@
     let url = `${api_wrapper_url}/${method}/`;
     axios.get(url)
     .then(function (response) {
-      let data = response.data;
-      let photoset = data.photoset.photo;
-      if (photoset.length == 0) {
+      let container_ids = response.data;
+      if (container_ids.length == 0) {
         console.log("error: getContainers API");
       }
-      for (let i=0; i<photoset.length; ++i) {
-          let photo_id = photoset[i].id;
-          fetchURLDescContainers(photo_id,i);
+      for (let i=0; i<container_ids.length; ++i) {
+          let container_id = container_ids[i];
+          fetchURLDescContainers(container_id,i);
       }
     })
     .catch(err => {

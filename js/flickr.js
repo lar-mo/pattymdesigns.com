@@ -26,7 +26,7 @@ async function fetchURLDescArrangements(photo_id,i) {
   }
 
   var p_info = info.data;
-  if (p_info.stat !== 'ok') {
+  if (info.length == 0) {
     console.log("error: getInfo API");
   }
 
@@ -35,7 +35,7 @@ async function fetchURLDescArrangements(photo_id,i) {
   let original_photo_url = photo_size_array[photo_size_array.length-1].source;
   let original_photo_width = photo_size_array[photo_size_array.length-1].width;
   let original_photo_height = photo_size_array[photo_size_array.length-1].height;
-  let photo_description = p_info.photo.description._content;
+  let photo_description = p_info;
 
   // create elements
   let wrapper = document.createElement('div');
@@ -77,9 +77,8 @@ function getArrangements() {
   let url = `${api_wrapper_url}/${method}/`;
   axios.get(url)
   .then(function (response) {                                     // then do the cool stuff
-    let data = response.data;                                      // get data from api response
-    let photoset = data.photoset.photo;
-    if (photoset.length == 0) {
+    let arrangements = response.data;                                      // get data from api response
+    if (arrangements.length == 0) {
       console.log("error: getArrangements API");
     }
     // https://stackoverflow.com/questions/3583724/how-do-i-add-a-delay-in-a-javascript-loop
@@ -87,11 +86,11 @@ function getArrangements() {
     const timer = ms => new Promise(res => setTimeout(res, ms))
 
     async function load () { // We need to wrap the loop into an async function for this to work
-      for (let i=0; i<photoset.length; ++i) {
-        let photo_id = photoset[i].id;
-        fetchURLDescArrangements(photo_id,i);
+      for (let i=0; i<arrangements.length; ++i) {
+        let arrangement = arrangements[i];
+        fetchURLDescArrangements(arrangement,i);
         await timer(250);                       // then, the created Promise can be awaited
-        if (photoset.length - 1 === i) {        // update 'flickrLoaded' var to 'true' when loop is done 
+        if (arrangements.length - 1 === i) {        // update 'flickrLoaded' var to 'true' when loop is done
           flickrLoaded = true;
         }
       }
