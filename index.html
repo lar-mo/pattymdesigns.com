@@ -25,7 +25,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
     <script src="js/pmd-combined.latest.min.js?modified=20210706"></script>
-    <script src="js/flickr.js?modified=202108151" async></script>
+    <script src="js/flickr.js?modified=20210910" async></script>
     <script src="//formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210709" defer></script>
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -158,14 +158,6 @@
 
       </div> <!-- end portfolio-grid div -->
 
-      <!-- <a name="blog"></a> -->
-      <!-- <div class="blog_container container-padding"> -->
-        <!-- <div id="latest-blog-header"> -->
-          <!-- inserted from Strings API > latest_blog_header -->
-        <!-- </div> -->
-        <!-- <div id="blog_container"></div> -->
-      <!-- </div> -->
-
       <a name="about-me"></a>
       <div class="about-me container-padding">
         <div class="about-me-container">
@@ -224,7 +216,6 @@
     <script type="text/javascript">
       window.onload = function() {
           getStringsFromLocalStorage();
-          // getLatestPost();
           if (window.innerWidth < 500) {
             moveButtonUp();
           }
@@ -249,7 +240,9 @@
       function openPromoLighbox() {
           SimpleLightbox.open({
               items: [
-                'https://live.staticflickr.com/65535/51348546199_cbb792796c_4k.jpg'
+                'https://www.pattymdesigns.com/images/fall2021/IMG_2128.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/IMG_2130.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/IMG_2136.jpg'
               ]
           });
           $('.featured-item').css('display', 'block');
