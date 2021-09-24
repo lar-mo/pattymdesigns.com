@@ -140,6 +140,15 @@ function parseJson(ls_strings) {
     // change meta keywords
     $('meta[name=keywords]').attr('content', array["meta_keywords"]);
 
+    // now load Flickr images
+    loadFlickrScript();
+
+}
+
+function loadFlickrScript() {
+  var script = document.createElement('script');
+  script.src = "js/flickr.js";
+  document.getElementsByTagName('head')[0].appendChild(script);
 }
 
 function openNav() {
