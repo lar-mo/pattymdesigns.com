@@ -24,7 +24,7 @@
     <title>Patty M Designs - Flower Shop & Floral Designs</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20211004"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20211024"></script>
     <script src="//formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210709" defer></script>
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -97,6 +97,7 @@
         <div class="hero-text">
           <div class="center-text" id="hero-title">Patty M Designs</div>
           <div class="center-text" id="hero-subtitle">Custom floral arrangements for you or someone special<!-- inserted from Strings API > hero-subtitle --></div>
+          </div>
         </div>
       </div> <!-- end hero div -->
 
@@ -112,6 +113,13 @@
         </div>
       </div>
       <!-- end featured-item div -->
+
+      <div id="video-container" class="container-padding">
+          <video controls loop preload="auto">
+            <source src="https://pmd-videos.s3.us-west-2.amazonaws.com/Autumn-Special-2021.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+          </video>
+      </div> <!-- end video-container div -->
 
       <a name="floral-shop"></a>
       <div class="large-image">
@@ -246,9 +254,13 @@
       function openPromoLighbox() {
           SimpleLightbox.open({
               items: [
-                'https://www.pattymdesigns.com/images/fall2021/IMG_2128.jpg',
-                'https://www.pattymdesigns.com/images/fall2021/IMG_2130.jpg',
-                'https://www.pattymdesigns.com/images/fall2021/IMG_2136.jpg'
+                'https://www.pattymdesigns.com/images/fall2021/autumn_1.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/autumn_2.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/autumn_3.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/autumn_3a.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/autumn_4.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/autumn_5.jpg',
+                'https://www.pattymdesigns.com/images/fall2021/autumn_6.jpg',
               ]
           });
           $('.featured-item').css('display', 'block');

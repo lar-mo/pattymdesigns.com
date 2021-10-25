@@ -150,6 +150,7 @@ function parseJson(ls_strings) {
 
 function showContent() {
   $('#container').fadeTo("slow", 1.0);
+  $('.featured-item').fadeTo("slow", 1.0);
   $('#loading').fadeTo("slow", 0);
   $('#loading-hero').fadeTo("slow", 0);
   $('#loading-hero').css("display", "none");
