@@ -678,6 +678,10 @@ html, body {
     margin-bottom: 30px;
     border-radius: 6px;
   }
+  #featured-item-image :last-child,
+  #featured-item-image :first-child {
+    display: none;
+  }
 }
 @media all and (max-width: 500px) {
   #header {
