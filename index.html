@@ -300,6 +300,9 @@
             $('.featured-item').slideDown(250);
           }
         }
+        if ($(window).width() < 575) {
+          $('#video-container').removeClass('container-padding');
+        }
       });
     </script>
     <script type="text/javascript">
