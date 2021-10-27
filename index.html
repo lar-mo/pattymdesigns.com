@@ -27,6 +27,7 @@
     <script src="js/pmd-combined.latest.min.js?modified=20211024"></script>
     <script src="//formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210709" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vissense/0.9.0/vissense.js"></script>
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="//www.w3schools.com/w3css/4/w3.css">
@@ -76,6 +77,14 @@
             <div id="featured"><a href="#featured-item" id="header-link-special">
               <!-- inserted from Strings API > header-link-special -->
             </a></div>
+            <!-- <div>
+              <a href="https://pmd-videos.s3.us-west-2.amazonaws.com/Autumn-Special-2021.mp4" class="lightBoxVideoLink">Latest Video</a>
+            </div> -->
+            <script>
+            $('.lightBoxVideoLink').simpleLightbox({
+              videoRegex: new RegExp(/\.mp4/)
+            });
+            </script>
           </div>
           <div class="language">
             <div class="dropdown">
@@ -115,10 +124,24 @@
       <!-- end featured-item div -->
 
       <div id="video-container" class="container-padding">
-          <video controls loop preload="auto">
+          <video controls loop="true" id="myVideo">
             <source src="https://pmd-videos.s3.us-west-2.amazonaws.com/Autumn-Special-2021.mp4" type="video/mp4">
               Your browser does not support the video tag.
           </video>
+          <script type="text/javascript">
+          var myVideo = document.getElementById('myVideo');
+
+          VisSense.VisMon.Builder(VisSense(myVideo, { fullyvisible: 0.75 }))
+          .on('fullyvisible', function(monitor) {
+          myVideo.play();
+          })
+          .on('hidden', function(monitor) {
+          myVideo.pause();
+
+          })
+          .build()
+          .start();
+          </script>
       </div> <!-- end video-container div -->
 
       <a name="floral-shop"></a>
