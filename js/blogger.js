@@ -2,12 +2,12 @@ let bloggerv3_url = 'https://api.pattymdesigns.com/wrapper/bloggerApiGetLatestPo
   function getLatestPost() {
     axios.get(bloggerv3_url)
     .then(function (response) {
-      let data = response.data.items[0];
-      let image_url = data.images[0].url;
-      let post_body = data.content;
-      let post_title = data.title;
-      let post_published = JSON.stringify(data.published).slice(1,11);
-      let post_url = data.url;
+      let resp = response.data;
+      console.log(resp);
+      let image_url = resp.latest_post.image_url;
+      let post_title = resp.latest_post.title;
+      let post_published = JSON.stringify(resp.latest_post.published).slice(1,11);
+      let post_url = resp.latest_post.post_url;
       var date_pub = new Date(post_published);
       var month = date_pub.getMonth();
       var months = {

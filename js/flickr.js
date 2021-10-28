@@ -2,11 +2,6 @@ let api_wrapper_url = 'https://api.pattymdesigns.com/wrapper';
 var flickrLoaded = false;
 
 function getSizes(photo_id) {
-  let config = {
-    params: {
-      photo_id: photo_id,
-    },
-  }
   let method = "flickrApiGetSizes";
   let url = `${api_wrapper_url}/${method}/${photo_id}/`;
   return axios.get(url);
@@ -20,21 +15,22 @@ function getInfo(photo_id) {
 
 async function fetchURLDescArrangements(photo_id,i) {
   const [url, info] = await Promise.all([getSizes(photo_id), getInfo(photo_id)])
-  var p_photo_sizes = url.data;
+  var photo_sizes = url.data;
   if (url.length == 0) {
     console.log("error: getSizes API");
   }
-
-  var p_info = info.data;
+  var photo_info = info.data;
   if (info.length == 0) {
     console.log("error: getInfo API");
   }
-  let thumbnail_photo_url = p_photo_sizes.thumb.url;
-  let original_photo_url = p_photo_sizes.full.url;
-  let original_photo_width = p_photo_sizes.full.width;
-  let original_photo_height = p_photo_sizes.full.height;
-  let photo_title = p_info.photo.title;
-  let photo_desc = p_info.photo.description;
+
+  // set variables from API response
+  let thumbnail_photo_url = photo_sizes.thumb.url;
+  let original_photo_url = photo_sizes.full.url;
+  let original_photo_width = photo_sizes.full.width;
+  let original_photo_height = photo_sizes.full.height;
+  let photo_title = photo_info.photo.title;
+  let photo_desc = photo_info.photo.description;
 
   // create elements
   let wrapper = document.createElement('div');
@@ -69,7 +65,7 @@ async function fetchURLDescArrangements(photo_id,i) {
   wrapper.appendChild(description_div);
   grid_container.appendChild(wrapper);
 
-} // end of fetchURLDesc
+} // end of fetchURLDescArrangements
 
 function getArrangements() {
   let method = 'flickrApiGetArrangements';

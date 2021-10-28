@@ -148,21 +148,21 @@
 
   function fetchURLDescContainers(photo_id,i) {
     axios.all([getSizes(photo_id), getInfo(photo_id)])
-      .then(axios.spread(function (url, info) {
-        var photo_sizes = url.data;
-        if (url.length == 0) {
+      .then(axios.spread(function (c_url, c_info) {
+        var c_photo_sizes = c_url.data;
+        if (c_url.length == 0) {
           console.log("error: getSizes API");
         }
 
-        var photo_info = info.data;
-        if (info.length == 0) {
+        var c_photo_info = c_info.data;
+        if (c_info.length == 0) {
           console.log("error: getInfo API");
         }
 
-        let thumbnail_photo_url = photo_sizes.thumb.url;
-        let original_photo_url = photo_sizes.full.url;
-        let photo_title = photo_info.photo.title;
-        let photo_desc = photo_info.photo.description;
+        let thumbnail_photo_url = c_photo_sizes.thumb.url;
+        let original_photo_url = c_photo_sizes.full.url;
+        let photo_title = c_photo_info.photo.title;
+        let photo_desc = c_photo_info.photo.description;
 
         // create elements
         let wrapper = document.createElement('div');
