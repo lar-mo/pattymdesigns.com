@@ -180,7 +180,7 @@ a:hover, a:visited, a:active {
   /* background-color: #f19cbb; */
   background: linear-gradient(to right, #9c5482, #f5dd00, #9c5482);
   border-radius: 25px 0;
-  display: none;
+  display: block;
 }
 
 #header-link-special {
