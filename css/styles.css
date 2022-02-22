@@ -610,10 +610,10 @@ html, body {
   #about-shop-text {
     padding-right: 0px;
   }
-  #featured-item-image :last-child,
+  /* #featured-item-image :last-child,
   #featured-item-image :first-child {
     display: none;
-  }
+  } */
 }
 @media all and (max-width: 675px) {
   .large-image {
