@@ -277,31 +277,38 @@
       }
       isFlickrLoaded();
 
-      function openPromoLighbox() {
-          SimpleLightbox.open({
-              items: [
-                'https://live.staticflickr.com/65535/51872040068_8f37f127a7_4k.jpg',
-                'https://live.staticflickr.com/65535/51870994147_d7ea917320_k.jpg',
-                'https://live.staticflickr.com/65535/51870994257_95041bbedf_4k.jpg',
-                'https://live.staticflickr.com/65535/51872604890_7452bd9027_k.jpg',
-                'https://live.staticflickr.com/65535/51872605130_14cfcaeae7_4k.jpg',
-              ]
-          });
-          $('.featured-item').css('display', 'block');
-          showFeatured = true;
-          if (window.innerWidth < 500) {
-            moveButtonUp();
-          }
-      }
 
-      let featured_item = document.querySelector('#featured-item-image');
-      featured_item.onclick = openPromoLighbox;
 
-      let header_link_special = document.querySelector('#header-link-special');
-      header_link_special.onclick = openPromoLighbox;
+
+      // function openPromoLighbox() {
+      //     SimpleLightbox.open({
+      //         items: [
+      //           'https://live.staticflickr.com/65535/51872040068_8f37f127a7_4k.jpg',
+      //           'https://live.staticflickr.com/65535/51870994147_d7ea917320_k.jpg',
+      //           'https://live.staticflickr.com/65535/51870994257_95041bbedf_4k.jpg',
+      //           'https://live.staticflickr.com/65535/51872604890_7452bd9027_k.jpg',
+      //           'https://live.staticflickr.com/65535/51872605130_14cfcaeae7_4k.jpg',
+      //         ]
+      //     });
+      //     $('.featured-item').css('display', 'block');
+      //     showFeatured = true;
+      //     if (window.innerWidth < 500) {
+      //       moveButtonUp();
+      //     }
+      // }
+
+      // let featured_item = document.querySelector('#featured-item-image');
+      // featured_item.onclick = openPromoLighbox;
+      //
+      // let header_link_special = document.querySelector('#header-link-special');
+      // header_link_special.onclick = openPromoLighbox;
 
       // let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
       // mobile_header_link_special.onclick = openPromoLighbox;
+
+
+
+      
 
       let about_shop = document.querySelector('#about-shop-image');
       about_shop.onclick = function() {
@@ -316,14 +323,6 @@
               items: ['https://www.pattymdesigns.com/images/pmd_march2022_1024x1365.jpg']
           });
       }
-      // window.onload = function() {
-      //   let sunflower_link = document.querySelector('#sunflower_link');
-      //   sunflower_link.onclick = function() {
-      //       SimpleLightbox.open({
-      //           items: ['https://www.pattymdesigns.com/images/pmd_march2022_1024x1365.jpg']
-      //       });
-      //   }
-      // }
 
     </script>
 
@@ -344,14 +343,21 @@
         }
       });
     </script>
-    <script type="text/javascript">
+
+
+
+    <!-- <script type="text/javascript">
       let close_button = document.querySelector('#close_button');
       close_button.onclick = function() {
         $('.featured-item').css('display', 'none');
         showFeatured = false;
         moveButtonDown();
       }
-    </script>
+    </script> -->
+
+
+
+
     <script type="text/javascript">
       if (window.location.search == '?pancake') {
         $('#pancake').css('display', 'block');
