@@ -35,7 +35,7 @@
     <link rel="preconnect" href="//fonts.gstatic.com">
     <link href="//fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=20220222">
+    <link rel="stylesheet" href="css/styles.css?modified=202203011">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210706" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
@@ -56,9 +56,9 @@
     <div id="mobile_nav" class="overlay">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
       <div class="overlay-content">
-        <a href="#featured-item" id="mobile-header-link-special" onclick="closeNav(); openPromoLighbox();">Special of the Month
+        <!-- <a href="#featured-item" id="mobile-header-link-special" onclick="closeNav(); openPromoLighbox();">Special of the Month -->
           <!-- inserted from Strings API > header-link-special -->
-        </a>
+        <!-- </a> -->
         <a href="#portfolio" id="pancake-link-portfolio" onclick="closeNav()">Floral Design<!-- inserted from Strings API > header-link-portfolio --></a>
         <a href="#about-shop" id="pancake-link-about-shop" onclick="closeNav()">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a>
         <a href="#about-me" id="pancake-link-about-me" onclick="closeNav()">About Me<!-- inserted from Strings API > header-link-about-me --></a>
@@ -75,9 +75,9 @@
             <div><a href="#about-shop" id="header-link-about-shop">About the Shop<!-- inserted from Strings API > header-link-about-shop --></a></div>
             <div><a href="#about-me" id="header-link-about-me">About Me<!-- inserted from Strings API > header-link-about-me --></a></div>
             <div><a href="#" id="header-link-contact" onclick="formbutton('toggleForm');return false">Contact<!-- inserted from Strings API > header-link-contact --></a></div>
-            <div id="featured"><a href="#featured-item" id="header-link-special">
+            <!-- <div id="featured"><a href="#featured-item" id="header-link-special"> -->
               <!-- inserted from Strings API > header-link-special -->
-            </a></div>
+            <!-- </a></div> -->
             <!-- <div>
               <a href="https://pmd-videos.s3.us-west-2.amazonaws.com/Autumn-Special-2021.mp4" class="lightBoxVideoLink">Latest Video</a>
             </div> -->
@@ -111,17 +111,17 @@
         </div>
       </div> <!-- end hero div -->
 
-      <div class="featured-item">
+      <!-- <div class="featured-item">
         <span><a href="javascript:void(0)" id="close_button">&times;</a></span>
         <div class="featured-item-container">
-          <span id="featured-item-text">
+          <span id="featured-item-text"> -->
             <!-- inserted from Strings API > featured-item-text -->
-          </span>
-          <span id="featured-item-image">
+          <!-- </span>
+          <span id="featured-item-image"> -->
             <!-- inserted from Strings API > featured-item-image -->
-          </span>
+          <!-- </span>
         </div>
-      </div>
+      </div> -->
       <!-- end featured-item div -->
 
       <!-- https://cdnjs.com/libraries/vissense/tutorials/autoplay-video -->
@@ -210,6 +210,7 @@
             </video> -->
           <span id="about-me-photo">
               <div>
+                <span id="sunflowers"><img src="https://www.pattymdesigns.com/images/pmd_march2022_1024x1365.jpg"/></span>
                 <img src="https://www.pattymdesigns.com/images/headshotAug2021.png"/>
               </div>
           </span>
@@ -308,6 +309,21 @@
               items: ['https://www.pattymdesigns.com/images/porch-store-cropped-again.jpg']
           });
       }
+
+      let sunflowers = document.querySelector('#sunflowers');
+      sunflowers.onclick = function() {
+          SimpleLightbox.open({
+              items: ['https://www.pattymdesigns.com/images/pmd_march2022_1024x1365.jpg']
+          });
+      }
+      // window.onload = function() {
+      //   let sunflower_link = document.querySelector('#sunflower_link');
+      //   sunflower_link.onclick = function() {
+      //       SimpleLightbox.open({
+      //           items: ['https://www.pattymdesigns.com/images/pmd_march2022_1024x1365.jpg']
+      //       });
+      //   }
+      // }
 
     </script>
 
