@@ -24,7 +24,7 @@
     <title>Patty M Designs - Flower Shop & Floral Designs</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src="js/pmd-combined.latest.min.js?modified=20211024"></script>
+    <script src="js/pmd-combined.latest.min.js?modified=20220418"></script>
     <script src="//formspree.io/js/formbutton-v1.min.js?modified=20210405" defer></script>
     <script src="js/formspree-formbutton.js?modified=20210709" defer></script>
     <script src="js/simpleLightbox.js"></script>
@@ -35,7 +35,7 @@
     <link rel="preconnect" href="//fonts.gstatic.com">
     <link href="//fonts.googleapis.com/css2?family=Courgette&family=Quicksand:wght@400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/styles.css?modified=202203011">
+    <link rel="stylesheet" href="css/styles.css?modified=20220418">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/overlay.css?modified=20210706" async>
     <link href="css/simpleLightbox.css" rel="stylesheet">
@@ -46,7 +46,7 @@
     <div id="loading-hero" class="hero">
       <div class="hero-text">
         <div class="center-text" id="hero-title">Patty M Designs</div>
-        <div class="center-text" id="hero-subtitle">Custom floral arrangements for you or someone special<!-- inserted from Strings API > hero-subtitle --></div>
+        <div class="center-text" id="hero-subtitle-2">Custom floral arrangements for you or someone special<!-- inserted from Strings API > hero-subtitle --></div>
       </div>
     </div> <!-- end hero div -->
     <!-- Google Tag Manager (noscript) -->
@@ -231,7 +231,7 @@
       </div> <!-- end about-shop div -->
 
       <div id="footer">
-        <div class="center-text">&copy; 2021 Patty McMahan&nbsp;&nbsp;All Rights Reserved.&nbsp;&nbsp;<a href="privacy.html" target="_blank">Privacy</a>.</div>
+        <div class="center-text">&copy; 2022 Patty McMahan&nbsp;&nbsp;All Rights Reserved.&nbsp;&nbsp;<a href="privacy.html" target="_blank">Privacy</a>.</div>
         <div class="center-text">Website Design: <a href="https://lar-mo.io?src=pmd" target="_blank">Larry Moiola</a></div>
         <span class="footer-links">
           <div class="footer-links-container">
@@ -280,35 +280,31 @@
 
 
 
-      // function openPromoLighbox() {
-      //     SimpleLightbox.open({
-      //         items: [
-      //           'https://live.staticflickr.com/65535/51872040068_8f37f127a7_4k.jpg',
-      //           'https://live.staticflickr.com/65535/51870994147_d7ea917320_k.jpg',
-      //           'https://live.staticflickr.com/65535/51870994257_95041bbedf_4k.jpg',
-      //           'https://live.staticflickr.com/65535/51872604890_7452bd9027_k.jpg',
-      //           'https://live.staticflickr.com/65535/51872605130_14cfcaeae7_4k.jpg',
-      //         ]
-      //     });
-      //     $('.featured-item').css('display', 'block');
-      //     showFeatured = true;
-      //     if (window.innerWidth < 500) {
-      //       moveButtonUp();
-      //     }
-      // }
+      function openPromoLighbox() {
+          SimpleLightbox.open({
+              items: [
+                'https://live.staticflickr.com/65535/51443638653_f764577be3_4k.jpg',
+              ]
+          });
+          $('.featured-item').css('display', 'block');
+          showFeatured = true;
+          if (window.innerWidth < 500) {
+            moveButtonUp();
+          }
+      }
 
-      // let featured_item = document.querySelector('#featured-item-image');
-      // featured_item.onclick = openPromoLighbox;
-      //
-      // let header_link_special = document.querySelector('#header-link-special');
-      // header_link_special.onclick = openPromoLighbox;
+      let featured_item = document.querySelector('#featured-item-image');
+      featured_item.onclick = openPromoLighbox;
 
-      // let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
-      // mobile_header_link_special.onclick = openPromoLighbox;
+      let header_link_special = document.querySelector('#header-link-special');
+      header_link_special.onclick = openPromoLighbox;
+
+      let mobile_header_link_special = document.querySelector('#mobile-header-link-special');
+      mobile_header_link_special.onclick = openPromoLighbox;
 
 
 
-      
+
 
       let about_shop = document.querySelector('#about-shop-image');
       about_shop.onclick = function() {
@@ -346,14 +342,14 @@
 
 
 
-    <!-- <script type="text/javascript">
+    <script type="text/javascript">
       let close_button = document.querySelector('#close_button');
       close_button.onclick = function() {
         $('.featured-item').css('display', 'none');
         showFeatured = false;
         moveButtonDown();
       }
-    </script> -->
+    </script>
 
 
 
