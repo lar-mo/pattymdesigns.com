@@ -666,9 +666,9 @@ html, body {
   #hero-title {
     font-size: 45px;
   }
-  #hero-subtitle {
-    font-size: 20px;
-  }
+  /* #hero-subtitle {
+    font-size: 22px;
+  } */
   .container-padding {
     padding: 70px 90px;
   }
@@ -700,9 +700,9 @@ html, body {
   #hero-title {
     font-size: 40px;
   }
-  #hero-subtitle {
+  /* #hero-subtitle {
     font-size: 15px;
-  }
+  } */
   .container-padding {
     padding: 60px 75px;
   }
