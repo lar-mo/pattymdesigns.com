@@ -509,8 +509,8 @@ a:hover, a:visited, a:active {
 }
 
 html, body {
-  /* background-image: url('https://www.lar-mo.com/images/pmd/hero2.png'); */
-  background-image: url('https://www.pattymdesigns.com/images/IMG_1687-lightened-3761-2302.jpg');
+  background-image: url('https://www.lar-mo.com/images/pmd/hero2.png');
+  /* background-image: url('https://www.pattymdesigns.com/images/IMG_1687-lightened-3761-2302.jpg'); */
   background-attachment: fixed;
   background-repeat: repeat;
   background-size: cover;
