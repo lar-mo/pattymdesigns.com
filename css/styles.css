@@ -297,13 +297,13 @@ a:hover, a:visited, a:active {
 }
 
 #sunflowers > img {
-  margin-right: 30px;
-  height: 300px;
+  margin-right: 10px;
+  height: 195px;
   border-radius: 57px 6px;
 }
 
 #about-me-photo > div > img:last-child {
-  height: 300px;
+  height: 195px;
   /* width: 300px; */
   border-radius: 6px 57px;
 }
