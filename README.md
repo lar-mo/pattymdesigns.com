@@ -74,3 +74,5 @@ Updates: [March 2021 ↓](#march-2021---major-update)
     * The fallback to LocalStorage only works _after_ the first visit.
   * 1 hour "cache" (LocalStorage) might cause unintended issues.
     * This could be mitigated by using Cloudflare's Purge Browser cache feature after a release (CSS/JS).
+
+...
