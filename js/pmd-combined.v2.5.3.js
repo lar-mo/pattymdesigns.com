@@ -157,9 +157,12 @@ function showContent() {
 }
 
 function loadFlickrScript() {
-  var script = document.createElement('script');
-  script.src = "js/flickr.js";
-  document.getElementsByTagName('head')[0].appendChild(script);
+  // Only load flickr.js once
+  if (!window.flickrLoaded) {
+    var script = document.createElement('script');
+    script.src = "js/flickr.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
 }
 
 function openNav() {
